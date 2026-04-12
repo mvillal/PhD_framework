@@ -16,7 +16,10 @@ This repository is dedicated to the research and development of Machine Learning
 - **Compression Agent:** Distills complex information into key takeaways and core insights.
 - **Antagonic Researcher:** Challenges findings, identifies biases, and provides counter-arguments to ensure scientific rigor.
 - **Coding Tasks Agent:** Specialized in Python-based ML implementations for psychiatric data analysis.
+- **Literature Cleaner Agent:** Audits and prunes the knowledge base for redundancy, maintaining high signal-to-noise across indices and summaries.
 - **Documentation Sync Skill:** Automatically synchronizes `README.md` and other documentation with changes in folder structure and code definitions.
+- **Literature Comparison Skill:** Compares, contrasts, and synthesizes different papers, methodologies, and lab philosophies.
+- **Knowledge Base Compression Skill:** Distills large amounts of research data into concise, high-signal entries.
 
 ## Project Structure
 - `src/`: Core Python code and research tools.

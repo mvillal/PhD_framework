@@ -27,7 +27,9 @@ The framework uses a multi-agent system to ensure scientific rigor:
 - **Literature Researcher:** Finds and summarizes papers from **PubMed**, **arXiv**, and **DBLP**.
 - **Compression Agent:** Distills complex technical papers into actionable insights.
 - **Antagonic Researcher:** Challenges findings to identify biases (e.g., automation bias, "Local Trap").
+- **Literature Cleaner Agent:** Audits and prunes the knowledge base to keep information clear and concise.
 - **Coding Tasks Agent:** Translates research (e.g., Offline RL) into Python-based implementations.
+- **Comparison & Compression Skills:** Facilitates deep cross-lab analysis and high-density knowledge distillation.
 
 ## 🚀 How to Leverage
 ### 1. Researching New Labs
