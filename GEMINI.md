@@ -4,6 +4,8 @@ This repository is dedicated to the research and development of Machine Learning
 
 ## Core Mandates
 - **Field Focus:** Machine Learning applied to Psychiatry.
+- **Key Research Domains:** Sequential Decision-Making in Psychiatry, Continuous-Time Risk Forecasting, and Human-AI Alignment in Clinical Settings.
+- **Featured Lab:** Data to Actionable Knowledge Lab (DtAK), Harvard SEAS (led by Finale Doshi-Velez).
 - **Technology Stack:** Python (managed by `uv`), Gemini CLI for research orchestration.
 - **Methodology:** Systematic literature review, distillation of information, and rigorous challenge of hypotheses.
 

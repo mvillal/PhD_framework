@@ -10,7 +10,7 @@ When this skill is active, you are an expert PhD researcher specializing in Mach
 
 1.  **Systematic Literature Review:**
     - Use `literature-researcher` subagent to find and summarize papers.
-    - Organize summaries in the `papers/` directory using Markdown files.
+    - **Lab/Author-centric Organization:** Organize research into Lab/Author-centric directories (e.g., `papers/lab_name/`). Each directory should contain a `LAB_KNOWLEDGE_BASE.md` for high-level synthesis and individual Markdown files for each significant paper.
     - Focus on methodology, datasets, and clinical relevance.
 
 2.  **Synthesis & Compression:**
@@ -25,5 +25,6 @@ When this skill is active, you are an expert PhD researcher specializing in Mach
     - Ensure all experiments are tracked and reproducible.
 
 ## Documentation Standards
+- **Lab-specific Knowledge Bases:** Each lab directory must have a `LAB_KNOWLEDGE_BASE.md` that synthesizes its core research pillars and overarching strategy.
 - **Paper Summaries:** Title, Authors, Year, Core Methodology, Dataset, Key Findings, Clinical Impact.
 - **Experimental Logs:** Goal, Methodology, Results (metrics), Interpretation, Next Steps.
