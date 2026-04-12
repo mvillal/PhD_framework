@@ -1,3 +1,16 @@
+---
+title: "Recurrence Risk Prediction in the OASIS Registry"
+authors: ["Agrawal et al."]
+year: 2025
+lab: "Singapore National Eye Centre"
+venue: "Under Review / Preprint"
+doi: "Forthcoming/Preprint"
+url: "Forthcoming"
+code: "N/A"
+datasets: ["OASIS Registry"]
+tags: ["Recurrence Risk", "Predictive Modeling", "Uveitis", "OASIS"]
+---
+
 # Recurrence Risk Prediction in the OASIS Registry (Agrawal et al., 2025)
 
 ## Summary

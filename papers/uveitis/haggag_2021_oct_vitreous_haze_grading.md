@@ -1,3 +1,16 @@
+---
+title: "Automated Vitreous Haze Grading in OCT"
+authors: ["Haggag et al."]
+year: 2021
+lab: "N/A"
+venue: "IOVS (Investigative Ophthalmology & Visual Science)"
+doi: "https://doi.org/10.1167/iovs.62.15.15"
+url: "https://doi.org/10.1167/iovs.62.15.15"
+code: "N/A"
+datasets: ["N/A"]
+tags: ["OCT", "Vitreous Haze", "U-Net", "Segmentation"]
+---
+
 # Automated Vitreous Haze Grading in OCT (Haggag et al., 2021)
 
 ## Summary

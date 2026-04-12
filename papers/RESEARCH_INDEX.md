@@ -30,10 +30,14 @@ This domain focuses on automated inflammation grading, foundation models for ret
 
 - [**LAB KNOWLEDGE BASE**](uveitis/LAB_KNOWLEDGE_BASE.md) - Summary of core research pillars for Uveitis ML.
 
-### Key Papers
-- [**Zhou et al. (2023)**](uveitis/zhou_2023_retfound_foundation_model.md) - RETFound: A foundation model for generalizable disease detection.
-- [**Mohammadi et al. (2026)**](uveitis/mohammadi_2026_uwf_inflammation_detection.md) - Detection of posterior inflammation using UWF fundus photography.
-- [**Haggag et al. (2021)**](uveitis/haggag_2021_oct_vitreous_haze_grading.md) - Automated Vitreous Haze Grading in OCT.
-- [**Mahajan et al. (2023)**](uveitis/mahajan_2023_molecular_aging_proteomics.md) - Molecular Aging Clock and Proteomic Prediction (Nature).
-- [**Agrawal et al. (2025)**](uveitis/agrawal_2025_oasis_uveitis_recurrence.md) - Recurrence Risk Prediction in the OASIS Registry.
-- [**Umer et al. (2025)**](uveitis/umer_2025_toxoplasmosis_activity_yolo.md) - Ocular Toxoplasmosis Four-class Diagnosis (YOLOv11).
+### Key Papers (Primary: Uveitis/Ophthalmology)
+
+| Year | Primary Author | Title | Focus Area | Link |
+| :--- | :--- | :--- | :--- | :--- |
+| **2021** | **Haggag et al.** | [Vitreous Haze Grading in OCT](uveitis/haggag_2021_oct_vitreous_haze_grading.md) | OCT, U-Net, SUN Grading | [Link](https://doi.org/10.1167/iovs.62.15.15) |
+| **2023** | **Zhou et al.** | [RETFound Foundation Model](uveitis/zhou_2023_retfound_foundation_model.md) | Foundation Models, SSL, MAE | [Link](https://doi.org/10.1038/s41586-023-06555-x) |
+| **2023** | **Mahajan et al.** | [Molecular Aging Clock](uveitis/mahajan_2023_molecular_aging_proteomics.md) | Proteomics, Aging, Nature | [Link](https://doi.org/10.1038/s41586-023-06654-9) |
+| **2024** | **Liao et al.** | [Acute Retinal Necrosis Detection](uveitis/wenzhou_2024_acute_retinal_necrosis.md) | Swin Transformer, ARN, UWF | [Link](https://doi.org/10.1167/iovs.65.1.34) |
+| **2025** | **Agrawal et al.** | [Uveitis Recurrence Prediction](uveitis/agrawal_2025_oasis_uveitis_recurrence.md) | Random Forest, OASIS, Relapse | Forthcoming |
+| **2025** | **Umer et al.** | [Toxoplasmosis Activity YOLO](uveitis/umer_2025_toxoplasmosis_activity_yolo.md) | YOLOv11, ViT, Infectious Uveitis | Forthcoming |
+| **2026** | **Mohammadi et al.** | [UWF Inflammation Detection](uveitis/mohammadi_2026_uwf_inflammation_detection.md) | Deep Learning, UWF, Angiography | Forthcoming |

@@ -4,7 +4,8 @@ authors: ["Zhi Hang", "Finale Doshi-Velez"]
 year: 2025
 lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
 venue: "KDD (Knowledge Discovery and Data Mining)"
-doi: "N/A"
+doi: "Forthcoming/Preprint"
+url: "Forthcoming"
 code: "N/A"
 datasets: ["EHR", "EMA"]
 tags: ["LSGP", "Sparse Data", "Suicide Prevention", "Transfer Learning"]

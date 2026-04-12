@@ -5,6 +5,7 @@ year: 2020
 lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
 venue: "Lancet Digital Health"
 doi: "https://doi.org/10.1016/S2589-7500(20)30186-2"
+url: "https://doi.org/10.1016/S2589-7500(20)30186-2"
 code: "N/A"
 datasets: ["MIMIC-III", "NYU Langone"]
 tags: ["Generalizability", "Local Validation", "LSTM", "Measurement Bias"]

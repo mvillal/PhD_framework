@@ -5,6 +5,7 @@ year: 2022
 lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
 venue: "Nature Machine Intelligence"
 doi: "https://doi.org/10.1038/s42256-022-00466-9"
+url: "https://doi.org/10.1038/s42256-022-00466-9"
 code: "https://github.com/dtak/causal-ope"
 datasets: ["ACTG 175", "Sepsis Simulator"]
 tags: ["Causal Inference", "OPE", "SCM", "Transportability", "HIV"]

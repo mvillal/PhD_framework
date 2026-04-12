@@ -37,6 +37,7 @@ year: YYYY
 lab: "Laboratory Name / Affiliation"
 venue: "Conference/Journal Name"
 doi: "DOI Link"
+url: "Direct URL to Paper"
 code: "Repository Link (if available)"
 datasets: ["Dataset 1", "Dataset 2"]
 tags: ["Tag 1", "Tag 2"]

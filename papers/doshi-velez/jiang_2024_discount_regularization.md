@@ -4,7 +4,8 @@ authors: ["Ray Jiang", "Melanie Pradier", "Finale Doshi-Velez"]
 year: 2024
 lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
 venue: "ICML (International Conference on Machine Learning)"
-doi: "N/A"
+doi: "https://arxiv.org/abs/2402.12644"
+url: "https://arxiv.org/abs/2402.12644"
 code: "N/A"
 datasets: ["MIMIC-III", "Simulated mHealth"]
 tags: ["Regularization", "Discounting", "Offline RL", "Sepsis"]

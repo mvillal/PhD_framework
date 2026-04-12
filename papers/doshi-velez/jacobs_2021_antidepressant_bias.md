@@ -5,6 +5,7 @@ year: 2021
 lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
 venue: "CHI Conference on Human Factors in Computing Systems"
 doi: "https://doi.org/10.1145/3411764.3445100"
+url: "https://doi.org/10.1145/3411764.3445100"
 code: "N/A"
 datasets: ["STAR*D"]
 tags: ["XAI", "Automation Bias", "Psychiatry", "Clinician Trust"]

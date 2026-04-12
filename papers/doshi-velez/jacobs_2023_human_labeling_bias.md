@@ -4,7 +4,8 @@ authors: ["Maia Jacobs", "Finale Doshi-Velez"]
 year: 2023
 lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
 venue: "CHI Conference on Human Factors in Computing Systems"
-doi: "N/A"
+doi: "https://doi.org/10.1145/3544548.3581172"
+url: "https://doi.org/10.1145/3544548.3581172"
 code: "N/A"
 datasets: ["N/A"]
 tags: ["Human-Labeling Bias", "Algorithm Aversion", "Trust", "Psychiatry"]

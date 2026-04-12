@@ -1,3 +1,16 @@
+---
+title: "Molecular Aging Clock and Proteomic Prediction"
+authors: ["Mahajan et al."]
+year: 2023
+lab: "N/A"
+venue: "Nature"
+doi: "https://doi.org/10.1038/s41586-023-06654-9"
+url: "https://doi.org/10.1038/s41586-023-06654-9"
+code: "N/A"
+datasets: ["Aqueous Humor Proteomics"]
+tags: ["Proteomics", "Aging", "Uveitis", "Nature"]
+---
+
 # Molecular Aging Clock and Proteomic Prediction (Mahajan et al., 2023)
 
 ## Summary

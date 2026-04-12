@@ -1,3 +1,16 @@
+---
+title: "RETFound: A Foundation Model for Generalizable Disease Detection"
+authors: ["Zhou et al."]
+year: 2023
+lab: "NHS / Stanford"
+venue: "Nature"
+doi: "https://doi.org/10.1038/s41586-023-06555-x"
+url: "https://doi.org/10.1038/s41586-023-06555-x"
+code: "N/A"
+datasets: ["NHS (UK)", "Stanford (USA)"]
+tags: ["Foundation Model", "Ophthalmology", "Self-Supervised Learning", "MAE"]
+---
+
 # RETFound: A Foundation Model for Generalizable Disease Detection (Zhou et al., 2023)
 
 ## Summary
@@ -9,7 +22,7 @@ The study introduces RETFound, a large-scale foundation model for ophthalmology,
 - **Dataset:** Integrated large-scale clinical image datasets from the NHS (UK) and Stanford (USA).
 
 ## Findings
-- **Superior Performance:** Outperforms traditional supervised models in multiple clinical tasks, including diabetic retinopathy, glaucoma, and age-related macular degeneration.
+- **Superior Performance:** Outperforms traditional supervised models in multiple clinical tasks, including diabetic retinopathy, glaucoma, and age-related macular progression.
 - **Data Efficiency:** Demonstrates high performance even when fine-tuned on very small labeled datasets (e.g., <100 images).
 - **Generalizability:** The model's features generalize across different imaging devices and patient populations.
 

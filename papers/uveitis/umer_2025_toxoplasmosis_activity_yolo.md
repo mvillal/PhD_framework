@@ -1,3 +1,16 @@
+---
+title: "Ocular Toxoplasmosis Four-class Diagnosis"
+authors: ["Umer et al."]
+year: 2025
+lab: "N/A"
+venue: "Under Review / Preprint"
+doi: "Forthcoming/Preprint"
+url: "Forthcoming"
+code: "N/A"
+datasets: ["Fundus Images"]
+tags: ["YOLOv11", "Vision Transformers", "Toxoplasmosis", "Infectious Uveitis"]
+---
+
 # Ocular Toxoplasmosis Four-class Diagnosis (Umer et al., 2025)
 
 ## Summary

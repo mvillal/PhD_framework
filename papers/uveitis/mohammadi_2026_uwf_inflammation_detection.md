@@ -1,3 +1,16 @@
+---
+title: "Detection of Posterior Inflammation using UWF Fundus Photography"
+authors: ["Mohammadi et al."]
+year: 2026
+lab: "Stanford Byers Eye Institute"
+venue: "Under Review / Preprint"
+doi: "Forthcoming/Preprint"
+url: "Forthcoming"
+code: "N/A"
+datasets: ["Stanford Byers Eye Institute Uveitis Cohort"]
+tags: ["UWF Fundus Photography", "Deep Learning", "Posterior Inflammation", "Uveitis"]
+---
+
 # Detection of Posterior Inflammation using UWF Fundus Photography (Mohammadi et al., 2026)
 
 ## Summary

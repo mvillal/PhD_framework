@@ -4,7 +4,8 @@ authors: ["Yuzhe Lu", "Finale Doshi-Velez"]
 year: 2026
 lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
 venue: "TBD / Preprint"
-doi: "N/A"
+doi: "Forthcoming/Preprint"
+url: "Forthcoming"
 code: "N/A"
 datasets: ["EMA"]
 tags: ["Neural SDE", "Suicide Prevention", "Continuous Time", "EMA"]

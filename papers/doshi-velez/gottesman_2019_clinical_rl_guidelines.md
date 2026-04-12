@@ -5,6 +5,7 @@ year: 2019
 lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
 venue: "Nature Medicine"
 doi: "https://doi.org/10.1038/s41591-018-0330-y"
+url: "https://doi.org/10.1038/s41591-018-0330-y"
 code: "https://github.com/dtak/clinical-rl-guidelines"
 datasets: ["MIMIC-III", "eICU"]
 tags: ["Offline RL", "Critical Care", "Sepsis", "Batch RL", "OPE"]

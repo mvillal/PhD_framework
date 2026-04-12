@@ -4,7 +4,8 @@ authors: ["Susanna Fischer", "Maia Jacobs", "Finale Doshi-Velez"]
 year: 2025
 lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
 venue: "JAMIA / Preprint"
-doi: "N/A"
+doi: "Forthcoming/Preprint"
+url: "Forthcoming"
 code: "N/A"
 datasets: ["Clinician Survey"]
 tags: ["Human-Centered AI", "Clinician Preferences", "Psychiatry", "Monitoring"]

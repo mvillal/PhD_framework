@@ -4,7 +4,8 @@ authors: ["Alihan Huyuk", "Finale Doshi-Velez"]
 year: 2025
 lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
 venue: "AIStats / Preprint"
-doi: "N/A"
+doi: "Forthcoming/Preprint"
+url: "Forthcoming"
 code: "N/A"
 datasets: ["Simulated Clinical Environment"]
 tags: ["Strategic Link Scores", "XAI", "RL", "Sequential Decisions"]

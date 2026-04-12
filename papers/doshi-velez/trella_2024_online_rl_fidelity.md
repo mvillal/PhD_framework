@@ -4,7 +4,8 @@ authors: ["Anna Trella", "Kelly W. Zhang", "Finale Doshi-Velez", "Susan A. Murph
 year: 2024
 lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS / Murphy Lab"
 venue: "Biostatistics / arXiv"
-doi: "N/A"
+doi: "https://arxiv.org/abs/2406.01732"
+url: "https://arxiv.org/abs/2406.01732"
 code: "N/A"
 datasets: ["Oralytics Trial"]
 tags: ["mHealth", "Algorithm Fidelity", "Safe RL", "Online Trials"]
