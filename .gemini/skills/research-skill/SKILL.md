@@ -43,6 +43,8 @@ When this skill is active, you are an expert PhD researcher specializing in Mach
     - **Clinical Validity:** For PubMed papers, check for peer-review status, sample size, and clinical trial registration (NCT numbers).
 
 ## Documentation Standards
+- **Structured Paper Summaries:** Every paper must use the mandatory YAML-headed Markdown template defined in **RESEARCH_GUIDE.md**.
+- **Mandatory PDF Processing:** Agents MUST use the **PDF Parsing Skill** tools (`markitdown`, `marker-pdf`) to ensure no information loss (tables, formulas, appendices) before summarizing.
 - **Lab-specific Knowledge Bases:** Each lab directory must have a `LAB_KNOWLEDGE_BASE.md` that synthesizes its core research pillars and overarching strategy.
-- **Paper Summaries:** Title, Authors, Year, Core Methodology, Dataset, Key Findings, Clinical Impact.
+- **Central Knowledge Base Indexing:** The `RESEARCH_INDEX.md` and `KNOWLEDGE_BASE.md` must be structured to prioritize **Authors, Years, Labs, and Metadata** for efficient cross-referencing and LLM training.
 - **Experimental Logs:** Goal, Methodology, Results (metrics), Interpretation, Next Steps.

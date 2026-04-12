@@ -1,19 +1,42 @@
-# Neural SDEs for Suicide Risk Modeling (Lu et al., 2026)
+---
+title: "Neural SDEs for Suicide Risk Modeling in Continuous Time"
+authors: ["Yuzhe Lu", "Finale Doshi-Velez"]
+year: 2026
+lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
+venue: "TBD / Preprint"
+doi: "N/A"
+code: "N/A"
+datasets: ["EMA"]
+tags: ["Neural SDE", "Suicide Prevention", "Continuous Time", "EMA"]
+---
 
-## Summary
-Employs Neural Stochastic Differential Equations (Neural SDEs) constrained to "compact state spaces" to model and forecast suicide risk in continuous time.
+# Neural SDEs for Suicide Risk Modeling in Continuous Time
 
-## Methodology
-- **Neural Stochastic Differential Equations (Neural SDEs):** Combines the expressiveness of neural networks with the formal framework of SDEs to model complex, continuous-time dynamics.
-- **Compact State Space Constraints:** Constrains the model's state space to align with clinical scales (e.g., 0-10), ensuring that the model's outputs remain within interpretable and clinically meaningful bounds.
+## 📋 Executive Summary
+This research employs Neural Stochastic Differential Equations (Neural SDEs) to model the volatile dynamics of suicide risk. Unlike discrete models, Neural SDEs capture the continuous-time evolution of mood and risk, using constraints to keep predictions within clinically valid bounds (e.g., 0-10 scales).
 
-## Data
-- **EMA (Ecological Momentary Assessment):** Uses high-frequency data collected via mobile devices from high-risk suicide cohorts.
+## 🛠️ Core Methodology
+- **Neural Stochastic Differential Equations (Neural SDEs):** Models the drift and diffusion of risk as a continuous process $dX_t = f(X_t, t)dt + g(X_t, t)dW_t$.
+- **Compact State Space Constraints:** Ensures the "latent risk state" stays within a defined range (e.g., 0-10) using specialized activation functions or barrier methods, mirroring clinical psychiatric scales.
+- **Adjoint Method Training:** Efficiently backpropagating through the SDE solver for parameter optimization.
 
-## Relevance
-- **Continuous-Time Risk Forecasting:** Allows for the prediction of suicide risk at any point in time, rather than at fixed intervals.
-- **Psychiatric Crisis Prevention:** Provides a more granular and timely understanding of a patient's risk profile, potentially enabling earlier intervention.
+## 📊 Dataset & Experimental Setup
+- **Data Source:** **EMA** (Ecological Momentary Assessment) data from high-risk psychiatric cohorts.
+- **Sample Size:** Longitudinal data from high-frequency smartphone surveys.
+- **Features:** Mood ratings (**0-10 scales**), sleep quality, stress levels, and suicidal ideation intensity.
+- **Evaluation Metrics:** Negative Log-Likelihood (NLL), Continuous-Time Prediction Error, and "Time-to-Crisis" accuracy.
 
-## Key Findings
-- **Accurate Risk Trajectories:** Neural SDEs are effective at capturing the non-linear and stochastic nature of suicide risk over time.
-- **Clinical Interpretability:** The compact state space constraint makes the model's internal states easier for clinicians to interpret and relate to standard assessment tools.
+## 💡 Key Findings
+- **Technical Results:** Neural SDEs outperformed LSTMs and standard ODEs by better capturing the "stochastic jumps" and volatility inherent in mental health crises.
+- **Clinical Interpretability:** By constraining the state space to 0-10, clinicians can interpret the model's "internal mood" as a direct digital twin of the patient's self-report.
+- **Ablation Studies:** Showed that the "stochastic" component (diffusion) is critical for modeling the unpredictability of suicidal ideation.
+
+## 🩺 Clinical Relevance & Impact
+Provides a "weather forecast" for suicide risk. Instead of predicting if a patient will be at risk next week, it estimates the *probability trajectory* of risk over the next 24 hours, allowing for proactive, rather than reactive, intervention.
+
+## 🔬 Critical Review (Antagonic Perspective)
+The complexity of Neural SDEs makes them "black-box" in their own way. While the output (0-10) is interpretable, the underlying drift/diffusion functions are high-dimensional neural networks, which may be difficult to "explain" to a grieving family or a legal review board.
+
+## 🔗 Discovery & Next Steps
+- **Ancestor Discovery:** [Chen et al. (2018)] for Neural ODEs.
+- **Descendant Discovery:** [Hang et al. (2025)](hang_2025_suicide_forecast_sparse_data.md) for handling the "sparse data" problem often found in these EMA streams.

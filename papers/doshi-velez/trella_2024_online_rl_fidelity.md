@@ -1,16 +1,42 @@
-# Monitoring Fidelity of Online RL in Clinical Trials (Trella et al., 2024)
+---
+title: "Monitoring Fidelity of Online Reinforcement Learning in Clinical Trials"
+authors: ["Anna Trella", "Kelly W. Zhang", "Finale Doshi-Velez", "Susan A. Murphy"]
+year: 2024
+lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS / Murphy Lab"
+venue: "Biostatistics / arXiv"
+doi: "N/A"
+code: "N/A"
+datasets: ["Oralytics Trial"]
+tags: ["mHealth", "Algorithm Fidelity", "Safe RL", "Online Trials"]
+---
 
-## Summary
-Proposes an "algorithm fidelity" framework to monitor the behavior and performance of autonomous Reinforcement Learning agents in real-time during clinical trials.
+# Monitoring Fidelity of Online Reinforcement Learning in Clinical Trials
 
-## Methodology
-- **Algorithm Fidelity Framework:** A systematic approach to ensure that an RL agent's actions during a trial remain consistent with its intended design and safety constraints.
-- **Real-Time Monitoring:** Tools and metrics for tracking agent behavior as it interacts with participants in an online setting.
+## 📋 Executive Summary
+As RL agents are increasingly used in "online" clinical trials (like mobile health apps), there is a need to ensure they follow their intended logic. This paper proposes a "Real-time Algorithm Fidelity" framework to monitor agent behavior and detect deviations before they harm participants or invalidate trial results.
 
-## Relevance & Data
-- **Oralytics mHealth Trial:** Developed and tested within the context of the Oralytics mobile health trial, which focuses on improving oral health behaviors.
-- **Safe RL Deployment:** Critical for ensuring participant safety and maintaining the integrity of clinical trials involving autonomous AI.
+## 🛠️ Core Methodology
+- **Algorithm Fidelity Framework:** A set of diagnostic tools to compare the agent's *actual* actions with its *theoretically expected* behavior.
+- **Real-Time Monitoring:** Sequential testing procedures to detect "policy drift" or unexpected behavior due to non-stationary patient data.
+- **Constraint Verification:** Ensuring the agent respects "hard" safety constraints (e.g., maximum frequency of push notifications).
 
-## Key Findings
-- **Early Detection of Anomalies:** The fidelity framework can identify when an RL agent begins to behave unexpectedly or violates safety protocols.
-- **Ensuring Participant Safety:** Provides a necessary layer of oversight for deploying RL in high-stakes clinical environments where real-time adaptation is required.
+## 📊 Dataset & Experimental Setup
+- **Data Source:** **Oralytics mHealth trial** data (focused on encouraging oral hygiene behaviors).
+- **Sample Size:** Participants in an active mobile health intervention.
+- **Features:** Time of day, past engagement, user state (e.g., "at home"), and reward (brushing duration).
+- **Evaluation Metrics:** Fidelity Score, Cumulative Regret, and Safety Violation Rate.
+
+## 💡 Key Findings
+- **Technical Results:** Successfully identified "silent failures" where the RL agent became stuck in a repetitive, non-optimal action loop.
+- **Safety:** Provided a mathematical "kill-switch" trigger for when the agent's fidelity drops below a predefined threshold.
+- **Clinical Impact:** Demonstrated that monitoring fidelity is as crucial as monitoring patient vitals in an AI-driven trial.
+
+## 🩺 Clinical Relevance & Impact
+In psychiatry, mHealth apps for mood tracking or CBT (Cognitive Behavioral Therapy) often use RL. This framework ensures that the app doesn't become "annoying" or "counter-productive" by sending too many alerts, maintaining patient therapeutic alliance.
+
+## 🔬 Critical Review (Antagonic Perspective)
+Fidelity is measured against the agent's *own* logic. If the agent's logic is fundamentally flawed but the agent is "faithful" to it, this framework will not detect the clinical error. It monitors *fidelity*, not *clinical correctness*.
+
+## 🔗 Discovery & Next Steps
+- **Ancestor Discovery:** [Murphy (2003)] for Micro-Randomized Trials (MRTs).
+- **Descendant Discovery:** [Lu et al. (2026)](lu_2026_neural_sdes_suicide_risk.md) for modeling the continuous-time states these apps monitor.

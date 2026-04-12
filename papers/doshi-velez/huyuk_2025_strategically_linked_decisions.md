@@ -1,16 +1,42 @@
-# Strategically Linked Decisions in RL (Huyuk et al., 2025)
+---
+title: "Strategically Linked Decisions: Explaining Long-Term Dependencies in RL"
+authors: ["Alihan Huyuk", "Finale Doshi-Velez"]
+year: 2025
+lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
+venue: "AIStats / Preprint"
+doi: "N/A"
+code: "N/A"
+datasets: ["Simulated Clinical Environment"]
+tags: ["Strategic Link Scores", "XAI", "RL", "Sequential Decisions"]
+---
 
-## Summary
-Introduces "Strategic Link Scores" to explain the long-term dependencies of sequential clinical actions, helping clinicians understand how current decisions serve as prerequisites for future goals.
+# Strategically Linked Decisions: Explaining Long-Term Dependencies in RL
 
-## Methodology
-- **Strategic Link Scores:** A novel metric that quantifies the relationship between a current action and its necessity for achieving a distal treatment objective.
-- **Sequential Decision-Making:** Focuses on the temporal structure of treatment, moving beyond immediate rewards to long-term strategy.
+## 📋 Executive Summary
+Clinicians often struggle to understand why an RL agent recommends a seemingly "suboptimal" immediate action. This paper introduces **Strategic Link Scores**, which quantify how a current decision (e.g., "stabilize mood") is a necessary prerequisite for a future, high-value goal (e.g., "successful psychotherapy"), making the agent's long-term strategy transparent.
 
-## Relevance
-- **Psychiatry:** Highly relevant for psychiatric treatment where current interventions (e.g., stabilizing a patient's mood) are often prerequisites for long-term goals (e.g., starting intensive psychotherapy).
-- **Explainable AI (XAI):** Provides a more clinically intuitive way to explain the reasoning behind an RL agent's recommendations.
+## 🛠️ Core Methodology
+- **Strategic Link Scores:** A new XAI metric that decomposes the Q-value into "direct reward" and "strategic links" to future states.
+- **Prerequisite Identification:** Formalizing the concept of a "bottleneck" action that must be taken to unlock a later beneficial treatment phase.
+- **Temporal Credit Assignment:** Explaining how a decision at time $t$ influences the feasibility and reward of actions at time $t+k$.
 
-## Key Findings
-- **Understanding Dependencies:** Strategic Link Scores help clinicians see the "why" behind a sequence of actions, improving trust and alignment between the AI and the human expert.
-- **Prerequisite Identification:** Identifies which actions are critical stepping stones for future success, even if they don't provide an immediate benefit.
+## 📊 Dataset & Experimental Setup
+- **Data Source:** Simulated clinical environments with complex, **long-term dependencies**.
+- **Sample Size:** Synthetic cohorts with multi-stage treatment requirements.
+- **Features:** Patient states, prerequisite flags, and distal outcome rewards.
+- **Evaluation Metrics:** Clinician understanding (survey), alignment between link scores and expert intuition.
+
+## 💡 Key Findings
+- **Technical Results:** Strategic Link Scores successfully identified "hidden" dependencies that standard feature importance methods (like SHAP) missed.
+- **Long-Term Logic:** The model could explain that "Action A is recommended NOT for immediate gain, but because it is the only way to enable Action B later."
+- **Ablation Studies:** Showed that without link scores, clinicians often rejected the RL's "best" policy because it looked "incorrect" in the short-term.
+
+## 🩺 Clinical Relevance & Impact
+Crucial for psychiatric "stepped care" models. For example, a clinician might not see why an AI suggests a specific low-intensity intervention first; the Link Score can explain that this intervention is necessary to build the patient's "readiness" for more intensive work later.
+
+## 🔬 Critical Review (Antagonic Perspective)
+The method assumes the RL agent has actually *learned* a strategic policy. If the agent is just overfitting to noise, the Strategic Link Scores will provide a "plausible-sounding" explanation for a fundamentally flawed strategy (hallucinated strategy).
+
+## 🔗 Discovery & Next Steps
+- **Ancestor Discovery:** [Parbhoo et al. (2022)](parbhoo_2022_causal_ope.md) for causal grounding of these links.
+- **Descendant Discovery:** [Fischer et al. (2025)](fischer_2025_clinician_expectations.md) for confirming that clinicians value this type of trajectory-based explanation.

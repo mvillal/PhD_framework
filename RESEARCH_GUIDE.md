@@ -21,15 +21,56 @@ When a new high-impact laboratory is identified through references:
 3.  **Cross-Reference Tracking:** Add the lab to the central `papers/RESEARCH_INDEX.md`.
 
 ## 3. Paper Documentation Standards
-Every paper must be documented in a standalone Markdown file using the following naming convention: `[author]_[year]_[short_descriptive_title].md`.
+Every paper must be documented in a standalone Markdown file using the naming convention: `[author]_[year]_[short_title].md`.
 
-### Required Sections:
-- **Title & Metadata:** Full title, all authors, year, and venue (e.g., NeurIPS, Nature Medicine).
-- **Core Methodology:** Specific algorithms, causal assumptions (SCMs), or RL frameworks.
-- **Dataset Details:** Explicitly mention clinical datasets (MIMIC-III, STAR*D) and sample sizes.
-- **Key Findings:** High-signal results and statistical significance.
-- **Clinical Impact:** How this directly affects psychiatric practice or patient outcomes.
-- **References for Discovery:** A "Next Steps" section listing 2-3 papers from the references for future research.
+### 🛠️ Information Extraction
+Agents MUST use the **PDF Parsing Skill** (`markitdown` / `marker-pdf`) to process the full text of PDFs before summarization. This ensures that tables, mathematical formulations, and appendix details are not lost in the synthesis.
+
+### 📝 Markdown Template
+All paper summaries must follow this structure:
+
+```markdown
+---
+title: "Full Paper Title"
+authors: ["Author 1", "Author 2"]
+year: YYYY
+lab: "Laboratory Name / Affiliation"
+venue: "Conference/Journal Name"
+doi: "DOI Link"
+code: "Repository Link (if available)"
+datasets: ["Dataset 1", "Dataset 2"]
+tags: ["Tag 1", "Tag 2"]
+---
+
+# [Full Paper Title]
+
+## 📋 Executive Summary
+A 2-3 sentence overview of the paper's contribution and its significance for the PhD project.
+
+## 🛠️ Core Methodology
+Detailed breakdown of the mathematical framework, algorithms (e.g., SCM, Offline RL, CNN), and optimization techniques used.
+
+## 📊 Dataset & Experimental Setup
+- **Data Source:** (e.g., MIMIC-III, STAR*D, private cohort)
+- **Sample Size:** (n = X patients/images)
+- **Features:** Key variables and preprocessing steps.
+- **Evaluation Metrics:** (e.g., AUROC, WIS, ESS, clinical accuracy)
+
+## 💡 Key Findings
+- **Technical Results:** Quantitative performance metrics.
+- **Statistical Significance:** p-values, confidence intervals, or Bayesian credible intervals.
+- **Ablation Studies:** What components were most critical?
+
+## 🩺 Clinical Relevance & Impact
+Specific applications to psychiatry or ophthalmology (e.g., "predicts flare-up 3 months early"). How does this bridge the gap to bedside care?
+
+## 🔬 Critical Review (Antagonic Perspective)
+Potential biases, limitations in generalizability, or "Local Trap" risks.
+
+## 🔗 Discovery & Next Steps
+- **Ancestor Discovery:** 2-3 key references to explore next.
+- **Descendant Discovery:** Search patterns for forward snowballing.
+```
 
 ## 4. Tracking & Synchronization
 - **`papers/RESEARCH_INDEX.md`**: The source of truth for what has been read. It must be updated immediately after a new paper is added.

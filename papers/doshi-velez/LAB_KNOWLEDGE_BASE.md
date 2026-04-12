@@ -1,24 +1,49 @@
-# Doshi-Velez Lab Knowledge Base
+# Doshi-Velez Lab (Data to Actionable Knowledge - DtAK)
 
-## Core Research Pillars
+**Principal Investigator:** Finale Doshi-Velez (Harvard SEAS)
+**Primary Lab Affiliation:** Harvard John A. Paulson School of Engineering and Applied Sciences
+
+## Core Research Timeline & Key Contributors
+
+### 2019 - Foundational Clinical RL
+- **Gottesman et al. (2019):** Established the "Guidelines for Clinical Reinforcement Learning," introducing FQE and Batch RL safety protocols.
+
+### 2020 - Critical Assessment of Generalizability
+- **Futoma et al. (2020):** Challenged the "Myth of Generalizability," identifying that models often learn local practice patterns over universal biology.
+
+### 2021-2023 - Human-AI Trust & Bias
+- **Jacobs et al. (2021):** Revealed that XAI (Feature Importance, Example-based, Rule-based) can inadvertently increase automation bias in antidepressant selection.
+- **Jacobs et al. (2023):** Identified "Human-Labeling Bias," where clinicians inherently trust recommendations attributed to human peers over AI.
+
+### 2022 - Causal Off-Policy Evaluation
+- **Parbhoo et al. (2022):** Introduced SCM-based Causal OPE and "Causal Transportability" to reliably evaluate policies across different patient populations (HIV/Sepsis).
+
+### 2024 - Algorithmic Regularization & Fidelity
+- **Jiang et al. (2024):** Developed state-action-specific discount regularization to handle low-data regimes in offline RL.
+- **Trella et al. (2024):** Proposed real-time algorithm fidelity monitoring for online mHealth trials (Oralytics).
+
+### 2025-2026 - Continuous-Time & Strategic Modeling
+- **Hang et al. (2025):** Introduced LSGP for suicide forecast in patients with sparse data by "borrowing strength" from similar cohorts.
+- **Fischer et al. (2025):** Quantified clinician preferences for trajectory monitoring over prescriptive treatment suggestions.
+- **Huyuk et al. (2025):** Developed "Strategic Link Scores" to explain long-term sequential dependencies in clinical actions.
+- **Lu et al. (2026):** Implemented Neural SDEs for continuous-time suicide risk modeling with compact state space constraints (0-10 scales).
+
+## Research Pillars Summary
 
 ### 1. Clinical RL Safety (Deadly Triad, OPE)
-Focuses on the challenges of applying Reinforcement Learning in clinical settings. Key issues include the "Deadly Triad" (function approximation, bootstrapping, and off-policy learning) and the development of robust Off-Policy Evaluation (OPE) methods to safely estimate the value of new policies using historical data.
+Focuses on the challenges of applying Reinforcement Learning in clinical settings, emphasizing robust Off-Policy Evaluation (OPE) and handling the "Deadly Triad".
 
 ### 2. Human-AI Interaction (Automation Bias, XAI)
-Investigates how clinicians interact with AI recommendations. This includes studying "Automation Bias" (the tendency to over-rely on automated systems) and developing eXplainable AI (XAI) techniques that provide meaningful insights to improve clinical decision-making rather than just providing a black-box recommendation.
+Investigates the human factors of clinical AI, studying "Automation Bias" and developing XAI techniques that provide meaningful, strategically-linked insights.
 
 ### 3. Causal Inference in EHR
-Leverages Electronic Health Record (EHR) data to perform causal inference. This involves developing methods to handle the complexities of observational data, such as confounding and selection bias, to identify treatment effects and inform personalized medicine.
+Leverages EHR data to perform causal inference, utilizing SCMs to identify treatment effects that are transportable across different clinical sites.
 
 ### 4. The Myth of Generalizability
-Challenges the assumption that AI models trained in one clinical environment will automatically perform well in another. This pillar emphasizes that models often learn local clinical practices and administrative patterns rather than underlying biological truths, making local validation more critical than global performance metrics like AUROC.
+Emphasizes local validation over global metrics, recognizing that clinical data is heavily influenced by administrative and practice patterns.
 
 ### 5. Continuous-Time Risk Modeling (Neural SDEs)
-Utilizes Neural Stochastic Differential Equations (Neural SDEs) to model clinical risk trajectories in continuous time. This approach is particularly effective for high-frequency data (e.g., EMA) and allows for forecasting risk at any temporal point, constrained by clinical interpretability (e.g., compact state spaces).
+Utilizes Neural SDEs to model risk trajectories in continuous time, particularly for high-frequency psychiatric monitoring (EMA).
 
 ### 6. mHealth and Real-Time RL Monitoring
-Focuses on the deployment of Reinforcement Learning in mobile health settings. This includes developing "algorithm fidelity" frameworks to monitor autonomous agents in real-time, ensuring participant safety and ensuring that the AI behavior aligns with trial protocols.
-
-### 7. Algorithm Aversion & Human-Labeling Bias
-Investigates the psychological and systemic barriers to AI adoption. Research shows a "human-labeling bias" where clinicians are more likely to trust recommendations attributed to human peers than to AI, highlighting the need for better human-AI alignment and trust-building strategies.
+Develops frameworks to monitor the fidelity and safety of autonomous agents in mobile health settings.

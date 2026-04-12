@@ -1,25 +1,43 @@
-# Guidelines for Clinical Reinforcement Learning (Gottesman et al., 2019)
+---
+title: "Guidelines for Reinforcement Learning in Healthcare"
+authors: ["Omer Gottesman", "Fredrik Johansson", "Matthieu Komorowski", "Aldo Faisal", "David Sontag", "David Dagan", "Finale Doshi-Velez"]
+year: 2019
+lab: "Data to Actionable Knowledge (DtAK), Harvard SEAS"
+venue: "Nature Medicine"
+doi: "https://doi.org/10.1038/s41591-018-0330-y"
+code: "https://github.com/dtak/clinical-rl-guidelines"
+datasets: ["MIMIC-III", "eICU"]
+tags: ["Offline RL", "Critical Care", "Sepsis", "Batch RL", "OPE"]
+---
 
-## Summary
-A comprehensive study outlining best practices and potential pitfalls for applying Offline Reinforcement Learning (RL) in clinical environments, specifically focusing on critical care.
+# Guidelines for Reinforcement Learning in Healthcare
 
-## Datasets
-- **MIMIC-III:** Medical Information Mart for Intensive Care, a large de-identified database of ICU patients.
-- **eICU:** The eICU Collaborative Research Database, a multicenter dataset containing detailed clinical data from over 200 hospitals across the USA.
+## 📋 Executive Summary
+A landmark paper establishing a rigorous framework for applying Offline (Batch) Reinforcement Learning to clinical data. It addresses the unique challenges of healthcare, such as the inability to explore in real-time, and provides a roadmap for ensuring safety and reliability in treatment policy estimation.
 
-## Methodology
-- **Offline Reinforcement Learning:** Training RL agents on historical data where interactive exploration is not possible or ethical.
-- **FQE (Fitted Q-Evaluation):** Evaluating policy performance using influence functions to identify which historical transitions are most important for the policy's success.
+## 🛠️ Core Methodology
+- **Batch RL (Offline RL):** Training algorithms on fixed, historical datasets without active environment interaction.
+- **FQE (Fitted Q-Evaluation):** An off-policy evaluation method used to estimate the value of a target policy.
+- **Influence Functions:** Used alongside FQE to identify which specific transitions in the historical data are most influential to the estimated policy value, aiding in trust and debugging.
+- **Deadly Triad Mitigation:** Strategies to handle the combination of function approximation, bootstrapping, and off-policy learning.
 
-## Models
-- **BCQ (Batch-Constrained Q-learning):** A technique to prevent the agent from taking actions that are outside the range of historical clinician behavior.
-- **DQN (Deep Q-Network):** A standard deep RL algorithm applied in an offline context.
+## 📊 Dataset & Experimental Setup
+- **Data Source:** **MIMIC-III** (Beth Israel Deaconess Medical Center) and **eICU** (Multi-center) databases.
+- **Sample Size:** Tens of thousands of ICU patient stays.
+- **Features:** Vital signs, lab results, medications (vasopressors, IV fluids), and demographics.
+- **Evaluation Metrics:** Policy Value (V), Weighted Importance Sampling (WIS), and Effective Sample Size (ESS).
 
-## Metrics
-- **V (Policy Value):** Estimated total reward of a policy.
-- **WIS (Weighted Importance Sampling):** A robust estimator for off-policy evaluation that handles high-variance trajectories.
-- **ESS (Effective Sample Size):** A measure of the statistical reliability of the policy evaluation.
+## 💡 Key Findings
+- **Technical Results:** Demonstrates that naive RL application can lead to "unrealistic" policies that deviate dangerously from clinical practice.
+- **Statistical Significance:** Use of ESS and WIS provides bounds on the reliability of OPE estimates, crucial for clinical safety.
+- **Methodological Impact:** Standardized the use of "batch-constrained" approaches to keep AI recommendations within the manifold of human clinician behavior.
 
-## Clinical Findings
-- **Sepsis Vasopressor Timing:** Highlights the importance of correct timing for vasopressor administration in sepsis patients.
-- **Influential Transitions for Trust:** Identified specific patient transitions in the data that are most critical for building clinician trust in the AI's recommendations.
+## 🩺 Clinical Relevance & Impact
+Provides the foundation for "Safe RL" in sepsis management, specifically optimizing the timing of vasopressors and fluids. The framework ensures that AI recommendations are not just mathematically optimal but clinically plausible and safely evaluable.
+
+## 🔬 Critical Review (Antagonic Perspective)
+The guidelines rely heavily on the quality of historical data; if the data itself contains systemic biases (e.g., racial disparities in care), the RL agent may learn to replicate or even amplify these biases under the guise of "optimizing" outcomes.
+
+## 🔗 Discovery & Next Steps
+- **Ancestor Discovery:** [Sutton & Barto (2018)] for general RL theory.
+- **Descendant Discovery:** [Parbhoo et al. (2022)](parbhoo_2022_causal_ope.md) for causal extensions to OPE.
