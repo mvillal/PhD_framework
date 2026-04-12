@@ -16,23 +16,32 @@ A systematic research and development environment dedicated to Machine Learning 
 │   └── skills/         # Expert research and implementation skills
 ├── papers/             # Lab-centric knowledge base
 │   ├── doshi-velez/    # Research from the DtAK Lab (2019-2026)
+│   ├── uveitis/        # Research on clinical ophthalmology & ML
 │   └── RESEARCH_INDEX.md # Central index of all explored papers
 ├── src/                # Core Python implementation and tools
 ├── KNOWLEDGE_BASE.md   # High-level synthesis of research domains
+├── RESEARCH_GUIDE.md   # Systematic discovery & documentation standards
 └── GEMINI.md           # Project-specific mandates and scope
 ```
 
 ## 🤖 Specialized Sub-Agents & Expertise
 The framework uses a multi-disciplinary agent system to ensure scientific rigor:
-- **Literature Researcher:** Finds and summarizes papers from **PubMed**, **arXiv**, and **DBLP**.
-- **Expert Statistician:** Validates experimental design, causal assumptions, and statistical significance.
-- **Senior Software Engineer:** Ensures code robustness, scalability, and technical integrity.
-- **Data Scientist:** Preprocesses, analyzes, and models clinical datasets.
-- **Compression Agent:** Distills complex technical papers into actionable insights.
-- **Antagonic Researcher:** Challenges findings to identify biases (e.g., automation bias, "Local Trap").
-- **Literature Cleaner Agent:** Audits and prunes the knowledge base to keep information clear and concise.
-- **Coding Tasks Agent:** Translates research into Python-based implementations.
-- **Advanced Skills:** Specialized workflows for **Comparison & Compression**, **ML Research Python** (Modern ML & Bayesian Learning), and **PDF Parsing** (PDF-to-Markdown conversion).
+- **Literature Researcher:** Specialized in finding, reading, and summarizing academic papers on ML in psychiatry.
+- **Expert Statistician:** Provides rigorous statistical validation; acts as a "Socratic gadfly" to challenge assumptions and experimental designs.
+- **Senior Software Engineer:** Ensures robust, scalable research implementations using Domain-Driven Design (DDD) and Hexagonal Architecture.
+- **Data Scientist:** Specialized in exploratory analysis, preprocessing, and modeling of heterogeneous psychiatric data.
+- **Compression Agent:** Distills complex technical papers into concise, high-signal entries and actionable insights.
+- **Antagonic Researcher:** Challenges findings, identifies biases, and provides counter-arguments to ensure scientific rigor.
+- **Literature Cleaner Agent:** Audits and prunes the knowledge base for redundancy, maintaining high signal-to-noise.
+- **Coding Tasks Agent:** Translates research into production-grade Python-based ML implementations.
+
+### 🛠️ Research Skills
+- **Research Skill:** Expert PhD-level management of the research lifecycle, following systematic discovery (snowballing) workflows.
+- **ML Research Python:** Specialized workflows for modern ML (PyTorch), Bayesian learning (Pyro/BlackJax), and Causal Inference.
+- **PDF Parsing:** High-fidelity conversion of PDF research papers into Markdown using `markitdown` and `marker-pdf`.
+- **Literature Comparison:** Specialized workflows for comparing, contrasting, and synthesizing different papers and lab philosophies.
+- **KB Compression:** Distills large amounts of research data into concise, high-signal knowledge base entries.
+- **Doc Sync:** Automatically synchronizes documentation with changes in folder structure and code definitions.
 
 ## 🚀 How to Leverage
 ### 1. Researching New Labs
@@ -58,5 +67,6 @@ Translate findings into code using the `coding-tasks` agent:
 ## 📜 Documentation Standards
 All research follows a **Lab-Centric** organization pattern. For a detailed guide on discovery (snowballing), lab auto-discovery, and paper naming conventions, see **[RESEARCH_GUIDE.md](RESEARCH_GUIDE.md)**.
 
-- **`LAB_KNOWLEDGE_BASE.md`**: Synthesizes the lab's core pillars and philosophy.
-- **Paper Summaries**: Detailed technical breakdowns including datasets (e.g., STAR*D, MIMIC-III), metrics (e.g., WIS, ESS), and clinical relevance.
+- **`LAB_KNOWLEDGE_BASE.md`**: Synthesizes the lab's core pillars, overarching philosophy, and primary mission.
+- **YAML-Headed Summaries**: Mandatory use of the structured Markdown template for every paper (Metadata, Methodology, Findings, Clinical Impact).
+- **PDF-to-Markdown Parsing**: Mandatory use of the **PDF Parsing Skill** (`markitdown`, `marker-pdf`) to ensure high-fidelity extraction of tables, formulas, and appendices before summarization.
