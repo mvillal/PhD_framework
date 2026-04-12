@@ -32,7 +32,7 @@ The framework uses a multi-disciplinary agent system to ensure scientific rigor:
 - **Antagonic Researcher:** Challenges findings to identify biases (e.g., automation bias, "Local Trap").
 - **Literature Cleaner Agent:** Audits and prunes the knowledge base to keep information clear and concise.
 - **Coding Tasks Agent:** Translates research into Python-based implementations.
-- **Advanced Skills:** Specialized workflows for **Comparison & Compression** and **ML Research Python** (Modern ML & Bayesian Learning).
+- **Advanced Skills:** Specialized workflows for **Comparison & Compression**, **ML Research Python** (Modern ML & Bayesian Learning), and **PDF Parsing** (PDF-to-Markdown conversion).
 
 ## 🚀 How to Leverage
 ### 1. Researching New Labs

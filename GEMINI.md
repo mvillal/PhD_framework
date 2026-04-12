@@ -24,6 +24,7 @@ This repository is dedicated to the research and development of Machine Learning
 - **Literature Comparison Skill:** Compares, contrasts, and synthesizes different papers, methodologies, and lab philosophies.
 - **Knowledge Base Compression Skill:** Distills large amounts of research data into concise, high-signal entries.
 - **ML Research Python Skill:** Specialized workflows and best practices for modern ML research, Bayesian learning, and reproducible Python development.
+- **PDF Parsing Skill:** Workflows for converting PDF research papers into Markdown using `markitdown` and `marker-pdf` for better LLM comprehension and summarization.
 
 ## Project Structure
 - `src/`: Core Python code and research tools.
