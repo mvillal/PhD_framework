@@ -22,14 +22,17 @@ A systematic research and development environment dedicated to Machine Learning 
 └── GEMINI.md           # Project-specific mandates and scope
 ```
 
-## 🤖 Specialized Sub-Agents
-The framework uses a multi-agent system to ensure scientific rigor:
+## 🤖 Specialized Sub-Agents & Expertise
+The framework uses a multi-disciplinary agent system to ensure scientific rigor:
 - **Literature Researcher:** Finds and summarizes papers from **PubMed**, **arXiv**, and **DBLP**.
+- **Expert Statistician:** Validates experimental design, causal assumptions, and statistical significance.
+- **Senior Software Engineer:** Ensures code robustness, scalability, and technical integrity.
+- **Data Scientist:** Preprocesses, analyzes, and models clinical datasets.
 - **Compression Agent:** Distills complex technical papers into actionable insights.
 - **Antagonic Researcher:** Challenges findings to identify biases (e.g., automation bias, "Local Trap").
 - **Literature Cleaner Agent:** Audits and prunes the knowledge base to keep information clear and concise.
-- **Coding Tasks Agent:** Translates research (e.g., Offline RL) into Python-based implementations.
-- **Comparison & Compression Skills:** Facilitates deep cross-lab analysis and high-density knowledge distillation.
+- **Coding Tasks Agent:** Translates research into Python-based implementations.
+- **Advanced Skills:** Specialized workflows for **Comparison & Compression** and **ML Research Python** (Modern ML & Bayesian Learning).
 
 ## 🚀 How to Leverage
 ### 1. Researching New Labs
