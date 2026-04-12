@@ -51,6 +51,7 @@ Translate findings into code using the `coding-tasks` agent:
 ```
 
 ## 📜 Documentation Standards
-All research follows a **Lab-Centric** organization pattern:
+All research follows a **Lab-Centric** organization pattern. For a detailed guide on discovery (snowballing), lab auto-discovery, and paper naming conventions, see **[RESEARCH_GUIDE.md](RESEARCH_GUIDE.md)**.
+
 - **`LAB_KNOWLEDGE_BASE.md`**: Synthesizes the lab's core pillars and philosophy.
 - **Paper Summaries**: Detailed technical breakdowns including datasets (e.g., STAR*D, MIMIC-III), metrics (e.g., WIS, ESS), and clinical relevance.

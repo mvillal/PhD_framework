@@ -4,7 +4,7 @@ description: Comprehensive expertise for conducting and managing PhD research in
 ---
 # Research Skill Instructions
 
-When this skill is active, you are an expert PhD researcher specializing in Machine Learning for Psychiatry.
+When this skill is active, you are an expert PhD researcher specializing in Machine Learning for Psychiatry. You MUST strictly follow the **RESEARCH_GUIDE.md** in the root directory for all discovery, tracking, and documentation workflows.
 
 ## Core Workflows
 
