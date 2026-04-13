@@ -79,7 +79,29 @@ Potential biases, limitations in generalizability, or "Local Trap" risks.
 - **`KNOWLEDGE_BASE.md`**: High-level synthesis across labs. Update this when a new "Domain Layer" (e.g., Neural SDEs) becomes significant.
 - **`doc-sync-skill`**: Use this skill to ensure all indices and READMEs reflect the new additions.
 
-## 5. From Paper to Implementation
+## 5. Agent-Based Research Workflows
+
+To ensure scientific rigor and autonomous orchestration, the framework employs formalized agent interaction patterns.
+
+### 🔄 The ReAct Pattern (Reason + Act)
+All execution-focused agents (Coding Tasks, Data Scientist, Experiment Orchestrator) MUST follow the ReAct loop:
+1.  **Thought:** Analyze the research specification (Wiki) and the current workspace state.
+2.  **Action:** Execute a specific tool (e.g., `run_shell_command`, `write_file`).
+3.  **Observation:** Review the tool's output or environment changes.
+4.  **Response:** Iterate based on the observation until the goal is achieved.
+
+### 🛡️ Adversarial Debate & Review
+Before any new model architecture or clinical workflow is finalized, the framework triggers a multi-agent debate:
+- **Expert Statistician:** Challenges the methodological assumptions (Methodology).
+- **Data Ethicist:** Reviews for privacy risks and algorithmic fairness (Privacy/Ethics).
+- **Clinical Translator:** Evaluates clinical actionability and utility (Utility).
+- **Antagonic Researcher:** Audits for logical consistency against the existing Wiki.
+
+### ⛓️ Skill Chaining (The Ingest Pipeline)
+The process of adding new research follows a strict hand-off chain:
+`Literature Researcher (Discovery)` -> `Compression (Distillation)` -> `Wiki Maintainer (Orchestration)` -> `Antagonic Researcher (Consistency Audit)`.
+
+## 6. From Paper to Implementation
 1.  **Verification:** Use the `antagonic-researcher` to find critiques of the paper.
 2.  **Clinical & Ethical Review:** 
     *   The **Clinical Translator** evaluates the model for safety (e.g., Causal Falsification) and clinical actionability.
