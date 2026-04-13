@@ -1,30 +1,38 @@
 ---
 title: "Automated Vitreous Haze Grading in OCT"
-authors: ["Haggag et al."]
+authors: ['Haggag et al.']
 year: 2021
-lab: "N/A"
-venue: "IOVS (Investigative Ophthalmology & Visual Science)"
-doi: "https://doi.org/10.1167/iovs.62.15.15"
-url: "https://doi.org/10.1167/iovs.62.15.15"
-code: "N/A"
-datasets: ["N/A"]
-tags: ["OCT", "Vitreous Haze", "U-Net", "Segmentation"]
+lab: "BioImaging Laboratory, University of Louisville"
+venue: "TBD"
+doi: "TBD"
+code: "TBD"
+datasets: ["TBD"]
+tags: ["TBD"]
 ---
 
-# Automated Vitreous Haze Grading in OCT (Haggag et al., 2021)
+# Automated Vitreous Haze Grading in OCT
 
-## Summary
+## 📋 Executive Summary
 The study presents an automated method for grading vitreous haze using Optical Coherence Tomography (OCT) imaging, providing an objective alternative to subjective clinical grading scales.
 
-## Methodology
+## 🛠️ Core Methodology
 - **U-Net Segmentation:** Employed a U-Net architecture to automatically segment the vitreous and the Retinal Pigment Epithelium (RPE) in OCT B-scans.
 - **Intensity Ratio (VIT/RPE):** Calculated the ratio of the mean pixel intensity in the vitreous region to the mean pixel intensity of the RPE.
 - **Objective Quantification:** Used the VIT/RPE ratio as a continuous metric for inflammation severity.
 
-## Findings
+## 📊 Dataset & Experimental Setup
+TBD
+
+## 💡 Key Findings
 - **High Accuracy:** Automated grading showed strong agreement with manual vitreous haze scores provided by expert graders.
 - **Reduced Subjectivity:** Provided a reproducible metric that eliminates the variability inherent in the Standardized Uveitis Nomenclature (SUN) clinical grading.
 
-## Relevance
+## 🩺 Clinical Relevance & Impact
 - **Clinical Trial Endpoints:** Offers a more precise and objective endpoint for clinical trials investigating new uveitis treatments.
 - **Precision Monitoring:** Enables subtle changes in inflammation to be detected over time, which might be missed by manual observation.
+
+## 🔬 Critical Review (Antagonic Perspective)
+TBD
+
+## 🔗 Discovery & Next Steps
+TBD

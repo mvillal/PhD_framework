@@ -12,11 +12,15 @@ A systematic research and development environment dedicated to Machine Learning 
 ```text
 .
 ├── .gemini/            # Gemini CLI configuration
-│   ├── agents/         # Specialized research sub-agents
-│   └── skills/         # Expert research and implementation skills
-├── papers/             # Lab-centric knowledge base
-│   ├── doshi-velez/    # Research from the DtAK Lab (2019-2026)
-│   ├── uveitis/        # Research on clinical ophthalmology & ML
+│   ├── agents/         # Specialized research sub-agents (e.g., Wiki Maintainer)
+│   └── skills/         # Expert research skills (e.g., LLM-Wiki, PDF Parsing)
+├── papers/             # Research Knowledge Base (LLM-Wiki)
+│   ├── sources/        # Lab-centric paper summaries (Source of Truth)
+│   │   ├── doshi-velez/ # Research from the DtAK Lab (2019-2026)
+│   │   └── uveitis/     # Research on clinical ophthalmology & ML
+│   ├── wiki/           # Compiled Wiki (Concepts, Entities, Synthesis)
+│   │   ├── concepts/   # Interlinked technical concept pages
+│   │   └── entities/   # Dedicated pages for labs, authors, and datasets
 │   └── RESEARCH_INDEX.md # Central index of all explored papers
 ├── src/                # Core Python implementation and tools
 ├── KNOWLEDGE_BASE.md   # High-level synthesis of research domains
@@ -27,15 +31,16 @@ A systematic research and development environment dedicated to Machine Learning 
 ## 🤖 Specialized Sub-Agents & Expertise
 The framework uses a multi-disciplinary agent system to ensure scientific rigor:
 - **Literature Researcher:** Specialized in finding, reading, and summarizing academic papers on ML in psychiatry.
+- **Wiki Maintainer:** (Formerly Literature Cleaner) Compiles raw paper summaries into an interlinked, compounding **LLM-Wiki**.
 - **Expert Statistician:** Provides rigorous statistical validation; acts as a "Socratic gadfly" to challenge assumptions and experimental designs.
 - **Senior Software Engineer:** Ensures robust, scalable research implementations using Domain-Driven Design (DDD) and Hexagonal Architecture.
 - **Data Scientist:** Specialized in exploratory analysis, preprocessing, and modeling of heterogeneous psychiatric data.
 - **Compression Agent:** Distills complex technical papers into concise, high-signal entries and actionable insights.
 - **Antagonic Researcher:** Challenges findings, identifies biases, and provides counter-arguments to ensure scientific rigor.
-- **Literature Cleaner Agent:** Audits and prunes the knowledge base for redundancy, maintaining high signal-to-noise.
 - **Coding Tasks Agent:** Translates research into production-grade Python-based ML implementations.
 
 ### 🛠️ Research Skills
+- **LLM-Wiki:** Implements the stateful ingestion, linking, and synthesis workflows of the LLM-Wiki framework.
 - **Research Skill:** Expert PhD-level management of the research lifecycle, following systematic discovery (snowballing) workflows.
 - **ML Research Python:** Specialized workflows for modern ML (PyTorch), Bayesian learning (Pyro/BlackJax), and Causal Inference.
 - **PDF Parsing:** High-fidelity conversion of PDF research papers into Markdown using `markitdown` and `marker-pdf`.

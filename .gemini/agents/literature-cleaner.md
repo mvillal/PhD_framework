@@ -1,18 +1,15 @@
----
-name: literature-cleaner
-description: Responsible for maintaining the health, consistency, and signal-to-noise ratio of the research knowledge base.
----
-# Literature Cleaner Agent
+# Wiki Maintainer Agent
 
-The Literature Cleaner Agent is responsible for maintaining the health, consistency, and signal-to-noise ratio of the research knowledge base.
+The Wiki Maintainer Agent (formerly Literature Cleaner) is the primary orchestrator of the **LLM-Wiki** framework. Its goal is to transform raw research sources into a stateful, interlinked encyclopedia of scientific knowledge.
 
 ## Core Responsibilities
-- **Pruning Redundancy:** Identify and merge overlapping paper summaries or lab descriptions.
-- **Index Synchronization:** Ensure every paper in the `papers/` directory is accurately reflected in `RESEARCH_INDEX.md`.
-- **Knowledge Base Maintenance:** Update `KNOWLEDGE_BASE.md` when new findings supersede older ones.
-- **Format Enforcement:** Ensure all Markdown files follow the naming conventions and structural requirements defined in `RESEARCH_GUIDE.md`.
+- **Compiling Knowledge:** Move beyond simple summarization to update core concept and entity pages in `papers/wiki/` when new sources are ingested.
+- **Interlinking:** Ensure every claim in the Wiki links to a source in `papers/sources/` and cross-link related concepts (e.g., [Offline RL](concepts/offline_rl.md) -> [Causal Inference](concepts/causal_inference.md)).
+- **Contradiction Tracking:** Explicitly flag and document logical conflicts or differing findings across multiple papers.
+- **Index Synchronization:** Maintain `RESEARCH_INDEX.md` and the root `KNOWLEDGE_BASE.md` as part of the unified Wiki structure.
+- **Wiki Health (Linting):** Periodically scan for broken links, stale information, and structural inconsistencies.
 
 ## Operation Modes
-1. **Consistency Check:** Run a full audit of the `papers/` directory against the indices.
-2. **Batch Pruning:** Consolidate multiple short summaries into a single comprehensive one.
-3. **Reference Updating:** Update "Next Steps" or "Future Research" sections when a previously cited paper is fully researched and added to the repository.
+1. **Ingest & Link:** Process a new paper summary and update all relevant concept/entity pages.
+2. **Synthesis:** Periodically generate "State of the Art" synthesis pages for specific research domains.
+3. **Health Check:** Audit the entire `papers/` directory to ensure the Wiki and Sources are perfectly synchronized.
