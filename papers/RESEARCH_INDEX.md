@@ -14,7 +14,10 @@ The Doshi-Velez lab specializes in Reinforcement Learning (RL), Human-AI Interac
 | **2019** | **Gottesman et al.** | [Guidelines for Clinical RL](doshi-velez/gottesman_2019_clinical_rl_guidelines.md) | Offline RL, MIMIC-III, FQE |
 | **2020** | **Futoma et al.** | [The Myth of Generalizability](doshi-velez/futoma_2020_myth_of_generalisability.md) | Local Validation, LSTMs, NYU |
 | **2021** | **Jacobs et al.** | [How Much Should You Trust Your Explanation?](doshi-velez/jacobs_2021_antidepressant_bias.md) | Automation Bias, STAR*D, XAI |
+| **2021** | **Joshi et al.** | [Learning to Defer for Sequential Decisions](doshi-velez/joshi_2021_learning_to_defer.md) | Sequential L2D, Bayesian Uncertainty |
+| **2021** | **Zhang et al.** | [Identifying Decision Points for Safe RL](doshi-velez/zhang_2021_decision_points_rl.md) | Decision Points, Safe RL, MIMIC-III |
 | **2022** | **Parbhoo et al.** | [Causal Off-Policy Evaluation](doshi-velez/parbhoo_2022_causal_ope.md) | SCMs, HIV (ACTG 175), Transportability |
+| **2022** | **Havasi et al.** | [Leakage in Concept Bottleneck Models](doshi-velez/havasi_2022_concept_bottleneck_leakage.md) | CBMs, Information Leakage, Interpretability |
 | **2023** | **Jacobs et al.** | [Out with AI, in with the Psychiatrist](doshi-velez/jacobs_2023_human_labeling_bias.md) | Human-Labeling Bias, Trust |
 | **2024** | **Jiang et al.** | [Rethinking Discount Regularization](doshi-velez/jiang_2024_discount_regularization.md) | Offline RL, Regularization |
 | **2024** | **Trella et al.** | [Monitoring Fidelity of Online RL](doshi-velez/trella_2024_online_rl_fidelity.md) | mHealth, Algorithm Fidelity, Oralytics |
