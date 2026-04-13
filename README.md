@@ -16,8 +16,14 @@ A systematic research and development environment dedicated to Machine Learning 
 │   └── skills/         # Expert research skills (e.g., LLM-Wiki, PDF Parsing)
 ├── papers/             # Research Knowledge Base (LLM-Wiki)
 │   ├── sources/        # Lab-centric paper summaries (Source of Truth)
+│   │   ├── deepmind/   # Med-Gemini and Agentic AI (AMIE)
 │   │   ├── doshi-velez/ # Research from the DtAK Lab (2019-2026)
-│   │   └── uveitis/     # Research on clinical ophthalmology & ML
+│   │   ├── nyu/        # Computational Psychiatry and LLMs (Schultebraucks)
+│   │   ├── onnela/     # Digital Phenotyping and Beiwe platform
+│   │   ├── sontag/     # MIT CSAIL (Causal ML and L2D)
+│   │   ├── stanford/   # Precision Mental Health (Williams Lab)
+│   │   ├── ucl_moorfields/ # Oculomics and RETFound models
+│   │   └── uveitis/    # Research on clinical ophthalmology & ML
 │   ├── wiki/           # Compiled Wiki (Concepts, Entities, Synthesis)
 │   │   ├── concepts/   # Interlinked technical concept pages
 │   │   ├── entities/   # Dedicated pages for labs, authors, and datasets
