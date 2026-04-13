@@ -29,17 +29,18 @@ A systematic research and development environment dedicated to Machine Learning 
 ├── RESEARCH_GUIDE.md   # Systematic discovery & documentation standards
 └── GEMINI.md           # Project-specific mandates and scope
 ```
-
 ## 🤖 Specialized Sub-Agents & Expertise
 The framework uses a multi-disciplinary agent system to ensure scientific rigor:
 - **Literature Researcher:** Specialized in finding, reading, and summarizing academic papers on ML in psychiatry.
 - **Wiki Maintainer:** (Formerly Literature Cleaner) Compiles raw paper summaries into an interlinked, compounding **LLM-Wiki**.
-- **Expert Statistician:** Provides rigorous statistical validation; acts as a "Socratic gadfly" to challenge assumptions and experimental designs.
-- **Senior Software Engineer:** Ensures robust, scalable research implementations using Domain-Driven Design (DDD) and Hexagonal Architecture.
-- **Data Scientist:** Specialized in exploratory analysis, preprocessing, and modeling of heterogeneous psychiatric data.
+- **Adversarial Knowledge Auditor:** (Formerly Antagonic Researcher) Proactively stress-tests the Wiki's integrity, evaluating findings against **Celerity Bias**, **Innovation Stagnation**, and **The Local Trap**.
+- **Scientific Writer:** Transforms findings, analyses, and logs into publication-ready academic text (IMRaD format).
+- **Expert Statistician:** Provides rigorous validation; specialized in **Bayesian Non-parametrics**, **Causal Transportability**, and **Longitudinal Survival Analysis**.
+- **Senior Software Engineer:** Ensures robust research implementations using **Domain-Driven Design (DDD)** and **Hexagonal Architecture**.
+- **Data Scientist:** Specialized in **Informative Missingness**, **Temporal Feature Attribution**, and **Deep Generative Modeling**.
 - **Compression Agent:** Distills complex technical papers into concise, high-signal entries and actionable insights.
-- **Antagonic Researcher:** Challenges findings, identifies biases, and provides counter-arguments to ensure scientific rigor.
 - **Coding Tasks Agent:** Translates research into production-grade Python-based ML implementations.
+
 
 ### 🛠️ Research Skills
 - **LLM-Wiki:** Implements the stateful ingestion, linking, and synthesis workflows of the LLM-Wiki framework.

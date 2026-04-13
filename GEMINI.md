@@ -18,11 +18,12 @@ This repository is dedicated to the research and development of Machine Learning
 - **Literature Researcher:** Focuses on finding, reading, and summarizing relevant academic papers.
 - **Wiki Maintainer Agent:** (Formerly Literature Cleaner) Responsible for compiling raw sources into the `papers/wiki/` structure, ensuring interlinking, and tracking research evolution.
 - **Compression Agent:** Distills complex information into key takeaways and core insights.
-- **Antagonic Researcher:** Challenges findings, identifies biases, and provides counter-arguments to ensure scientific rigor.
+- **Adversarial Knowledge Auditor:** (Formerly Antagonic Researcher) Proactively stress-tests the Wiki's integrity, evaluating findings against Celerity Bias, Innovation Stagnation, and The Local Trap.
+- **Scientific Writer Agent:** Transforms research findings, statistical analyses, and engineering logs into publication-ready academic text following the IMRaD format.
 - **Coding Tasks Agent:** Specialized in Python-based ML implementations for psychiatric data analysis.
-- **Expert Statistician Agent:** Validates experimental design, causal assumptions, and uncertainty quantification (Bayesian credible intervals).
+- **Expert Statistician Agent:** Validates experimental design, causal assumptions, and uncertainty quantification (Bayesian credible intervals). Specialized in Bayesian Non-parametrics and Causal Transportability.
 - **Senior Software Engineer Agent:** Ensures code integrity, scalability, and reproducibility of research implementation using DDD and Hexagonal Architecture.
-- **Data Scientist Agent:** Preprocesses, analyzes, and models clinical datasets (MIMIC-III, eICU, EMA).
+- **Data Scientist Agent:** Preprocesses, analyzes, and models clinical datasets (MIMIC-III, eICU, EMA). Specialized in Informative Missingness and Deep Generative Modeling.
 - **LLM-Wiki Skill:** Implements the workflows for stateful ingestion, linking, and synthesis of research knowledge.
 - **Documentation Sync Skill:** Automatically synchronizes `README.md` and other documentation with changes in folder structure and code definitions.
 
