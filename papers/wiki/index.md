@@ -7,6 +7,8 @@ This index is the content-oriented catalog of the PhD Framework's compiled knowl
 - [Neural Stochastic Differential Equations (Neural SDEs)](concepts/neural_sdes.md): Continuous-time psychiatric risk modeling on compact state spaces.
 - [Digital Phenotyping](concepts/digital_phenotyping.md): Real-time behavioral monitoring using smartphones and wearables.
 - [N-of-1 Modeling](concepts/n_of_1_modeling.md): Statistical techniques for individual-level causal inference and personalized medicine.
+- [Med-Gemini](concepts/med_gemini.md): Multimodal clinical foundation models with uncertainty-guided search.
+- [AMIE](concepts/amie.md): Agentic AI for diagnostic reasoning and clinical communication.
 - [Agentic AI in Medicine](concepts/agentic_ai.md): Autonomous, multi-step diagnostic and reasoning assistants.
 - [Causal Falsification](concepts/causal_falsification.md): Statistical auditing of clinical policies learned from biased EHR data.
 - [Oculomics](concepts/oculomics.md): Using the eye as a window into systemic health via foundation models.

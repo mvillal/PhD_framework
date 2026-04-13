@@ -8,7 +8,10 @@ sources: ["../../sources/doshi-velez/joshi_2021_learning_to_defer.md", "../../so
 # Learning to Defer (L2D)
 
 ## 📋 Definition
-Learning to Defer (L2D) is a framework where an AI system is trained not only to perform a task but also to identify when it should "defer" the decision to a human expert. In clinical settings, this ensures that the AI operates within its "competence zone" and hands over complex cases to clinicians.
+**Learning to Defer (L2D)** is a framework for human-AI collaboration where an AI system learns to either make a prediction itself or "defer" the decision to another agent. In the 2026 clinical landscape, it is critical to distinguish between two primary forms of deferral:
+
+1.  **Safety-Critical Deferral (Human-in-the-Loop):** The model identifies cases where its uncertainty is high or where the clinical cost of an error is unacceptable, yielding control to a human expert [[Joshi et al. (2021)](../../sources/doshi-velez/joshi_2021_learning_to_defer.md)]. This is a **Safety Mechanism**.
+2.  **Information-Retrieval Deferral (Knowledge Grounding):** The model identifies a knowledge gap and "defers" to an external search tool or clinical database to retrieve factual information before responding ([[Med-Gemini]] / DeepMind). This is a **Retrieval Mechanism**.
 
 ## 🛠️ Key Technical Components
 - **Sequential Deferral**: Unlike static deferral, Sequential L2D (Joshi et al., 2021) accounts for how uncertainty propagates over time in a patient's trajectory, deciding whether to defer now or in the future.

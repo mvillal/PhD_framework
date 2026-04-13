@@ -13,7 +13,7 @@
 - **mindLAMP:** Developed by [[torous_lab_digital_psychiatry]]. Focuses on clinical implementation and patient-facing tools.
 
 ## 🩺 Clinical Applications
-- **Suicide Forecasting:** Identifying high-risk windows (Hang et al., 2025; Lu et al., 2026; Nock et al., 2026).
+- **Suicide Forecasting:** Identifying high-risk windows (Hang et al., 2025; Lu et al., 2026; [[Nock et al. (2026)](../../sources/onnela/nock_2026_smartphone_suicide_prediction.md)]).
 - **Relapse Prediction:** Detecting manic or depressive episodes in bipolar disorder (Huang et al., 2025).
 - **Treatment Optimization:** Using [[n_of_1_modeling]] to monitor patient response to new medications in real-time.
 

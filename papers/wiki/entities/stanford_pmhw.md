@@ -21,7 +21,7 @@ The center's signature methodology involves using **Brain Imaging (fMRI)** and *
 
 ## 🔬 Core Research Focus
 - **Treatment Matching:** Predicting which patients will respond to antidepressants vs. psychotherapy based on their biotype.
-- **Digital Phenotyping Integration:** Combining biotypes with digital markers from smartphone and wearable sensors [[Schultebraucks & Williams (2025)](../sources/nyu/schultebraucks_2025_llms_mental_health.md)].
+- **Digital Phenotyping Integration:** Combining biotypes with digital markers from smartphone and wearable sensors [[Schultebraucks & Williams (2025)](../../sources/nyu/schultebraucks_2025_llms_mental_health.md)].
 - **Human-Centered AI:** Developing AI tools that provide "objective metrics" for subjective mental health states.
 
 ## 🩺 Clinical Impact

@@ -11,6 +11,11 @@
 - **Safeguarding AI Deployment:** Preventing the deployment of "shortcut-learning" models in life-critical settings like oncology and sepsis.
 - **Improving Trust:** Providing clinicians with a rigorous "safety certificate" for an AI recommendation.
 
+## ⚠️ Critical Challenges
+- **The Data Bottleneck:** Causal Falsification requires high-fidelity, unbiased data (often from Randomized Controlled Trials) to audit observational policies. In data-sparse domains like psychiatry or for rare clinical conditions, the required "audit data" may be non-existent or insufficient for robust falsification.
+- **Transportability Assumptions:** The method assumes the RCT cohort is sufficiently representative of the observational population [[Mozannar & Sontag (2025)](../../sources/sontag/mozannar_2025_causal_falsification.md)].
+
+
 ## 🔗 Related Concepts
 - [[offline_rl]]
 - [[causal_ope]]

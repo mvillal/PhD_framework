@@ -17,8 +17,8 @@ The **Beiwe** platform is a specialized, open-source research infrastructure for
 - **Data Privacy:** On-device encryption and secure cloud storage.
 
 ## 🔬 Core Research Focus
-- **Statistical Methodology:** N-of-1 causal modeling and non-stationary time series analysis [[Cai & Onnela (2026)](../sources/onnela/cai_2026_causal_estimands_n_of_1.md)].
-- **Clinical Applications:** Monitoring Bipolar Disorder [[Huang et al. (2025)](../sources/onnela/huang_2025_adolescent_bipolar_monitoring.md)], Schizophrenia, and Neurodegenerative Diseases.
+- **Statistical Methodology:** N-of-1 causal modeling and non-stationary time series analysis [[Cai & Onnela (2026)](../../sources/onnela/cai_2026_causal_estimands_n_of_1.md)].
+- **Clinical Applications:** Monitoring Bipolar Disorder [[Huang et al. (2025)](../../sources/onnela/huang_2025_adolescent_bipolar_monitoring.md)], Schizophrenia, and Suicide Forecasting [[Nock et al. (2026)](../../sources/onnela/nock_2026_smartphone_suicide_prediction.md)].
 - **Scalability:** Large-scale epidemiological studies integrating digital footprints with genomics and traditional data.
 
 ## 🩺 Clinical Impact

@@ -13,11 +13,11 @@ The Clinical Machine Learning Group at MIT CSAIL, led by **David Sontag**, is a 
 ## 🛠️ Core Research Pillars
 - **Causal Inference for Healthcare:** Developing methods to learn and validate treatment-recommending agents (Offline RL) from observational data (MIMIC-III).
 - **Learning to Defer (L2D):** A pioneering framework for human-AI collaboration where the model learns when to make a prediction and when to "defer" to a human expert.
-- **Causal Falsification:** A 2025 framework for auditing and rejecting clinical policies that are compromised by hidden bias or confounding [[Mozannar & Sontag (2025)](../sources/sontag/mozannar_2025_causal_falsification.md)].
+- **Causal Falsification:** A 2025 framework for auditing and rejecting clinical policies that are compromised by hidden bias or confounding [[Mozannar & Sontag (2025)](../../sources/sontag/mozannar_2025_causal_falsification.md)].
 
 ## 🔬 Key Publications
-- [Mozannar & Sontag (2025): Causal Falsification](../sources/sontag/mozannar_2025_causal_falsification.md)
-- [Mozannar & Sontag (2020): Learning to Defer](../sources/sontag/mozannar_2020_l2d.md) (To be ingested)
+- [Mozannar & Sontag (2025): Causal Falsification](../../sources/sontag/mozannar_2025_causal_falsification.md)
+- [Mozannar & Sontag (2020): Learning to Defer](../../sources/sontag/mozannar_2020_l2d.md) (To be ingested)
 
 ## 🩺 Clinical Impact
 The group's research provides the mathematical and statistical foundation for building "reliable and trustworthy" AI systems in high-stakes clinical domains like oncology and intensive care.

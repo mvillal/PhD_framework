@@ -1,7 +1,7 @@
 # Circuit Biotypes (Stanford Model)
 
 ## 📄 Definition
-The **Circuit Biotypes** model, developed by the [[stanford_pmhw]], uses **Brain Imaging (fMRI)** and **Machine Learning** to categorize patients into six distinct biotypes based on the dysfunction of specific neural circuits. This moves psychiatry beyond symptomatic diagnosis (e.g., "Depression") to biological drivers.
+The **Circuit Biotypes** model, developed by the [[stanford_pmhw]], uses **Brain Imaging (fMRI)** and **Machine Learning** to categorize patients into six distinct biotypes based on the dysfunction of specific neural circuits [[Williams et al. (2024)](../../sources/stanford/williams_2024_six_biotypes.md)]. This moves psychiatry beyond symptomatic diagnosis (e.g., "Depression") to biological drivers.
 
 ## 🛠️ The Six Biotypes
 1. **Rumination:** Dysfunction in the default mode circuit; excessive internal focus.
