@@ -24,6 +24,9 @@ This repository is dedicated to the research and development of Machine Learning
 - **Expert Statistician Agent:** Validates experimental design, causal assumptions, and uncertainty quantification (Bayesian credible intervals). Specialized in Bayesian Non-parametrics and Causal Transportability.
 - **Senior Software Engineer Agent:** Ensures code integrity, scalability, and reproducibility of research implementation using DDD and Hexagonal Architecture.
 - **Data Scientist Agent:** Preprocesses, analyzes, and models clinical datasets (MIMIC-III, eICU, EMA). Specialized in Informative Missingness and Deep Generative Modeling.
+- **Clinical Translator Agent:** Bridges ML and clinical practice; specializes in safety, automation bias, and actionable clinical utility.
+- **Data Ethicist Agent:** Audits research for privacy, patient consent, and algorithmic fairness, especially with sensitive psychiatric data.
+- **Experiment Orchestrator Agent:** Manages the rigorous execution, tracking, and reproducibility of ML experiments.
 - **LLM-Wiki Skill:** Implements the workflows for stateful ingestion, linking, and synthesis of research knowledge.
 - **Documentation Sync Skill:** Automatically synchronizes `README.md` and other documentation with changes in folder structure and code definitions.
 

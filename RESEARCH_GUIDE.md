@@ -81,5 +81,9 @@ Potential biases, limitations in generalizability, or "Local Trap" risks.
 
 ## 5. From Paper to Implementation
 1.  **Verification:** Use the `antagonic-researcher` to find critiques of the paper.
-2.  **Feasibility:** Check if the paper provides a repository or enough technical detail for the `coding-tasks` agent.
-3.  **Drafting:** Create an entry in `src/` for experimental implementation if the methodology is actionable.
+2.  **Clinical & Ethical Review:** 
+    *   The **Clinical Translator** evaluates the model for safety (e.g., Causal Falsification) and clinical actionability.
+    *   The **Data Ethicist** reviews the proposed data usage for privacy risks and algorithmic fairness.
+3.  **Feasibility:** Check if the paper provides a repository or enough technical detail for the `coding-tasks` agent.
+4.  **Orchestration:** The **Experiment Orchestrator** defines the experimental pipeline, ensuring tracking and reproducibility.
+5.  **Drafting:** Create an entry in `src/` for experimental implementation if the methodology is actionable.

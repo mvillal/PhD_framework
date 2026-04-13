@@ -46,6 +46,9 @@ The framework uses a multi-disciplinary agent system to ensure scientific rigor:
 - **Data Scientist:** Specialized in **Informative Missingness**, **Temporal Feature Attribution**, and **Deep Generative Modeling**.
 - **Compression Agent:** Distills complex technical papers into concise, high-signal entries and actionable insights.
 - **Coding Tasks Agent:** Translates research into production-grade Python-based ML implementations.
+- **Clinical Translator Agent:** Bridges ML and clinical practice; specializes in safety, automation bias, and actionable clinical utility.
+- **Data Ethicist Agent:** Audits research for privacy, patient consent, and algorithmic fairness, especially with sensitive psychiatric data.
+- **Experiment Orchestrator Agent:** Manages the rigorous execution, tracking, and reproducibility of ML experiments.
 
 
 ### 🛠️ Research Skills
