@@ -1,6 +1,6 @@
 ---
 title: "Ocular Toxoplasmosis Four-class Diagnosis"
-authors: ['Umer et al.']
+authors: ['Laraib Umer', 'Umer Asgher', 'Yasar Ayaz']
 year: 2025
 lab: "National Center of Artificial Intelligence (NCAI), Pakistan"
 venue: "TBD"

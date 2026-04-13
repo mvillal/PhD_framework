@@ -12,3 +12,9 @@ This is a chronological, append-only record of all research operations (ingests,
 - Finalized Concept pages: Neural SDEs, Ophthalmic Foundation Models, Objective Inflammation Grading, L2D, CBMs.
 - Created Synthesis pages: State of Clinical RL, Shift in Uveitis AI.
 - Updated Wiki Index with all entities and concepts.
+## [2026-04-13] ingest | Digital Phenotyping & Systemic Expansion
+- Expanded knowledge base with 10+ new sources from MIT, DeepMind, Stanford, Harvard, and UCL.
+- Created Concept pages: [Digital Phenotyping](concepts/digital_phenotyping.md), [N-of-1 Modeling](concepts/n_of_1_modeling.md), [Agentic AI](concepts/agentic_ai.md), [Causal Falsification](concepts/causal_falsification.md), [Oculomics](concepts/oculomics.md), [Circuit Biotypes](concepts/circuit_biotypes.md).
+- Created Entity pages: [Sontag Lab (MIT)](entities/sontag_lab_mit.md), [DeepMind Clinical AI](entities/deepmind_clinical_ai.md), [Onnela Lab](entities/onnela_lab.md), [Stanford PMHW](entities/stanford_pmhw.md).
+- Authored Synthesis: [The Rise of Agentic and Foundation-Based Clinical AI (2024-2026)](synthesis/agentic_foundations_2026.md).
+
