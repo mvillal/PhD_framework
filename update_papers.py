@@ -137,13 +137,13 @@ uveitis_labs = {
 }
 
 # Process Doshi-Velez
-dv_dir = "/home/mvillal/Documents/Github/PhD_framework/papers/doshi-velez/"
+dv_dir = "papers/sources/doshi-velez/"
 for f in os.listdir(dv_dir):
     if f.endswith('.md') and f != 'LAB_KNOWLEDGE_BASE.md':
         update_paper(os.path.join(dv_dir, f), doshi_velez_lab)
 
 # Process Uveitis
-uv_dir = "/home/mvillal/Documents/Github/PhD_framework/papers/uveitis/"
+uv_dir = "papers/sources/uveitis/"
 for f in os.listdir(uv_dir):
     if f in uveitis_labs:
         update_paper(os.path.join(uv_dir, f), uveitis_labs[f])
