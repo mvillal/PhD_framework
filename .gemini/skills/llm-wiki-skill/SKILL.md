@@ -4,28 +4,26 @@ description: Implements the LLM-Wiki framework for compounding scientific knowle
 ---
 # LLM-Wiki Skill Instructions
 
-When this skill is active, you are the **Wiki Maintainer**. Your goal is not just to summarize, but to **compile** knowledge into a structured, interlinked encyclopedia of research.
+When this skill is active, you are the **Wiki Maintainer**. Your goal is not just to summarize, but to **compile** knowledge into a structured, interlinked encyclopedia of research that compounds over time.
 
-## Core Workflows
+## Core Operations
 
-1.  **Stateful Ingestion:**
-    - When a new paper is added to `papers/sources/`, do not stop at the summary.
-    - Identify core concepts (e.g., "Offline RL", "Neural SDEs") and clinical entities (e.g., "Uveitis", "STAR*D").
-    - Update or create corresponding pages in `papers/wiki/concepts/` or `papers/wiki/entities/`.
-    - **Back-linking:** Every new insight must link back to its source paper summary.
+1.  **Ingest:**
+    - When a new source is added to `papers/sources/`, do not stop at the summary.
+    - **Update the Log:** Append a new entry to `papers/wiki/log.md` with a consistent prefix: `## [YYYY-MM-DD] ingest | Paper Title`.
+    - **Compile Pages:** Create or update entity/concept pages in `papers/wiki/`. Identify core metrics (AUROC, p-values, etc.) for high-signal indexing.
+    - **Update the Index:** Add the new entries to `papers/wiki/index.md` with a one-line summary.
 
-2.  **Knowledge Synthesis:**
-    - Periodically synthesize findings from multiple papers into a single "State of the Art" page in `papers/wiki/synthesis/`.
-    - Focus on **Contradiction Tracking**: If Doshi-Velez (2021) and a newer paper disagree on XAI utility, document the conflict explicitly.
+2.  **Query & Synthesis:**
+    - When answering complex research questions, search for relevant pages using `index.md`.
+    - **Filing Answers:** If a query leads to a useful synthesis or a new discovery, **save the answer back into the wiki** as a new file in `papers/wiki/synthesis/`.
 
-3.  **Wiki Linting (Health Checks):**
-    - Scan for broken links between the Wiki and the Sources.
-    - Identify "Dead Ends" (concepts with no links) and "Stale Info" (outdated methodologies).
+3.  **Lint (Health Checks):**
+    - Periodically scan the wiki for: **Logical Contradictions** (e.g., conflicting findings between labs), **Broken Links**, or **Stale Info**.
+    - Flag "Dead Ends" (orphan pages) and "Data Gaps" that require a web search or more research.
 
-4.  **Concept Extraction Rules:**
-    - Every concept page must include: **Definition**, **Key Papers**, **Evolution of Thought**, and **Current Challenges**.
-
-## Documentation Standards
-- **Interlinking:** Use standard Markdown links `[Concept Name](concepts/concept.md)`.
-- **Compounding:** Never overwrite a concept page entirely; append and refine to show the evolution of research.
-- **Source Grounding:** Every claim in the Wiki MUST be cited with a link to a file in `papers/sources/`.
+## Documentation & Interlinking
+- **Index (`index.md`):** Content-oriented catalog of all concepts, entities, and sources.
+- **Log (`log.md`):** Chronological record of every research operation.
+- **Obsidian Compatibility:** Use standard Markdown links `[Concept Name](concepts/concept.md)` and YAML frontmatter (tags, authors, dates) for visualization and graph-view hub identification.
+- **Source Grounding:** Every claim in the Wiki MUST cite its source summary in `papers/sources/`.

@@ -9,7 +9,9 @@ This repository is dedicated to the research and development of Machine Learning
 - **Technology Stack:** Python (managed by `uv`), Gemini CLI for research orchestration.
 - **Methodology:** Systematic literature review, distillation of information, and rigorous challenge of hypotheses.
 - **LLM-Wiki Paradigm:** Implement a stateful, compounding knowledge base where the LLM acts as a "Wiki Maintainer," compiling raw sources into interlinked concept and entity pages.
-- **Documentation Integrity:** Always keep `README.md`, the LLM-Wiki, and repository structure documentation in sync with codebase changes using the `doc-sync-skill`.
+    - **index.md:** Content-oriented catalog of all wiki entries for efficient navigation.
+    - **log.md:** Chronological, append-only record of all research operations (ingest, query, lint).
+- **Documentation Integrity:** Always keep `README.md`, the LLM-Wiki (`index.md`, `log.md`), and repository structure documentation in sync with codebase changes using the `doc-sync-skill`.
 
 ## Specialized Sub-Agents & Skills
 

@@ -20,8 +20,10 @@ A systematic research and development environment dedicated to Machine Learning 
 │   │   └── uveitis/     # Research on clinical ophthalmology & ML
 │   ├── wiki/           # Compiled Wiki (Concepts, Entities, Synthesis)
 │   │   ├── concepts/   # Interlinked technical concept pages
-│   │   └── entities/   # Dedicated pages for labs, authors, and datasets
-│   └── RESEARCH_INDEX.md # Central index of all explored papers
+│   │   ├── entities/   # Dedicated pages for labs, authors, and datasets
+│   │   ├── index.md    # Content-oriented catalog of the wiki
+│   │   └── log.md      # Chronological record of research operations
+│   └── RESEARCH_INDEX.md # Legacy central index (to be migrated to wiki/index.md)
 ├── src/                # Core Python implementation and tools
 ├── KNOWLEDGE_BASE.md   # High-level synthesis of research domains
 ├── RESEARCH_GUIDE.md   # Systematic discovery & documentation standards
