@@ -55,11 +55,12 @@ Detailed breakdown of the mathematical framework, algorithms (e.g., SCM, Offline
 - **Data Source:** (e.g., MIMIC-III, STAR*D, private cohort)
 - **Sample Size:** (n = X patients/images)
 - **Features:** Key variables and preprocessing steps.
-- **Evaluation Metrics:** (e.g., AUROC, WIS, ESS, clinical accuracy)
+- **Evaluation Metrics:** Mandatory extraction of **High-Signal Metrics** (AUROC, AUPRC, p-values, Bayes Factors, WIS, ESS, or NNT).
 
 ## 💡 Key Findings
-- **Technical Results:** Quantitative performance metrics.
-- **Statistical Significance:** p-values, confidence intervals, or Bayesian credible intervals.
+- **Technical Results:** Quantitative performance metrics (e.g., "AUROC: 0.89 [95% CI: 0.85-0.93]").
+- **Statistical Significance:** p-values, Bayes Factors, or posterior distribution statistics.
+- **RL/Causal Metrics:** Expected Reward (V), effective sample sizes (ESS).
 - **Ablation Studies:** What components were most critical?
 
 ## 🩺 Clinical Relevance & Impact

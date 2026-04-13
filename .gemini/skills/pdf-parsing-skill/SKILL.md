@@ -13,9 +13,14 @@ When this skill is active, you are responsible for converting local or downloade
     - Command: `python src/pdf_processor.py <input.pdf> <output.md>`
     - If `markitdown` fails, attempt using `marker-pdf` via its CLI: `marker_single <input.pdf> --output_dir <output_dir>`.
 
-2.  **Preprocessing for LLMs:**
+2.  **Preprocessing & Metric Extraction:**
+    - **Identify High-Signal Metrics:** During parsing, explicitly search for and tag the following:
+        - **Model Performance:** AUROC, AUPRC, Accuracy, F1-score.
+        - **Statistical Significance:** p-values, Confidence Intervals (CIs), Bayes Factors.
+        - **RL/Causal Metrics:** Expected Reward (V), Weighted Importance Sampling (WIS), Effective Sample Size (ESS).
+        - **Clinical Benchmarks:** Odds Ratios (OR), Relative Risk (RR), Number Needed to Treat (NNT).
     - Ensure the converted Markdown is cleaned of redundant headers/footers.
-    - Validate that tables and mathematical formulas are correctly represented in the output.
+    - Validate that tables and mathematical formulas are correctly represented in the output for the **Expert Statistician** and **Data Scientist** agents.
 
 3.  **Integration with Literature Review:**
     - Before summarizing a paper using the `literature-researcher` or `compression` agents, ensure it has been parsed to Markdown if the source is a PDF.
