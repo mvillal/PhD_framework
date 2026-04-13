@@ -1,30 +1,26 @@
 ---
 title: "MIMIC-III (Medical Information Mart for Intensive Care)"
-type: "entity"
-tags: ["Dataset", "ICU", "EHR", "Benchmarks"]
+type: "Entity"
+category: "Dataset"
+tags: ["Intensive Care", "EHR", "Benchmarking", "Clinical RL"]
 ---
 
 # MIMIC-III (Medical Information Mart for Intensive Care)
 
-MIMIC-III is a large, freely available database comprising de-identified health-related data from patients who stayed in critical care units at the Beth Israel Deaconess Medical Center between 2001 and 2012.
+## 📋 Overview
+MIMIC-III is a large, freely available database comprising de-identified health-related data associated with over forty thousand patients who stayed in critical care units of the Beth Israel Deaconess Medical Center between 2001 and 2012. It serves as the primary benchmark dataset for clinical machine learning, particularly in reinforcement learning and intensive care modeling.
 
-## 📋 Role in the PhD Framework
-MIMIC-III is the primary benchmark for testing **Sequential Decision-Making** and **Causal Inference** models before their application to psychiatric data.
+## 🔬 Role in Research
+- **Clinical RL Benchmarking:** Used extensively to evaluate off-policy evaluation (OPE) methods and batch RL policies for sepsis management and sedation titration [[Gottesman et al. (2019)](../../sources/doshi-velez/gottesman_2019_clinical_rl_guidelines.md)].
+- **Decision Point Analysis:** Leveraged to identify critical states in patient trajectories where treatment decisions have the highest impact on outcomes [[Zhang & Doshi-Velez (2021)](../../sources/doshi-velez/zhang_2021_decision_points_rl.md)].
+- **Generalizability Challenges:** Served as a case study for identifying site-specific administrative patterns that can bias ML models when transferred to other institutions [[Futoma et al. (2020)](../../sources/doshi-velez/futoma_2020_myth_of_generalisability.md)].
 
-## 🔬 Use Cases & Findings
-- **Offline RL:** Gottesman et al. (2019/2021) used MIMIC-III to establish **Offline Reinforcement Learning** safety guidelines and analyze "Influential Transitions" in sepsis management.
-   - *Source:* [Gottesman et al. (2019)](../../doshi-velez/gottesman_2019_clinical_rl_guidelines.md)
-- **The Local Trap (2020):** Futoma et al. demonstrated that models trained on MIMIC-III often learn **Local Practice Patterns** (e.g., ordering frequencies) rather than clinical truth, risking poor generalizability.
-   - *Source:* [Futoma et al. (2020)](../../doshi-velez/futoma_2020_myth_of_generalisability.md)
-- **Discount Regularization (2024):** Used as a benchmark for **Overfitting in Low-Data Regimes** when training RL agents for sepsis care.
-   - *Source:* [Jiang & Doshi-Velez (2024)](../../doshi-velez/jiang_2024_discount_regularization.md)
+## 📊 High-Signal Metrics & Characteristics
+- **Population:** >40,000 patients, >50,000 stays.
+- **Data Density:** High-frequency vital signs, laboratory measurements, medications, and caregiver notes.
+- **Usage:** Standard evaluation environment for **Fitted Q-Evaluation (FQE)** and **Weighted Importance Sampling (WIS)**, with metrics like **Effective Sample Size (ESS)** being critical for reliability.
 
-## 📊 Key Characteristics
-- **Size:** ~53,000 patient admissions.
-- **Data Types:** Demographics, vital signs, laboratory tests, medications, and caregiver notes.
-- **Clinical Domains:** Sepsis, Hypotension, Acute Respiratory Failure.
-
-## 🔗 Related Entities & Concepts
-- **[eICU Collaborative Research Database](eicu.md)**
-- **[Offline RL](../concepts/offline_rl.md)**
-- **[Causal Inference](../concepts/causal_inference.md)**
+## 🔗 Related Sources
+- [Gottesman et al. (2019): Guidelines for RL in Healthcare](../../sources/doshi-velez/gottesman_2019_clinical_rl_guidelines.md)
+- [Zhang & Doshi-Velez (2021): Decision Points in RL](../../sources/doshi-velez/zhang_2021_decision_points_rl.md)
+- [Futoma et al. (2020): The Myth of Generalizability](../../sources/doshi-velez/futoma_2020_myth_of_generalisability.md)
