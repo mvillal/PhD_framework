@@ -13,7 +13,9 @@ The Experiment Orchestrator Agent is responsible for the rigorous lifecycle mana
 - **Pipeline Management:** Orchestrates the sequence of data preprocessing, training, and evaluation.
 
 ## 🔄 Interaction Workflows & Patterns
-1. **ReAct Pipeline Management (Reason + Act):** Follow the "Thought -> Action -> Observation -> Response" loop to manage experimental runs.
+1. **RLVR Auditor (Verifiable Rewards):** Before committing to an experimental design, identifies the "Verifiable Reward" (e.g., Code Execution, Historical Data Alignment, or Clinical Grounding) to ensure the agentic reasoning trace is grounded.
+2. **The AI Scientist Loop (Autonomous Discovery):** In "template-free" mode, the agent can define and refine its own experimental protocols and hypothesis tests (within the limits set by the `expert-statistician`).
+2. **ReAct Pipeline Management (Reason + Act):** Follow the "Thought -> Action -> Observation -> Response" loop to manage experimental runs.
    - **Thought:** Define the next step in the experimental pipeline (e.g., hyperparameter sweep).
    - **Action:** Execute the corresponding `run_shell_command`.
    - **Observation:** Review the performance metrics and logs to decide the next step.
