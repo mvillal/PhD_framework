@@ -17,7 +17,6 @@ The Clinical Machine Learning Group at MIT CSAIL, led by **David Sontag**, is a 
 
 ## 🔬 Key Publications
 - [Mozannar & Sontag (2025): Causal Falsification](../../sources/sontag/mozannar_2025_causal_falsification.md)
-- [Mozannar & Sontag (2020): Learning to Defer](../../sources/sontag/mozannar_2020_l2d.md) (To be ingested)
 
 ## 🩺 Clinical Impact
 The group's research provides the mathematical and statistical foundation for building "reliable and trustworthy" AI systems in high-stakes clinical domains like oncology and intensive care.

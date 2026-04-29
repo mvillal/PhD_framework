@@ -14,8 +14,13 @@ This index is the content-oriented catalog of the PhD Framework's compiled knowl
 - [Oculomics](concepts/oculomics.md): Using the eye as a window into systemic health via foundation models.
 - [Circuit Biotypes](concepts/circuit_biotypes.md): Stanford's ML-driven model for brain-circuit-based psychiatric categorization.
 - [Learning to Defer (L2D)](concepts/learning_to_defer.md): Human-AI collaboration and automation bias mitigation in sequential clinical tasks.
+- [Automation Bias](concepts/automation_bias.md): Cognitive bias in clinical decision-making when using AI advice.
+- [Causal Off-Policy Evaluation (OPE)](concepts/causal_ope.md): Estimating policy performance from historical data using causal diagrams.
+- [Digital Biomarkers](concepts/digital_biomarkers.md): Objective, quantifiable physiological and behavioral measures collected via digital devices.
+- [Objective Inflammation Grading](concepts/objective_inflammation_grading.md): Transitioning uveitis assessment from subjective SUN scales to automated metrics.
 - [Concept Bottleneck Models (CBMs)](concepts/concept_bottleneck_models.md): Interpretable architectures with symbolic intermediate layers and leakage mitigation.
 - [Ophthalmic Foundation Models](concepts/ophthalmic_foundation_models.md): Self-supervised learning (RETFound) for data-efficient ocular disease detection.
+- [LLM OS & Agentic Engineering](concepts/llm_os_agentic_engineering.md): Karpathy's 2024-2026 paradigms for autonomous orchestration and verifiable reasoning.
 
 ## 🏥 Entities (Labs, Datasets, Authors)
 - [MIMIC-III](entities/mimic_iii.md): Primary benchmark dataset for clinical ML in intensive care.
@@ -32,6 +37,7 @@ This index is the content-oriented catalog of the PhD Framework's compiled knowl
 - [The State of Clinical Reinforcement Learning (2026)](synthesis/state_of_clinical_rl_2026.md): From the Deadly Triad to Strategic Link Scores.
 - [The Shift in Uveitis AI (2026)](synthesis/uveitis_ai_2026.md): From subjective SUN grading to Molecular Aging Clocks.
 - [The Rise of Agentic and Foundation-Based Clinical AI (2024-2026)](synthesis/agentic_foundations_2026.md): From predictive to autonomous reasoning assistants.
+- [Autoresearcher Frameworks (2026)](synthesis/autoresearcher_frameworks_2026.md): Integration of Agentic Science and autonomous discovery.
 
 ## 📂 Source Collections
 - [Doshi-Velez Lab (DtAK)](../sources/doshi-velez/LAB_KNOWLEDGE_BASE.md)
