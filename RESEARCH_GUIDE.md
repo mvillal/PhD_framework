@@ -68,6 +68,7 @@ Specific applications to psychiatry or ophthalmology (e.g., "predicts flare-up 3
 
 ## 🔬 Critical Review (Antagonic Perspective)
 Potential biases, limitations in generalizability, or "Local Trap" risks.
+- **Scientific Contradictions (ContraCrow):** Explicitly list findings that contradict other papers in the Wiki (e.g., "Contradicts Doshi-Velez 2021 regarding discount regularization effects").
 
 ## 🔗 Discovery & Next Steps
 - **Ancestor Discovery:** 2-3 key references to explore next.
@@ -100,6 +101,15 @@ Before any new model architecture or clinical workflow is finalized, the framewo
 ### ⛓️ Skill Chaining (The Ingest Pipeline)
 The process of adding new research follows a strict hand-off chain:
 `Literature Researcher (Discovery)` -> `Compression (Distillation)` -> `Wiki Maintainer (Orchestration)` -> `Antagonic Researcher (Consistency Audit)`.
+
+### 🧪 Agentic Science & Autonomous Discovery (2026 Standards)
+The framework adopts state-of-the-art autonomous discovery patterns:
+- **STORM (Multi-Perspective Discovery):** For new domains, agents simulate a "Writer-Expert" dialogue to discover diverse research angles before drafting.
+- **PaperQA2 (RCS Synthesis):** High-fidelity retrieval using **Reranking and Contextual Summarization (RCS)** to prevent context pollution.
+- **The AI Scientist (Autonomous Loops):** For experimental phases, agents are permitted to define their own protocols in "template-free" mode if verified by the **Expert Statistician**.
+- **LLM OS (Orchestration):** The framework operates as an "LLM OS," where the Wiki is the permanent File System, the Context Window is RAM, and agents are specialized processes orchestrated by the **Wiki Maintainer**.
+- **RLVR Verification (Verifiable Rewards):** Before finalizing any clinical model, agents must identify a "Verifiable Reward" (e.g., code correctness, mathematical proof, or historical alignment) to ground the reasoning trace.
+- **ContraCrow Logic:** Dedicated audit for finding "Gaps of Ignorance" (contradictions across thousands of sources).
 
 ## 6. From Paper to Implementation
 1.  **Verification:** Use the `antagonic-researcher` to find critiques of the paper.

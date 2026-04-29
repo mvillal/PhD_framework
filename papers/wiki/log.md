@@ -18,3 +18,14 @@ This is a chronological, append-only record of all research operations (ingests,
 - Created Entity pages: [Sontag Lab (MIT)](entities/sontag_lab_mit.md), [DeepMind Clinical AI](entities/deepmind_clinical_ai.md), [Onnela Lab](entities/onnela_lab.md), [Stanford PMHW](entities/stanford_pmhw.md).
 - Authored Synthesis: [The Rise of Agentic and Foundation-Based Clinical AI (2024-2026)](synthesis/agentic_foundations_2026.md).
 
+## [2026-04-29] synthesis | Autoresearcher Frameworks 2026
+- Analyzed and ingested latest 2024-2026 trends in autonomous scientific discovery.
+- Identified PaperQA2, STORM, AI Scientist v2, and Sc(AI)Mitra as core integration targets.
+- Defined roadmap for "Agentic Science" in psychiatry research.
+
+## [2026-04-29] ingest | Andrej Karpathy (2024-2026) Paradigms
+- Compiled Concept: [LLM OS & Agentic Engineering](concepts/llm_os_agentic_engineering.md).
+- Integrated RLVR (Verifiable Rewards) and "Thinking" model logic into the research workflow.
+- Mapped LLM OS components (Kernel, RAM, File System) to the PhD Framework architecture.
+
+
