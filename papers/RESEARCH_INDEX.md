@@ -43,4 +43,45 @@ This domain focuses on automated inflammation grading, foundation models for ret
 | **2024** | **Liao et al.** | [Acute Retinal Necrosis Detection](uveitis/wenzhou_2024_acute_retinal_necrosis.md) | Swin Transformer, ARN, UWF | [Link](https://doi.org/10.1167/iovs.65.1.34) |
 | **2025** | **Agrawal et al.** | [Uveitis Recurrence Prediction](uveitis/agrawal_2025_oasis_uveitis_recurrence.md) | Random Forest, OASIS, Relapse | Forthcoming |
 | **2025** | **Umer et al.** | [Toxoplasmosis Activity YOLO](uveitis/umer_2025_toxoplasmosis_activity_yolo.md) | YOLOv11, ViT, Infectious Uveitis | Forthcoming |
-| **2026** | **Mohammadi et al.** | [UWF Inflammation Detection](uveitis/mohammadi_2026_uwf_inflammation_detection.md) | Deep Learning, UWF, Angiography | Forthcoming |
+---
+
+## Digital Phenotyping & Systemic Health (Onnela Lab / Torous Lab)
+Focuses on smartphone-based behavioral monitoring and Oculomics.
+
+| Year | Primary Author | Title | Focus Area | Link |
+| :--- | :--- | :--- | :--- | :--- |
+| **2025** | **Huang et al.** | [Adolescent Bipolar Monitoring](onnela/huang_2025_adolescent_bipolar_monitoring.md) | Passive Sensing, Bipolar | Forthcoming |
+| **2026** | **Nock et al.** | [Smartphone Suicide Prediction](onnela/nock_2026_smartphone_suicide_prediction.md) | mHealth, Real-time Risk | Forthcoming |
+| **2026** | **Cai et al.** | [Causal Estimands for N-of-1](onnela/cai_2026_causal_estimands_n_of_1.md) | N-of-1, Causal Inference | Forthcoming |
+| **2025** | **Mortimer et al.** | [RETFound Green (Oculomics)](ucl_moorfields/mortimer_2025_retfound_green.md) | Oculomics, Systemic Health | Forthcoming |
+
+---
+
+## Causal ML & Generalizability (Sontag Lab / Stanford / NYU)
+Focuses on Causal Falsification, Circuit Biotypes, and LLMs in Mental Health.
+
+| Year | Primary Author | Title | Focus Area | Link |
+| :--- | :--- | :--- | :--- | :--- |
+| **2024** | **Williams et al.** | [Six Circuit Biotypes](stanford/williams_2024_six_biotypes.md) | fMRI, Precision Psychiatry | [Link](https://doi.org/10.1038/s41591-024-03057-9) |
+| **2025** | **Mozannar et al.** | [Causal Falsification](sontag/mozannar_2025_causal_falsification.md) | OPE, EHR Auditing | Forthcoming |
+| **2025** | **Schultebraucks et al.** | [LLMs in Mental Health](nyu/schultebraucks_2025_llms_mental_health.md) | NLP, Clinical Utility | Forthcoming |
+
+---
+
+## Foundation Models & Agentic AI (Google DeepMind)
+| Year | Primary Author | Title | Focus Area | Link |
+| :--- | :--- | :--- | :--- | :--- |
+| **2024** | **Saab et al.** | [Med-Gemini](deepmind/saab_2024_med_gemini.md) | Multimodal, RAG | [Link](https://arxiv.org/abs/2404.18416) |
+| **2024** | **Tu et al.** | [AMIE: Agentic AI](deepmind/tu_2024_amie_agentic_ai.md) | Diagnostic Dialogue | [Link](https://arxiv.org/abs/2401.05654) |
+
+---
+
+## Autoresearcher Frameworks & Agentic Science
+This section tracks the development of autonomous research agents and the "LLM OS" paradigm.
+
+| Year | Primary Author | Title | Focus Area | Link |
+| :--- | :--- | :--- | :--- | :--- |
+| **2024** | **Future House** | [PaperQA2: Superhuman Lit Search](sources/autoresearchers/futurehouse_2024_paperqa2.md) | RCS, ContraCrow | [URL](https://www.futurehouse.org/blog/paperqa2) |
+| **2024** | **Stanford OVAL** | [STORM: Multi-perspective Discovery](sources/autoresearchers/stanford_2024_storm.md) | Persona-Dialogue | [URL](https://storm.genie.stanford.edu/) |
+| **2024** | **Sakana AI** | [The AI Scientist](sources/autoresearchers/sakana_2024_ai_scientist.md) | Autonomous Loop | [URL](https://sakana.ai/ai-scientist/) |
+| **2024** | **Karpathy** | [LLM OS Paradigms](sources/autoresearchers/karpathy_2024_llm_os.md) | Orchestration, RLVR | [URL](https://eurekalabs.ai/) |
