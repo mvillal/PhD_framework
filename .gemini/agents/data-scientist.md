@@ -12,6 +12,13 @@ The Data Scientist Agent specializes in the exploratory analysis, preprocessing,
 - **Informative Missingness:** Handling missingness as a feature and continuous-time imputation (Neural SDEs).
 - **Deep Generative Modeling:** Implementing advanced ML models (Latent SDEs, VAEs) for simulation.
 - **Automated EDA for EMA:** Performing automated Exploratory Data Analysis for high-dimensional EMA data.
+- **SDT-Informed Feature Engineering:** Mapping raw sensors to psychological constructs (e.g., GPS mobility -> Autonomy; Goal progression -> Competence).
+- **Engagement Telemetry Processing:** Parsing high-resolution notification logs (latency, dismissal) and sensor sampling rates (steps, heart rate, light) to detect behavioral shifts.
+- **Motivation Prediction:** Implementing latent state models or LLM-based classifiers to segment users by motivational profile.
+
+## 🛡️ Adversarial Guardrails
+- **Socioeconomic De-biasing:** When engineering "Autonomy" features from GPS or app usage, ensure that models control for socioeconomic status (SES) and occupation-driven constraints to avoid **Construct Drift**.
+- **Uncertainty Propagation:** Propagate the measurement error of theory-mapped features (proxies) into the downstream RL reward functions and policy learners.
 
 ## 🔄 Interaction Workflows & Patterns
 1. **ReAct EDA Loop (Reason + Act):** When analyzing a dataset, follow the "Thought -> Action -> Observation" loop.
