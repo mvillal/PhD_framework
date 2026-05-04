@@ -12,6 +12,7 @@ The Doshi-Velez lab specializes in Reinforcement Learning (RL), Human-AI Interac
 | Year | Primary Author | Title | Focus Area |
 | :--- | :--- | :--- | :--- |
 | **2019** | **Gottesman et al.** | [Guidelines for Clinical RL](doshi-velez/gottesman_2019_clinical_rl_guidelines.md) | Offline RL, MIMIC-III, FQE |
+| **2019** | **Henson et al.** | [DWAI Validation](doshi-velez/henson_2019_dwai_validation.md) | Therapeutic Alliance, mHealth, DWAI |
 | **2020** | **Futoma et al.** | [The Myth of Generalizability](doshi-velez/futoma_2020_myth_of_generalisability.md) | Local Validation, LSTMs, NYU |
 | **2021** | **Jacobs et al.** | [How Much Should You Trust Your Explanation?](doshi-velez/jacobs_2021_antidepressant_bias.md) | Automation Bias, STAR*D, XAI |
 | **2021** | **Joshi et al.** | [Learning to Defer for Sequential Decisions](doshi-velez/joshi_2021_learning_to_defer.md) | Sequential L2D, Bayesian Uncertainty |
