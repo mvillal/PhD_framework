@@ -1,4 +1,4 @@
-from src.domain.experiment.entities import Run, Metric, Parameter, RunStatus
+from src.domain.experiment.entities import Run, Metric
 from src.application.ports.interfaces import ExperimentTrackerPort, RunRepositoryPort
 
 class StartRunUseCase:

@@ -1,5 +1,4 @@
 import sys
-import os
 import re
 import argparse
 from pathlib import Path
@@ -122,9 +121,12 @@ def update_paper(file_path: Path, lab_name: str):
 
     # Infer Venue/DOI/Code if possible (mostly TBD for now)
     venue = "TBD"
-    if "Nature" in content: venue = "Nature"
-    if "Sensors" in content: venue = "Sensors (2021)"
-    if "Scientific Reports" in content: venue = "Scientific Reports (2025)"
+    if "Nature" in content:
+        venue = "Nature"
+    if "Sensors" in content:
+        venue = "Sensors (2021)"
+    if "Scientific Reports" in content:
+        venue = "Scientific Reports (2025)"
     
     new_content = f"""---
 title: "{full_title}"
@@ -176,7 +178,7 @@ def run_update_papers():
         "zhou_2023_retfound_foundation_model.md": "UCL / Moorfields Eye Hospital (UK)"
     }
 
-    print(f"Starting paper update process...")
+    print("Starting paper update process...")
     print(f"Project Root: {PROJECT_ROOT}")
 
     # Process Doshi-Velez

@@ -12,7 +12,7 @@ class MLflowTrackerAdapter(ExperimentTrackerPort):
         # We start the mlflow run. 
         # Note: We don't use mlflow's automatic run_id generation for our entity run_id 
         # to keep domain pure, but we can tag it.
-        active_run = mlflow.start_run(run_name=run.name)
+        mlflow.start_run(run_name=run.name)
         mlflow.set_tag("domain_run_id", run.run_id)
 
     def log_metric(self, run_id: str, metric: Metric) -> None:

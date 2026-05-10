@@ -26,6 +26,11 @@ test-run: ## Run the example tracking script
 test: ## Run the full suite of unit and integration tests
 	PYTHONPATH=. uv run pytest
 
+check: ## Run system health checks and linting
+	uv run python system_check.py
+	uv run ruff check src tests
+	uv run ruff format --check src tests
+
 mlflow-ui: ## Start the MLflow UI locally
 	uv run mlflow ui --backend-store-uri sqlite:///mlflow.db --host 127.0.0.1 --port 5000
 

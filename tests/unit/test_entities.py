@@ -1,7 +1,6 @@
-import pytest
 from datetime import datetime
 from src.domain.experiment.entities import RunStatus
-from tests.mothers.entity_mother import RunMother, MetricMother, StepMother
+from tests.mothers.entity_mother import RunMother, MetricMother
 
 def test_run_initialization():
     run = RunMother.create(experiment_id="test-exp", run_name="test-run")

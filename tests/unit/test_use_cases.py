@@ -1,4 +1,3 @@
-import pytest
 from src.application.use_cases.tracker_use_cases import StartRunUseCase, LogMetricUseCase
 from src.application.ports.interfaces import ExperimentTrackerPort, RunRepositoryPort
 from src.domain.experiment.entities import Run
