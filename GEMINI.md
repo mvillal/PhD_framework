@@ -29,6 +29,7 @@ This repository is dedicated to the research and development of Machine Learning
 - **Data Ethicist Agent:** Audits research for privacy, patient consent, and algorithmic fairness, especially with sensitive psychiatric data.
 - **Experiment Orchestrator Agent:** Manages the rigorous execution, tracking, and reproducibility of ML experiments.
 - **LLM-Wiki Skill:** Implements the workflows for stateful ingestion, linking, and synthesis of research knowledge.
+- **Context7 Documentation Skill:** Integrates the Upstash Context7 CLI to fetch live, up-to-date documentation for ML and psychiatric libraries.
 - **Documentation Sync Skill:** Automatically synchronizes `README.md` and other documentation with changes in folder structure and code definitions.
 
 ## Project Structure

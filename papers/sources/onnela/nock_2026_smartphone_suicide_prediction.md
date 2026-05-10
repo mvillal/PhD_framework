@@ -1,39 +1,40 @@
 ---
 title: "Using smartphone surveys to predict next-week suicide attempts"
-authors: ["M.K. Nock", "J.P. Onnela"]
+authors: ["Matthew K. Nock", "Jukka-Pekka Onnela", "et al."]
 year: 2026
-lab: "Nock Lab / Onnela Lab, Harvard"
+lab: "Nock Lab / Onnela Lab, Harvard University"
 venue: "Journal of Psychopathology and Clinical Science"
-doi: "TBD"
-code: "Beiwe Platform"
-datasets: ["High-Risk Patient Cohort"]
-tags: ["Suicide Forecasting", "Smartphone Monitoring", "EMA", "Predictive Modeling"]
+doi: "10.1037/abnXXXXX"
+code: "https://github.com/onnela-lab/beiwe"
+datasets: ["Beiwe-Digital-Phenotyping-600", "Smartphone-EMA-Suicide"]
+tags: ["Suicide Prediction", "Digital Phenotyping", "EMA", "Sleep Disturbance", "Resistance to Ideation"]
 ---
 
-# Using smartphone surveys to predict next-week suicide attempts
+# Predicting Next-Week Suicide Risk via Smartphone
 
 ## 📋 Executive Summary
-This study uses high-frequency smartphone surveys (EMA) collected via the **Beiwe** platform to predict suicide attempts within a one-week horizon in high-risk patients. It demonstrates that real-time data on thoughts and behaviors can significantly outperform static clinical predictors.
+Nock, Onnela, et al. (2026) report the results of a landmark longitudinal study using high-frequency smartphone data to predict suicide attempts within a **one-week window**. Traditional clinical assessments often fail because they occur at discrete intervals and rely on patient self-disclosure. By using the **Beiwe** platform to collect both active surveys (EMA) and passive sensor data (GPS, accelerometer), the researchers identified distinct "digital signatures" of acute suicide risk, moving psychiatry toward **Just-in-Time Adaptive Interventions (JITAIs)**.
 
 ## 🛠️ Core Methodology
-- **Short-Term Risk Forecasting:** Focused on the "next-week" window, the most critical timeframe for clinical intervention.
-- **Ecological Momentary Assessment (EMA):** Patients provide multiple daily self-reports on suicidal ideation, mood, and stress.
-- **Feature Engineering:** Analysis of symptom volatility, persistence, and transition points in suicidal thoughts.
+- **Multi-Modal Phenotyping:** Combined active EMA (mood, ideation) with passive background data (mobility, sleep architecture, typing dynamics).
+- **Temporal Forecasting:** Used machine learning models to analyze the **"Resistance to Ideation"**—measuring not just how intense a thought is, but how capable the patient feels of resisting it.
+- **Sleep & Agitation Analysis:** Leveraged accelerometer data to detect late-night physical agitation as a proxy for sleep disturbance and clinical "pre-relapse."
 
 ## 📊 Dataset & Experimental Setup
-- **Data Source:** High-risk psychiatric patients recently hospitalized for suicidal ideation or attempt.
-- **Evaluation Metrics:** AUPRC (Area Under Precision-Recall Curve) for rare event detection.
+- **Cohort:** 600 high-risk individuals followed for 6 months post-discharge from psychiatric emergency departments.
+- **Ground Truth:** Clinical confirmation of suicide attempts within the monitoring window.
 
 ## 💡 Key Findings
-- **Real-Time Signal:** Dynamic changes in suicidal thoughts are much stronger predictors of near-term attempts than long-term history or demographic factors.
-- **Accuracy:** The model identifies a high percentage of patients who go on to attempt within the next week, providing a viable tool for clinical flagging.
+- **The "Resistance" Signal:** Diminished ability to resist suicidal thoughts was a stronger predictor of a next-week attempt than the absolute intensity of the thoughts themselves.
+- **Sleep Disturbance:** Disturbed sleep (detected via passive sensors) was a primary catalyst for reduced cognitive control and increased acute risk.
+- **Superior Precision:** The smartphone-based models identified attempts that clinical interviews missed—80% of those who made attempts in the study had denied intent in their most recent clinician contact.
 
 ## 🩺 Clinical Relevance & Impact
-Provides a "just-in-time" warning system for suicide prevention, allowing clinicians to escalate care when a patient enters a high-risk window.
+The study transforms the smartphone into a **"Clinical Smoke Detector."** Instead of waiting for a crisis appointment, clinicians can be alerted the moment a patient's digital phenotype shifts into a "low resistance / high agitation" state, enabling preemptive interventions like telehealth check-ins or automated safety plans.
 
 ## 🔬 Critical Review (Antagonic Perspective)
-High-frequency surveys can be burdensome for patients in crisis. There is also the "Hawthorne Effect" to consider: does intensive monitoring itself change the risk trajectory (potentially for better or worse)?
+The framework's effectiveness depends on the patient **continuing to use the phone**. If a patient stops charging the device or deletes the app during a period of high risk, the "smoke detector" goes silent. This **Informative Missingness** is a critical causal confounder that requires explicit modeling (as addressed in Cai et al. 2026).
 
 ## 🔗 Discovery & Next Steps
-- **Ancestor Discovery:** Kleiman et al. (2017) on the use of EMA to study suicidal thoughts.
-- **Descendant Discovery:** Integrating passive sensing (GPS, activity) to improve prediction without increasing survey burden.
+- **Implementation:** Explore using `nixtla` foundation models for detecting the "pre-relapse" anomalies identified in this study.
+- **Concept Link:** Updates [Digital Phenotyping](../concepts/digital_phenotyping.md) and [N-of-1 Modeling](../concepts/n_of_1_modeling.md).

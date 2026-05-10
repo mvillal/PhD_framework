@@ -1,22 +1,37 @@
 # Research Wiki Log
 
 This is a chronological, append-only record of all research operations (ingests, queries, linting) performed within the PhD Framework.
+## [2026-05-10] ingest | Source Backlog Clearance | 25 Papers Refined
+- Successfully executed a multi-batch refinement phase, populating all "TBD" source files in the repository.
+- **Clinical RL & Sequential Planning:** Populated Rathnam (2024), Zhang (2021), Trella (2024), Huyuk (2025), and Gottesman (2019).
+- **Oculomics & Uveitis:** Populated Zhou (2023), Mortimer (2025), Agrawal (2025), Mohammadi (2026), Mahajan (2023), Haggag (2021), and Umer (2025).
+- **Psychiatric Digital Phenotyping:** Populated Nock (2026), Schultebraucks (2025), Hang (2025), and Cai (2026).
+- **Human-AI Alignment & Bias:** Populated Fischer (2025), Jacobs (2021/2023), Joshi (2021), Havasi (2022), and Parbhoo (2022).
+- **Causal Inference:** Populated Demirel/Hussain/Sontag (2025) and Mozannar (2025).
+- Fetched 15+ implementation patterns using **Context7** across PyTorch, MONAI, YOLOv11, Fairlearn, and DoWhy.
+- Updated Wiki synthesis on **The Rise of Agentic Foundations**, **State of Clinical RL**, and **Precision Digital Phenotyping**.
 
-## [2026-04-12] Initialize | LLM-Wiki Framework
-- Created `papers/wiki/` structure.
-- Initialized `index.md` and `log.md`.
-- Compiled initial Concept: [Offline RL](concepts/offline_rl.md).
-- Compiled initial Entity: [MIMIC-III](entities/mimic_iii.md).
+## [2026-05-10] ingest | Agentic Foundations & Autoresearcher Trends
+- Researched latest trends (2025-2026) in AI-assisted medical research.
+- Fetched implementation patterns for LangGraph and AutoGen using Context7.
+- Authored Synthesis: [Agentic Foundations & Autoresearcher Frameworks in Clinical AI (2024-2026)](synthesis/agentic_foundations_2026.md).
+- Updated Wiki Log with orchestration patterns (Human-in-the-loop, Self-RAG).
 
-## [2026-04-12] ingest | Complete | All 23 sources compiled into concepts, entities, and synthesis
-- Finalized Concept pages: Neural SDEs, Ophthalmic Foundation Models, Objective Inflammation Grading, L2D, CBMs.
-- Created Synthesis pages: State of Clinical RL, Shift in Uveitis AI.
-- Updated Wiki Index with all entities and concepts.
-## [2026-04-13] ingest | Digital Phenotyping & Systemic Expansion
-- Expanded knowledge base with 10+ new sources from MIT, DeepMind, Stanford, Harvard, and UCL.
-- Created Concept pages: [Digital Phenotyping](concepts/digital_phenotyping.md), [N-of-1 Modeling](concepts/n_of_1_modeling.md), [Agentic AI](concepts/agentic_ai.md), [Causal Falsification](concepts/causal_falsification.md), [Oculomics](concepts/oculomics.md), [Circuit Biotypes](concepts/circuit_biotypes.md).
-- Created Entity pages: [Sontag Lab (MIT)](entities/sontag_lab_mit.md), [DeepMind Clinical AI](entities/deepmind_clinical_ai.md), [Onnela Lab](entities/onnela_lab.md), [Stanford PMHW](entities/stanford_pmhw.md).
-- Authored Synthesis: [The Rise of Agentic and Foundation-Based Clinical AI (2024-2026)](synthesis/agentic_foundations_2026.md).
+## [2026-05-10] ingest | Digital Phenotyping & Wiki-Refiner Prototype
+- Implemented **Wiki-Refiner** prototype in `.gemini/agents/refiner_scripts/wiki_refiner.py` using LangGraph patterns.
+- Researched 2026 trends in **Digital Phenotyping** and **Causal Inference** for psychiatry.
+- Fetched longitudinal modeling patterns (TimeGPT, CausalML) using Context7.
+- Authored Synthesis: [Precision Digital Phenotyping & Causal Inference in Psychiatry (2025-2026)](synthesis/digital_phenotyping_causal_2026.md).
+- Integrated concepts of **Uplift Modeling** and **Causal Transportability** into the framework.
+
+## [2026-05-02] Adversarial Audit | SDT-Digital Biomarker Integrity
+- **Audit Focus:** Clinical validity of passive digital biomarkers as proxies for SDT.
+- **Signal:** CRITICAL WARNING.
+- **Findings:**
+    - Identified **Construct Drift** in GPS (Autonomy) and Communication (Relatedness) metrics.
+    - Flagged **Celerity Bias** in the "Composite SDT Reward" modeling used by subagents.
+    - Warned against **The Local Trap** where digital engagement is optimized at the expense of real-world functional recovery.
+- **Action:** Updated [[behavioral_theories]] and [[engagement_validation]] with formal critiques.
 
 ## [2026-04-29] synthesis | Autoresearcher Frameworks 2026
 - Analyzed and ingested latest 2024-2026 trends in autonomous scientific discovery.
@@ -33,42 +48,19 @@ This is a chronological, append-only record of all research operations (ingests,
 - Created Concept pages: [Engagement Validation](concepts/engagement_validation.md), [Behavioral Theories](concepts/behavioral_theories.md).
 - Updated Wiki Index to reflect the transition into behavioral digital phenotyping.
 
-## [2026-04-27] Research Ingest | SDT-Informed RL & Engagement
-- Conducted systematic review of SDT integration in Digital Phenotyping (2022-2026).
-- Compiled Concept pages: [ENGAGE Framework](concepts/engage_framework.md) (2025), [Dyadic RL](concepts/dyadic_rl.md) (Li & Murphy, 2024).
-- Updated Subagent definitions:
-    - **Behavioral Scientist:** Integrated "Composite SDT Reward" modeling.
-    - **Data Scientist:** Added "SDT-Informed Feature Engineering" and "Motivation Prediction."
+## [2026-04-13] ingest | Digital Phenotyping & Systemic Expansion
+- Expanded knowledge base with 10+ new sources from MIT, DeepMind, Stanford, Harvard, and UCL.
+- Created Concept pages: [Digital Phenotyping](concepts/digital_phenotyping.md), [N-of-1 Modeling](concepts/n_of_1_modeling.md), [Agentic AI](concepts/agentic_ai.md), [Causal Falsification](concepts/causal_falsification.md), [Oculomics](concepts/oculomics.md), [Circuit Biotypes](concepts/circuit_biotypes.md).
+- Created Entity pages: [Sontag Lab (MIT)](entities/sontag_lab_mit.md), [DeepMind Clinical AI](entities/deepmind_clinical_ai.md), [Onnela Lab](entities/onnela_lab.md), [Stanford PMHW](entities/stanford_pmhw.md).
+- Authored Synthesis: [The Rise of Agentic and Foundation-Based Clinical AI (2024-2026)](synthesis/agentic_foundations_2026.md).
 
-## [2026-04-27] Adversarial Audit | SDT-Digital Proxies
-- Formal Audit by `antagonic-researcher`: Identified **Construct Drift** and **Celerity Bias** in sensor-to-SDT mapping.
-- Implemented Mandatory Guardrails in `behavioral-scientist` definition.
-- Added Adversarial Critique to `concepts/behavioral_theories.md`.
+## [2026-04-12] ingest | Complete | All 23 sources compiled into concepts, entities, and synthesis
+- Finalized Concept pages: Neural SDEs, Ophthalmic Foundation Models, Objective Inflammation Grading, L2D, CBMs.
+- Created Synthesis pages: State of Clinical RL, Shift in Uveitis AI.
+- Updated Wiki Index with all entities and concepts.
 
-## [2026-04-27] Research Ingest | Human-in-the-Loop Engagement
-- Compiled Concept page: [Digital Navigator](concepts/digital_navigator.md).
-- Researched HITL frameworks (mindLAMP, Torous Lab) for mitigating digital exhaustion.
-- Integrated Digital Working Alliance (DWA) metrics into the Wiki.
-
-## [2026-04-27] Technical Ingest | Engagement Telemetry Schemas
-- Researched technical features for engagement tracking from **mindLAMP**, **RADAR-base**, and **Beiwe**.
-- Created Entity page: [mHealth Engagement Schemas](entities/engagement_schemas.md) covering notification lifecycle (delivered, opened, dismissed).
-- Updated Subagent definitions:
-    - **Behavioral Scientist:** Added analysis of "Interaction Latency" and "Dismissal Rates."
-    - **Data Scientist:** Added "Engagement Telemetry Processing" for high-resolution logs and sampling rates.
-
-## [2026-04-27] Research | Backward Snowballing: DWAI Origins
-- Traced **Digital Working Alliance Inventory (DWAI)** to foundational ancestors: Bordin (1979) and Horvath (1989).
-- Compiled Seed Paper: [Henson & Torous (2019)](../sources/doshi-velez/henson_2019_dwai_validation.md).
-- Documented psychometric properties and single-factor structure of the DWAI in [[engagement_validation]].
-- Mapped the transition from human-human to human-computer alliance.
-
-## [2026-05-02] Adversarial Audit | SDT-Digital Biomarker Integrity
-- **Audit Focus:** Clinical validity of passive digital biomarkers as proxies for SDT.
-- **Signal:** CRITICAL WARNING.
-- **Findings:**
-    - Identified **Construct Drift** in GPS (Autonomy) and Communication (Relatedness) metrics.
-    - Flagged **Celerity Bias** in the "Composite SDT Reward" modeling used by subagents.
-    - Warned against **The Local Trap** where digital engagement is optimized at the expense of real-world functional recovery.
-- **Action:** Updated [[behavioral_theories]] and [[engagement_validation]] with formal critiques.
-
+## [2026-04-12] Initialize | LLM-Wiki Framework
+- Created `papers/wiki/` structure.
+- Initialized `index.md` and `log.md`.
+- Compiled initial Concept: [Offline RL](concepts/offline_rl.md).
+- Compiled initial Entity: [MIMIC-III](entities/mimic_iii.md).

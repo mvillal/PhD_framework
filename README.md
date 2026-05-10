@@ -31,10 +31,32 @@ A systematic research and development environment dedicated to Machine Learning 
 │   │   └── log.md      # Chronological record of research operations
 │   └── RESEARCH_INDEX.md # Legacy central index (to be migrated to wiki/index.md)
 ├── src/                # Core Python implementation and tools
+├── mlruns/             # (Local) MLflow tracking directory (Git ignored)
+├── Dockerfile          # Multi-stage Docker build for portability
+├── Makefile            # CLI interface for agent management
 ├── KNOWLEDGE_BASE.md   # High-level synthesis of research domains
 ├── RESEARCH_GUIDE.md   # Systematic discovery & documentation standards
+├── CONTAINER.md        # Detailed containerization and deployment guide
 └── GEMINI.md           # Project-specific mandates and scope
 ```
+
+## 🚀 Experiment Tracking Framework
+... [omitted for brevity] ...
+```
+
+## 🐳 Containerization & Interoperability
+
+The framework is optimized for portability and cloud deployment using Docker best practices.
+
+### Fast Start with Make
+We use a `Makefile` to simplify common operations:
+- `make build`: Build the research agent image.
+- `make test-run`: Run a local tracking test.
+- `make mlflow-ui`: Launch the tracking dashboard.
+- `make ingest-paper PATH=...`: Ingest a specific research source.
+
+For detailed deployment instructions, see **[CONTAINER.md](CONTAINER.md)**.
+
 ## 🤖 Specialized Sub-Agents & Expertise
 The framework uses a multi-disciplinary agent system to ensure scientific rigor:
 - **Literature Researcher:** Specialized in finding, reading, and summarizing academic papers on ML in psychiatry.
