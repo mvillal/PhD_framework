@@ -40,10 +40,10 @@ This index is the content-oriented catalog of the PhD Framework's compiled knowl
 - [STAR*D](entities/star_d.md): Landmark trial for sequenced antidepressant treatment.
 
 ## 🔬 Synthesis & Analyses
-- [The State of Clinical Reinforcement Learning (2026)](synthesis/state_of_clinical_rl_2026.md): From the Deadly Triad to Strategic Link Scores.
-- [The Shift in Uveitis AI (2026)](synthesis/uveitis_ai_2026.md): From subjective SUN grading to Molecular Aging Clocks.
-- [The Rise of Agentic and Foundation-Based Clinical AI (2024-2026)](synthesis/agentic_foundations_2026.md): From predictive to autonomous reasoning assistants.
-- [Autoresearcher Frameworks (2026)](synthesis/autoresearcher_frameworks_2026.md): Integration of Agentic Science and autonomous discovery.
+- [The State of Clinical Reinforcement Learning (2026)](synthesis/state_of_clinical_rl_2026.md): From the Deadly Triad and OPE pitfalls to **Strategic Link Scores** and **Decision Points**.
+- [The Shift in Uveitis AI (2026)](synthesis/uveitis_ai_2026.md): From subjective SUN grading to **Molecular Aging Clocks** and **UWF Fundus Surrogates**.
+- [Precision Digital Phenotyping & Causal Inference (2025-2026)](synthesis/digital_phenotyping_causal_2026.md): Integration of Uplift Modeling, N-of-1 causal estimands, and Expectancy Correction.
+- [The Rise of Agentic Foundations & Autoresearchers (2024-2026)](synthesis/agentic_foundations_2026.md): Implementation of LangGraph patterns and multi-agent swarms in medical research.
 
 ## 📂 Source Collections
 - [Doshi-Velez Lab (DtAK)](../sources/doshi-velez/LAB_KNOWLEDGE_BASE.md)

@@ -5,10 +5,19 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "hypothesis>=6.152.4",
     "marker-pdf>=1.10.2",
     "markitdown>=0.1.5",
+    "mlflow>=2.0.0",
     "numpy>=2.4.4",
-    "pandas>=3.0.2",
+    "pandas<3",
+    "pytest>=9.0.3",
+    "pytest-mock>=3.15.1",
     "scikit-learn>=1.8.0",
     "torch>=2.11.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.12",
 ]

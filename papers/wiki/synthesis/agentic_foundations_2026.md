@@ -1,43 +1,35 @@
-# The Rise of Agentic and Foundation-Based Clinical AI (2024-2026)
+---
+title: "Agentic Foundations & Autoresearcher Frameworks in Clinical AI (2024-2026)"
+authors: ["LLM-Wiki Maintainer"]
+year: 2026
+tags: ["Agentic AI", "Autoresearcher", "Human-in-the-Loop", "LangGraph", "AutoGen", "Scientific ML"]
+---
 
-## 📄 Overview
-The period between 2024 and 2026 marks a fundamental paradigm shift in clinical Machine Learning. We have moved from **Static Predictive Models** (e.g., mortality prediction) to **Agentic and Foundation-Based Systems** that can reason, gather information, and generalize across clinical domains.
+# Agentic Foundations & Autoresearcher Frameworks in Clinical AI (2024-2026)
 
-## 🚀 Key Transitions
+## 📋 Executive Summary
+The period of 2024-2026 marks a paradigm shift from passive predictive models to **Agentic Foundations**. Clinical AI is no longer just "predicting risk" but autonomously orchestrating the scientific process through **Autoresearcher Frameworks**. These systems use multi-agent swarms to hypothesize, design in-silico experiments, and synthesize literature with minimal human intervention, governed by rigorous "Human-in-the-Loop" (HITL) gates.
 
-### 1. From "Static" to "Agentic" ([[amie]] & [[med_gemini]])
-Traditional clinical AI provided a single output for a single input. Agentic systems like [[AMIE]] (DeepMind, 2024) introduce multi-turn dialogue, allowing the AI to "act" as a diagnostic partner. [[Med-Gemini]] (DeepMind, 2024) further enhances this by integrating **Uncertainty-Guided Search**, enabling the model to fact-check its own reasoning against the latest medical literature.
+## 🛠️ Core Methodology & Frameworks
+Modern clinical autoresearchers leverage specialized orchestration libraries to manage stateful, multi-step reasoning:
 
-### 2. From "Black-Box" to "Causal Auditing" ([[sontag_lab_mit]])
-The "credibility crisis" of clinical RL (learning biased policies from EHRs) has been addressed by [[Causal Falsification]] (Mozannar & Sontag, 2025). Instead of trusting an opaque policy, researchers can now use small-scale RCT data to audit and reject models that have learned "shortcuts" or administrative biases.
+- **LangGraph (LangChain):** Used for building cyclic, stateful agent graphs. Its core innovation for medical research is the **Human Interrupt** pattern, allowing for clinical sign-off before an agent commits to a hypothesis or experimental design.
+- **AutoGen (Microsoft):** Implements multi-agent "swarms" where specialized personas (e.g., `Literature_Agent`, `Statistician_Agent`, `Clinical_Translator`) collaborate.
+- **Self-RAG (Self-Reflective Retrieval-Augmented Generation):** Agents now "grade" their own generations for hallucinations and document grounding, using reflective edges to retry queries if clinical evidence is insufficient.
 
-### 3. From "Symptom-Based" to "Circuit-Based" ([[stanford_pmhw]])
-Psychiatry is undergoing a biological revolution led by the [[Circuit Biotypes]] model (Williams, 2024). By identifying six primary brain circuits that drive mental health symptoms, ML is now capable of **Precision Treatment Matching**, predicting which patients will respond to specific pharmacotherapies or TMS based on their fMRI-derived biotype.
+## 📊 Trends in Medical Autoresearch (2026)
+1.  **Synthetic Patient Cohorts:** Using GenAI to create HIPAA-compliant synthetic data for initial hypothesis testing, bypassing privacy bottlenecks.
+2.  **Autonomous Hypothesis Generation:** Agents analyze "white space" in PubMed/arXiv to propose novel causal links (e.g., cross-domain oculomics and psychiatric risk).
+3.  **Verifiable Grounding:** Every claim in an AI-generated literature review is now linked via DOI-verified citations, with "Verification Nodes" checking the math in statistical reports.
 
-### 4. From "Niche AI" to "Global Oculomics" ([[ucl_moorfields]])
-Foundation models like [[Ophthalmic Foundation Models]] (2023) have evolved into **RETFound-Green** (2025). This move toward "Green AI" and on-device smartphone optimization ensures that the benefits of [[Oculomics]] (detecting systemic disease via the eye) are accessible in low-resource settings, bridging the global health equity gap.
+## 🩺 Clinical Relevance & Safety
+The primary clinical challenge in 2026 is **Accountable Autonomy**. 
+- **HITL Gates:** Frameworks like LangGraph ensure that AI agents cannot publish or "prescribe" without an MD/PhD audit.
+- **Automation Bias Mitigation:** Current research (Doshi-Velez et al.) focuses on "Learning to Defer," where the agent explicitly identifies when its internal uncertainty is too high for autonomous action.
 
-## 🔬 Synthesis Table: Core Breakthroughs
+## 🔬 Critical Review (Antagonic Perspective)
+While autoresearchers accelerate the "hit-to-lead" phase in drug discovery, they risk **Innovation Stagnation** by over-relying on existing literature (The Local Trap). If agents only hypothesize within the bounds of what is already published, they may miss "Black Swan" breakthroughs that require non-linear, intuitive leaps.
 
-| Year | Technology | Lab | Primary Impact |
-| :--- | :--- | :--- | :--- |
-| 2024 | **Circuit Biotypes** | Stanford | Biological taxonomy for precision psychiatry. |
-| 2024 | **AMIE** | DeepMind | Human-level diagnostic reasoning in simulated consultations. |
-| 2024 | **Med-Gemini** | DeepMind | Natively multimodal AI with autonomous web-search grounding. |
-| 2025 | **Causal Falsification** | MIT | Statistical auditing to reject biased clinical policies. |
-| 2025 | **RETFound-Green** | UCL | Smartphone-optimized oculomics for global health. |
-| 2026 | **N-of-1 SDEs** | Harvard | Continuous-time causal monitoring for personalized mental health. |
-
-## ⚠️ Critical Limitations & Paradoxes
-
-### 1. The Generalizability Paradox
-While [[Med-Gemini]] and other foundation models claim to "generalize across clinical domains," they must still contend with the **Myth of Generalizability** [[Futoma et al. (2020)](../../sources/doshi-velez/futoma_2020_myth_of_generalisability.md)]. Modern scale may reduce, but does not eliminate, the "Local Trap"—where models learn hospital-specific administrative shortcuts. Grounding via **Uncertainty-Guided Search** is a primary mitigation strategy, but its effectiveness in low-resource settings remains unproven.
-
-### 2. The Agency vs. Fidelity Gap
-Agentic systems like [[AMIE]] introduce a "reasoning" layer that is often decoupled from the underlying **Algorithm Fidelity** [[Trella et al. (2024)](../../sources/doshi-velez/trella_2024_online_rl_fidelity.md)]. If an agent's multi-step dialogue diverges from safe clinical policies (the "Deadly Triad" risk), the resulting diagnostic advice may be articulate but fundamentally unsafe.
-
-### 3. The Data Bottleneck in Causal Auditing
-[[Causal Falsification]] is the current gold standard for policy safety, but it faces a severe **Data Bottleneck**. It requires high-fidelity, often RCT-derived data to audit observational policies. In rare psychiatric conditions or data-sparse environments, the "Ground Truth" needed to falsify a biased model may simply not exist.
-
-## 🩺 Conclusion
-The 2026 clinical AI landscape is characterized by **Grounding, Agency, and Biological Mechanism**. The "House of Cards" era of unverified observational models is being replaced by a "Foundation of Trust" built on causal auditing and multimodal reasoning agents.
+## 🔗 Discovery & Next Steps
+- **Implementation:** Explore `ValidationNode` in LangGraph for auditing Pydantic schemas of clinical data.
+- **Entity Update:** Integrate [DeepMind Clinical AI](../entities/deepmind_clinical_ai.md) (AMIE) and [Sontag Lab](../entities/sontag_lab_mit.md) (Causal Falsification) as the benchmark standards for these frameworks.
