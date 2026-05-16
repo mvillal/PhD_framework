@@ -1,4 +1,3 @@
-from typing import Optional
 from src.domain.experiment.entities import Run
 from src.application.ports.interfaces import RunRepositoryPort
 
@@ -10,7 +9,7 @@ class InMemoryRunRepository(RunRepositoryPort):
     def save(self, run: Run) -> None:
         self._runs[run.run_id] = run
 
-    def get(self, run_id: str) -> Optional[Run]:
+    def get(self, run_id: str) -> Run | None:
         return self._runs.get(run_id)
 
     def list_by_experiment(self, experiment_id: str) -> list[Run]:

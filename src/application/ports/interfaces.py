@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from typing import Optional
 from src.domain.experiment.entities import Run, Metric, Parameter, Step, Artifact
 
 
@@ -42,7 +41,7 @@ class RunRepositoryPort(ABC):
         pass
 
     @abstractmethod
-    def get(self, run_id: str) -> Optional[Run]:
+    def get(self, run_id: str) -> Run | None:
         """Retrieve a run entity by its ID."""
         pass
 
