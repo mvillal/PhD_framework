@@ -8,6 +8,7 @@ from markitdown import MarkItDown
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 PAPERS_DIR = PROJECT_ROOT / "papers" / "sources"
 
+
 def process_pdf(pdf_path: str, output_path: str = None):
     """
     Converts a PDF file to Markdown using MarkItDown.
@@ -16,7 +17,7 @@ def process_pdf(pdf_path: str, output_path: str = None):
     try:
         result = md.convert(pdf_path)
         content = result.text_content
-        
+
         if output_path:
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(content)
@@ -24,20 +25,23 @@ def process_pdf(pdf_path: str, output_path: str = None):
         else:
             # Print to stdout if no output path provided
             print(content)
-            
+
     except Exception as e:
         print(f"Error processing PDF {pdf_path}: {e}")
         sys.exit(1)
+
 
 def update_paper(file_path: Path, lab_name: str):
     """
     Updates a paper's markdown file with metadata and a standardized template.
     """
-    with open(file_path, 'r', encoding='utf-8') as f:
+    with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
 
     # Extract info
-    title_match = re.search(r'^# (.*?)(?:\s\((.*?),\s(\d{4})\))?$', content, re.MULTILINE)
+    title_match = re.search(
+        r"^# (.*?)(?:\s\((.*?),\s(\d{4})\))?$", content, re.MULTILINE
+    )
     if title_match:
         full_title = title_match.group(1)
         author_str = title_match.group(2) if title_match.group(2) else "TBD"
@@ -50,7 +54,7 @@ def update_paper(file_path: Path, lab_name: str):
     # Try to extract authors and year from filename if not in title
     if year == "TBD":
         filename = file_path.name
-        parts = filename.split('_')
+        parts = filename.split("_")
         if len(parts) >= 2:
             author_from_file = parts[0].capitalize()
             year_from_file = parts[1]
@@ -61,39 +65,39 @@ def update_paper(file_path: Path, lab_name: str):
     # Extract sections
     sections = {}
     current_section = None
-    for line in content.split('\n'):
-        if line.startswith('## '):
+    for line in content.split("\n"):
+        if line.startswith("## "):
             current_section = line[3:].strip()
             sections[current_section] = []
         elif current_section:
             sections[current_section].append(line)
 
     for k in sections:
-        sections[k] = '\n'.join(sections[k]).strip()
+        sections[k] = "\n".join(sections[k]).strip()
 
     # Map sections to new template
-    summary = sections.get('Summary', 'TBD')
-    methodology = sections.get('Methodology', 'TBD')
+    summary = sections.get("Summary", "TBD")
+    methodology = sections.get("Methodology", "TBD")
     # Merge Dataset, Datasets, and some of Methodology if needed
-    dataset_info = sections.get('Dataset', sections.get('Datasets', 'TBD'))
-    findings = sections.get('Findings', sections.get('Key Findings', 'TBD'))
-    relevance = sections.get('Relevance', 'TBD')
-    
+    dataset_info = sections.get("Dataset", sections.get("Datasets", "TBD"))
+    findings = sections.get("Findings", sections.get("Key Findings", "TBD"))
+    relevance = sections.get("Relevance", "TBD")
+
     # Specific mappings for some papers
-    if 'Core Philosophy' in sections:
-        relevance += '\n\n' + sections['Core Philosophy']
-    if 'Expert Ground Truth' in sections:
-        methodology += '\n\nExpert Ground Truth: ' + sections['Expert Ground Truth']
-    if 'XAI Types Tested' in sections:
-        methodology += '\n\nXAI Types: ' + sections['XAI Types Tested']
-    if 'Metrics' in sections:
-        dataset_info += '\n\nMetrics: ' + sections['Metrics']
-    if 'Models' in sections:
-        methodology += '\n\nModels: ' + sections['Models']
+    if "Core Philosophy" in sections:
+        relevance += "\n\n" + sections["Core Philosophy"]
+    if "Expert Ground Truth" in sections:
+        methodology += "\n\nExpert Ground Truth: " + sections["Expert Ground Truth"]
+    if "XAI Types Tested" in sections:
+        methodology += "\n\nXAI Types: " + sections["XAI Types Tested"]
+    if "Metrics" in sections:
+        dataset_info += "\n\nMetrics: " + sections["Metrics"]
+    if "Models" in sections:
+        methodology += "\n\nModels: " + sections["Models"]
 
     # YAML Metadata
     authors_list = [author_str] if author_str != "TBD" else []
-    
+
     # Heuristic for authors in some cases
     heuristic_authors = {
         "Agrawal et al.": ["Agrawal et al."],
@@ -111,7 +115,7 @@ def update_paper(file_path: Path, lab_name: str):
         "Jiang et al.": ["Jiang et al."],
         "Lu et al.": ["Lu et al."],
         "Parbhoo et al.": ["Parbhoo et al."],
-        "Trella et al.": ["Trella et al."]
+        "Trella et al.": ["Trella et al."],
     }
 
     for key, val in heuristic_authors.items():
@@ -127,7 +131,7 @@ def update_paper(file_path: Path, lab_name: str):
         venue = "Sensors (2021)"
     if "Scientific Reports" in content:
         venue = "Scientific Reports (2025)"
-    
+
     new_content = f"""---
 title: "{full_title}"
 authors: {authors_list}
@@ -163,8 +167,9 @@ TBD
 ## 🔗 Discovery & Next Steps
 TBD
 """
-    with open(file_path, 'w', encoding='utf-8') as f:
+    with open(file_path, "w", encoding="utf-8") as f:
         f.write(new_content)
+
 
 def run_update_papers():
     # Lab Mapping
@@ -175,7 +180,7 @@ def run_update_papers():
         "mahajan_2023_molecular_aging_proteomics.md": "Stanford Mahajan Lab",
         "mohammadi_2026_uwf_inflammation_detection.md": "Byers Eye Institute, Stanford University",
         "umer_2025_toxoplasmosis_activity_yolo.md": "National Center of Artificial Intelligence (NCAI), Pakistan",
-        "zhou_2023_retfound_foundation_model.md": "UCL / Moorfields Eye Hospital (UK)"
+        "zhou_2023_retfound_foundation_model.md": "UCL / Moorfields Eye Hospital (UK)",
     }
 
     print("Starting paper update process...")
@@ -187,7 +192,7 @@ def run_update_papers():
         print(f"Processing Doshi-Velez lab papers in {dv_dir}...")
         count = 0
         for f in dv_dir.iterdir():
-            if f.suffix == '.md' and f.name != 'LAB_KNOWLEDGE_BASE.md':
+            if f.suffix == ".md" and f.name != "LAB_KNOWLEDGE_BASE.md":
                 update_paper(f, doshi_velez_lab)
                 count += 1
         print(f"Updated {count} papers for Doshi-Velez lab.")
@@ -209,17 +214,22 @@ def run_update_papers():
 
     print("Paper update process completed.")
 
+
 def main():
     parser = argparse.ArgumentParser(description="PhD Framework Utilities")
     subparsers = parser.add_subparsers(dest="command", help="Available commands")
 
     # Command: update-papers
-    subparsers.add_parser("update-papers", help="Update paper source metadata and template")
+    subparsers.add_parser(
+        "update-papers", help="Update paper source metadata and template"
+    )
 
     # Command: process-pdf
     pdf_parser = subparsers.add_parser("process-pdf", help="Convert PDF to Markdown")
     pdf_parser.add_argument("pdf_path", help="Path to the PDF file")
-    pdf_parser.add_argument("--output", "-o", help="Optional output path for Markdown file")
+    pdf_parser.add_argument(
+        "--output", "-o", help="Optional output path for Markdown file"
+    )
 
     args = parser.parse_args()
 
@@ -229,6 +239,7 @@ def main():
         process_pdf(args.pdf_path, args.output)
     else:
         parser.print_help()
+
 
 if __name__ == "__main__":
     main()

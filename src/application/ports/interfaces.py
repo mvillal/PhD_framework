@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from typing import Optional, List
 from src.domain.experiment.entities import Run, Metric, Parameter, Step, Artifact
 
+
 class ExperimentTrackerPort(ABC):
     @abstractmethod
     def start_run(self, run: Run) -> None:
@@ -32,6 +33,7 @@ class ExperimentTrackerPort(ABC):
     def end_run(self, run_id: str, status: str) -> None:
         """Finalize a run in the tracking backend."""
         pass
+
 
 class RunRepositoryPort(ABC):
     @abstractmethod

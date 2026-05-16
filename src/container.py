@@ -1,17 +1,19 @@
 from src.infrastructure.repositories.in_memory_repo import InMemoryRunRepository
 from src.infrastructure.adapters.mlflow_tracker import MLflowTrackerAdapter
 from src.application.use_cases.tracker_use_cases import (
-    StartRunUseCase, 
-    LogMetricUseCase, 
+    StartRunUseCase,
+    LogMetricUseCase,
     CompleteRunUseCase,
     LogAgentStepUseCase,
-    LogArtifactUseCase
+    LogArtifactUseCase,
 )
+
 
 class ExperimentContainer:
     """
     A simple Dependency Injection container to bootstrap the tracking framework.
     """
+
     def __init__(self, tracking_uri: str = "sqlite:///mlflow.db"):
         # Infrastructure
         self.repository = InMemoryRunRepository()
@@ -24,6 +26,7 @@ class ExperimentContainer:
         self.log_step = LogAgentStepUseCase(self.tracker, self.repository)
         self.log_artifact = LogArtifactUseCase(self.tracker, self.repository)
         self.complete_run = CompleteRunUseCase(self.tracker, self.repository)
+
 
 # Global container instance
 container = ExperimentContainer()

@@ -2,18 +2,19 @@ from datetime import datetime
 from uuid import uuid4
 from src.domain.experiment.entities import Run, Metric, Step, Artifact, RunStatus
 
+
 class RunMother:
     @staticmethod
     def create(
         experiment_id: str = "default-exp",
         run_name: str = "default-run",
-        status: RunStatus = RunStatus.PENDING
+        status: RunStatus = RunStatus.PENDING,
     ) -> Run:
         return Run(
             experiment_id=experiment_id,
             run_id=str(uuid4()),
             name=run_name,
-            status=status
+            status=status,
         )
 
     @staticmethod
@@ -23,15 +24,20 @@ class RunMother:
         run.end_time = datetime.now()
         return run
 
+
 class MetricMother:
     @staticmethod
     def create(key: str = "loss", value: float = 0.5, step: int = 0) -> Metric:
         return Metric(key=key, value=value, step=step)
 
+
 class StepMother:
     @staticmethod
-    def create(name: str = "Research", explanation: str = "Default explanation") -> Step:
+    def create(
+        name: str = "Research", explanation: str = "Default explanation"
+    ) -> Step:
         return Step(name=name, explanation=explanation)
+
 
 class ArtifactMother:
     @staticmethod

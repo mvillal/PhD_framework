@@ -3,14 +3,15 @@ from datetime import datetime
 from src.domain.experiment.entities import Run, Metric, Parameter, Step, Artifact
 from src.application.ports.interfaces import ExperimentTrackerPort
 
+
 class MLflowTrackerAdapter(ExperimentTrackerPort):
     def __init__(self, tracking_uri: str = "http://localhost:5000"):
         mlflow.set_tracking_uri(tracking_uri)
 
     def start_run(self, run: Run) -> None:
         mlflow.set_experiment(run.experiment_id)
-        # We start the mlflow run. 
-        # Note: We don't use mlflow's automatic run_id generation for our entity run_id 
+        # We start the mlflow run.
+        # Note: We don't use mlflow's automatic run_id generation for our entity run_id
         # to keep domain pure, but we can tag it.
         mlflow.start_run(run_name=run.name)
         mlflow.set_tag("domain_run_id", run.run_id)

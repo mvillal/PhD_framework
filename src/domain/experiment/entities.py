@@ -4,11 +4,13 @@ from enum import Enum
 from typing import Dict, List, Optional
 from uuid import uuid4
 
+
 class RunStatus(Enum):
     PENDING = "pending"
     RUNNING = "running"
     COMPLETED = "completed"
     FAILED = "failed"
+
 
 @dataclass(frozen=True)
 class Metric:
@@ -17,10 +19,12 @@ class Metric:
     timestamp: datetime = field(default_factory=datetime.now)
     step: Optional[int] = None
 
+
 @dataclass(frozen=True)
 class Parameter:
     key: str
     value: str
+
 
 @dataclass(frozen=True)
 class Step:
@@ -29,11 +33,13 @@ class Step:
     timestamp: datetime = field(default_factory=datetime.now)
     metadata: Dict[str, str] = field(default_factory=dict)
 
+
 @dataclass(frozen=True)
 class Artifact:
     name: str
     content: str
     path: str
+
 
 @dataclass
 class Run:
@@ -69,6 +75,7 @@ class Run:
         artifact = Artifact(name=name, content=content, path=path)
         self.artifacts.append(artifact)
         return artifact
+
 
 @dataclass(frozen=True)
 class Experiment:
