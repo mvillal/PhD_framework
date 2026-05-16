@@ -111,7 +111,24 @@ The framework adopts state-of-the-art autonomous discovery patterns:
 - **RLVR Verification (Verifiable Rewards):** Before finalizing any clinical model, agents must identify a "Verifiable Reward" (e.g., code correctness, mathematical proof, or historical alignment) to ground the reasoning trace.
 - **ContraCrow Logic:** Dedicated audit for finding "Gaps of Ignorance" (contradictions across thousands of sources).
 
-## 6. From Paper to Implementation
+## 6. Publication Standards & Target Venues
+
+To ensure high-impact dissemination, the framework supports automated adaptation to specific target venues and reporting standards.
+
+### 🏛️ Supported Venues
+- **NeurIPS (Machine Learning):** Focuses on technical novelty, mathematical rigor, and the mandatory NeurIPS Checklist.
+- **The Lancet Psychiatry (Clinical):** Focuses on clinical utility, safety, and the "Research in Context" panel.
+- **Nature Medicine (Translational):** Focuses on bridging technical innovation with significant clinical impact.
+
+### 📋 International Reporting Standards
+The `scientific-writer` agent enforces compliance with the following AI-specific reporting extensions:
+- **CONSORT-AI / SPIRIT-AI:** For clinical trials and protocols.
+- **TRIPOD-AI:** For prediction model development and validation.
+- **STARD-AI:** For diagnostic accuracy studies.
+
+Detailed guidelines for each are maintained in `papers/guides/publications/`.
+
+## 7. From Paper to Implementation
 1.  **Verification:** Use the `antagonic-researcher` to find critiques of the paper.
 2.  **Clinical & Ethical Review:** 
     *   The **Clinical Translator** evaluates the model for safety (e.g., Causal Falsification) and clinical actionability.

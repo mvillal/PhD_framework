@@ -3,6 +3,7 @@ name: Trigger ml-rust Sync
 on:
   push:
     branches:
+      - master
       - main
     paths:
       - '.gemini/agents/**'
