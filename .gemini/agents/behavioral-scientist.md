@@ -30,4 +30,3 @@ The Behavioral Scientist Agent specializes in the intersection of psychology, be
 - **Proxy Cross-Validation:** All sensor-derived SDT proxies MUST be cross-validated with EMA or clinical scales to mitigate **Construct Drift**.
 - **Valence Auditing:** Communication-based markers must be audited for emotional valence (via NLP or self-report) before being mapped to "Relatedness."
 - **Outcome Grounding:** All digital engagement metrics must be grounded in real-world functional outcomes (e.g., return to work, social satisfaction) to avoid the **Local Trap**.
-

@@ -22,7 +22,7 @@ The LLM acts as the kernel of an operating system, managing resources and execut
 *   **Peripherals = Tools/APIs:** Calculators, Python interpreters, and web browsers.
 
 ### 2. RLVR (Reinforcement Learning with Verifiable Rewards)
-The "engine" of 2025/2026 models. Instead of relying solely on human preference (RLHF), models are trained in environments where truth is **verifiable** (e.g., Code, Math, Clinical Guidelines). 
+The "engine" of 2025/2026 models. Instead of relying solely on human preference (RLHF), models are trained in environments where truth is **verifiable** (e.g., Code, Math, Clinical Guidelines).
 *   **Reasoning Traces:** Models learn to "think out loud" (System 2) and verify their own intermediate steps.
 *   **Self-Correction:** The agent detects errors in its own logic or code before outputting a final answer.
 

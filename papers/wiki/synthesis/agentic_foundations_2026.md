@@ -23,7 +23,7 @@ Modern clinical autoresearchers leverage specialized orchestration libraries to 
 3.  **Verifiable Grounding:** Every claim in an AI-generated literature review is now linked via DOI-verified citations, with "Verification Nodes" checking the math in statistical reports.
 
 ## 🩺 Clinical Relevance & Safety
-The primary clinical challenge in 2026 is **Accountable Autonomy**. 
+The primary clinical challenge in 2026 is **Accountable Autonomy**.
 - **HITL Gates:** Frameworks like LangGraph ensure that AI agents cannot publish or "prescribe" without an MD/PhD audit.
 - **Automation Bias Mitigation:** Current research (Doshi-Velez et al.) focuses on "Learning to Defer," where the agent explicitly identifies when its internal uncertainty is too high for autonomous action.
 

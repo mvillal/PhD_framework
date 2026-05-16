@@ -36,11 +36,11 @@ def setup_classical_finetune(model: nn.Module):
     # 1. Freeze entire backbone
     for param in model.parameters():
         param.requires_grad = False
-    
+
     # 2. Unfreeze specific target layers (e.g., last 2 blocks)
     for param in model.transformer.layers[-2:].parameters():
         param.requires_grad = True
-        
+
     # 3. Use Discriminative Learning Rates
     optimizer = torch.optim.Adam([
         {'params': model.head.parameters(), 'lr': 1e-3},
@@ -58,14 +58,14 @@ import torch.nn.functional as F
 def distillation_loss(student_logits, teacher_logits, labels, T=2.0, alpha=0.5):
     # Standard Cross Entropy
     hard_loss = F.cross_entropy(student_logits, labels)
-    
+
     # "Soft" Distillation Loss (KL Divergence)
     soft_loss = F.kl_div(
         F.log_softmax(student_logits / T, dim=1),
         F.softmax(teacher_logits / T, dim=1),
         reduction='batchmean'
     ) * (T * T)
-    
+
     return alpha * hard_loss + (1 - alpha) * soft_loss
 ```
 

@@ -17,7 +17,7 @@ This seminal 2024 study identifies six distinct brain-circuit biotypes for depre
 
 ## 🛠️ Core Methodology
 - **ML Clustering:** Unsupervised machine learning on functional MRI data from thousands of participants to identify stable circuit dysfunction patterns.
-- **The Six Biotypes:** 
+- **The Six Biotypes:**
   1. Rumination (Default Mode)
   2. Anxious Apprehension (Salience)
   3. Inattention (Dorsal Attention)

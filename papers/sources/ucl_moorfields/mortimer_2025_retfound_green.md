@@ -34,7 +34,7 @@ Engelmann et al. (2025) introduce **RETFound-Green**, a sustainable and computat
 The development of RETFound-Green is critical for **Global Health Equity**. It enables hospitals in LMICs (Low-and-Middle-Income Countries) to build their own local models for endemic diseases without the need for massive data centers. It also aligns with the vision of **Sustainable Healthcare** promoted by leaders like Dr. Frances Mortimer.
 
 ## 🔬 Critical Review (Antagonic Perspective)
-While the "Green" model is efficient, its heavy reliance on high-level token reconstruction might cause it to miss extremely subtle, low-level pixel-intensity anomalies that could be relevant for rare "Oculomics" biomarkers. 
+While the "Green" model is efficient, its heavy reliance on high-level token reconstruction might cause it to miss extremely subtle, low-level pixel-intensity anomalies that could be relevant for rare "Oculomics" biomarkers.
 
 ## 🔗 Discovery & Next Steps
 - **Implementation:** Explore `sam2.build_sam2` patterns (fetched via Context7) for mobile-ready ophthalmic segmentation tasks.
