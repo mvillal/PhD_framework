@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Optional, List
+from typing import Optional
 from src.domain.experiment.entities import Run, Metric, Parameter, Step, Artifact
 
 
@@ -47,6 +47,6 @@ class RunRepositoryPort(ABC):
         pass
 
     @abstractmethod
-    def list_by_experiment(self, experiment_id: str) -> List[Run]:
+    def list_by_experiment(self, experiment_id: str) -> list[Run]:
         """List all runs for a specific experiment."""
         pass

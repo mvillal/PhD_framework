@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Optional
 from uuid import uuid4
 
 
@@ -31,7 +31,7 @@ class Step:
     name: str
     explanation: str
     timestamp: datetime = field(default_factory=datetime.now)
-    metadata: Dict[str, str] = field(default_factory=dict)
+    metadata: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -49,10 +49,10 @@ class Run:
     status: RunStatus = RunStatus.PENDING
     start_time: Optional[datetime] = None
     end_time: Optional[datetime] = None
-    parameters: Dict[str, str] = field(default_factory=dict)
-    metrics: List[Metric] = field(default_factory=list)
-    steps: List[Step] = field(default_factory=list)
-    artifacts: List[Artifact] = field(default_factory=list)
+    parameters: dict[str, str] = field(default_factory=dict)
+    metrics: list[Metric] = field(default_factory=list)
+    steps: list[Step] = field(default_factory=list)
+    artifacts: list[Artifact] = field(default_factory=list)
 
     def start(self):
         self.status = RunStatus.RUNNING
@@ -66,7 +66,7 @@ class Run:
         self.status = RunStatus.FAILED
         self.end_time = datetime.now()
 
-    def add_step(self, name: str, explanation: str, metadata: Dict[str, str] = None):
+    def add_step(self, name: str, explanation: str, metadata: dict[str, str] = None):
         step = Step(name=name, explanation=explanation, metadata=metadata or {})
         self.steps.append(step)
         return step
