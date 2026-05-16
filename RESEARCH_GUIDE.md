@@ -136,3 +136,4 @@ Detailed guidelines for each are maintained in `papers/guides/publications/`.
 3.  **Feasibility:** Check if the paper provides a repository or enough technical detail for the `coding-tasks` agent.
 4.  **Orchestration:** The **Experiment Orchestrator** defines the experimental pipeline, ensuring tracking and reproducibility.
 5.  **Drafting:** Create an entry in `src/` for experimental implementation if the methodology is actionable.
+
