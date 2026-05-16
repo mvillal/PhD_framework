@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - main
+      - feat/phd-framework-2026-core-upgrade
     paths:
       - '.gemini/agents/**'
       - '.gemini/skills/**'
