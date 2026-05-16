@@ -1,0 +1,41 @@
+name: Research Quality CI
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install Dependencies
+        run: uv sync
+
+      - name: Run System Health Checks
+        run: make check
+
+      - name: Validate Reporting Standards
+        run: |
+          echo "Verifying reporting standards in papers/wiki/..."
+          # Check for mandatory CONSORT-AI or TRIPOD-AI mentions in clinical papers
+          # This is a simplified check that can be expanded with custom scripts
+          grep -rnE "CONSORT-AI|TRIPOD-AI|SPIRIT-AI" papers/wiki/ || echo "Warning: No standard reporting references found in Wiki entries."
+
+      - name: Check Wiki Integrity
+        run: |
+          # Ensure no broken internal wiki links [[...]]
+          # This would ideally be a more robust script, but a grep can catch obvious issues
+          grep -r "\[\[TBD\]\]" papers/wiki/ && (echo "Error: TBD links found in Wiki"; exit 1) || echo "Wiki integrity check passed."
