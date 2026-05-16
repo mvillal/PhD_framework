@@ -3,12 +3,14 @@ name: Trigger ml-rust Sync
 on:
   push:
     branches:
+      - master
       - main
     paths:
       - '.gemini/agents/**'
       - '.gemini/skills/**'
       - 'RESEARCH_GUIDE.md'
       - 'KNOWLEDGE_BASE.md'
+  workflow_dispatch: # Allow manual trigger
 
 jobs:
   dispatch:
