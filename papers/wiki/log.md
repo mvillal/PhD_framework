@@ -1,6 +1,22 @@
 # Research Wiki Log
 
 This is a chronological, append-only record of all research operations (ingests, queries, linting) performed within the PhD Framework.
+
+## [2026-05-11] Statistical Review | Clinical DLP Framework & SAP
+- Refined the experimental design for the **Clinical DLP (Data Loss Prevention) Framework**.
+- Authored **Statistical Analysis Plan (SAP)** focusing on **MNAR Causal Assumptions**, **Bayesian Credible Intervals**, and **Causal Transportability**.
+- Added path $Y_t^* \rightarrow M_t$ to the missingness DAG to account for behavioral shifts in paranoid/depressive episodes.
+- Defined **Synthetic Reliability Score (SRS)** based on Bayesian posterior predictive checks for synthetic cohort validation.
+- Updated Wiki Index with the new SAP synthesis page.
+
+## [2026-05-11] Project Initiation | Synthetic Cohorts & Data Loss Prevention
+- Initialized new research project: **Clinical Framework for Synthetic Cohorts and Data Loss Prevention in Digital Phenotyping**.
+- Focus: Addressing **Informative Missingness** (MNAR) in longitudinal smartphone data and creating privacy-preserving **Synthetic Clinical Cohorts**.
+- Ingested core methodology from Cai et al. (2026) regarding **N-of-1 Causal Estimands** and SSMimpute.
+- Cross-referenced with Nock et al. (2026) regarding **Digital Smoke Detectors** and the risk of "silent" devices during high-risk periods.
+- Created Concept pages: [[informative_missingness]], [[data_loss_prevention_clinical]], and [[synthetic_clinical_cohorts]].
+- Updated Wiki Index and linked new concepts to [[onnela_lab]] and [[torous_lab_digital_psychiatry]].
+
 ## [2026-05-10] ingest | Source Backlog Clearance | 25 Papers Refined
 - Successfully executed a multi-batch refinement phase, populating all "TBD" source files in the repository.
 - **Clinical RL & Sequential Planning:** Populated Rathnam (2024), Zhang (2021), Trella (2024), Huyuk (2025), and Gottesman (2019).

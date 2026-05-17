@@ -128,11 +128,52 @@ The `scientific-writer` agent enforces compliance with the following AI-specific
 
 Detailed guidelines for each are maintained in `papers/guides/publications/`.
 
-## 7. From Paper to Implementation
-1.  **Verification:** Use the `antagonic-researcher` to find critiques of the paper.
-2.  **Clinical & Ethical Review:**
-    *   The **Clinical Translator** evaluates the model for safety (e.g., Causal Falsification) and clinical actionability.
-    *   The **Data Ethicist** reviews the proposed data usage for privacy risks and algorithmic fairness.
-3.  **Feasibility:** Check if the paper provides a repository or enough technical detail for the `coding-tasks` agent.
-4.  **Orchestration:** The **Experiment Orchestrator** defines the experimental pipeline, ensuring tracking and reproducibility.
-5.  **Drafting:** Create an entry in `src/` for experimental implementation if the methodology is actionable.
+## 8. Advanced Research Architectures and Staging
+
+To manage high-impact, journal-tier research projects, agents must adhere to the following advanced architectural patterns. These patterns ensure that the PhD framework remains scalable and that individual research projects are self-contained and reproducible.
+
+### 📂 The Registry Pattern (Project Siloing)
+Multi-paper research environments must use the **Registry Pattern** to prevent artifact pollution. Each major research project or paper must be isolated within its own registry.
+- **Location:** `papers/registries/[project_slug]/`
+- **Mandatory Silos:**
+    - `manuscript/`: Self-contained LaTeX/Markdown sources. Sectioned for high-volume bypass (Modular LaTeX).
+    - `data/`: Project-specific simulation outputs, synthetic cohorts, or ingested datasets.
+    - `results/`: CSV metrics, JSON certification logs, and statistical significance reports.
+    - `plots/`: High-resolution, publication-quality figures with reproducible scripts.
+- **Enforcement:** No root-level directories (`data/`, `results/`, `plots/`) should persist after the strategy phase. All project-specific assets must be migrated to the registry.
+
+### 📝 Modular LaTeX Workflow (Context-Efficient Writing)
+For manuscripts exceeding 10 pages, agents must use a **Modular LaTeX Structure** to ensure technical depth without data loss due to context limits.
+- **Architecture:** A master `.tex` file (Preamble + Abstract) that incorporates sections via `\input{section_file}`.
+- **Sectioning:** `intro.tex`, `related_work.tex`, `methods.tex`, `results.tex`, `discussion.tex`.
+- **Benefit:** Allows the `scientific-writer` to perform surgical, high-volume expansions on specific sections (e.g., expanding a proof in `methods.tex`) without truncating the rest of the paper.
+
+### 🛠️ The Hardening Loop (Proving Theoretical Advantage)
+Scientific rigor is established not by reporting best-case results on easy data, but by **failure-mode analysis**.
+- **The Loop:** Initial Benchmarking -> Identify 'Baseline Cheat' (e.g., simple interpolation on smooth data) -> **Harden Simulation** (increase persistence, non-stationarity, MNAR intensity) -> **Architecture Upgrade** -> Verify Causal Advantage.
+- **Goal:** Deliberately increase simulation difficulty until standard state-of-the-art (SOTA) baselines collapse, then prove the theoretical resilience of the proposed framework.
+
+### ⚖️ Socio-Technical Calibration (Distributive Justice)
+Clinical models must distinguish between **Pathological Signals** and **Socio-Technical Artifacts**.
+- **Requirement:** Simulations must include technical covariates (battery age, device quality, connectivity jitter).
+- **Audit:** The `data-ethicist` must verify that the model decouples technical dropout from clinical crisis to prevent "Digital Redlining" or algorithmic bias against low-resource populations.
+
+### 📉 Spatiotemporal Error Distribution (SED)
+Research must move beyond global aggregate metrics (AUROC/RMSE).
+- **Standard:** Use **Residual Heatmaps** centered on clinical crisis events ($t=0$).
+- **Metric:** Quantify the **Informational Causal Gap (ICG)**—the temporal horizon $\tau^*$ where state recovery becomes non-identifiable.
+
+## 9. End-to-End Research Orchestration
+
+The **Research Orchestrator Agent** is the primary entry point for complex, end-to-end scientific investigations. It is responsible for transitioning a research question from initial discovery to a certified research registry.
+
+### 🔄 The Orchestration Lifecycle
+1.  **Gap Discovery:** Invokes `literature-researcher` and `expert-statistician` to identify a specific failure mode in the current literature (e.g., "The Digital Vacuum Paradox").
+2.  **Simulation Archeology:** Invokes `coding-tasks` to build a modular simulator (SDE-based) that incorporates the identified failure mechanism (MNAR).
+3.  **The Hardening Phase:** Executes the **Hardening Loop** to deliberately break standard baselines and justify the need for a new framework.
+4.  **Mathematical Certification:** Formalizes the mathematical proofs and transition densities via the `expert-statistician`.
+5.  **Registry Assembly:** Consolidates all artifacts into the `papers/registries/[project_slug]/` structure.
+6.  **Modular Synthesis:** Exports a 12-15 page journal-ready manuscript using the **Modular LaTeX Workflow**.
+
+### 📝 Research Readiness Criteria
+A project is deemed "Research Ready" when it has a confirmed theoretical advantage over 3+ hardened baselines and is documented in a modular LaTeX hub with at least 30+ high-impact references.

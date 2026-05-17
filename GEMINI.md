@@ -16,6 +16,7 @@ This repository is dedicated to the research and development of Machine Learning
 
 ## Specialized Sub-Agents & Skills
 
+- **Research Orchestrator Agent:** The primary brain of the framework; manages the end-to-end scientific lifecycle from Gap Discovery to Modular Manuscript Export.
 - **Literature Researcher:** Focuses on finding, reading, and summarizing relevant academic papers.
 - **Wiki Maintainer Agent:** (Formerly Literature Cleaner) Responsible for compiling raw sources into the `papers/wiki/` structure, ensuring interlinking, and tracking research evolution.
 - **Compression Agent:** Distills complex information into key takeaways and core insights.

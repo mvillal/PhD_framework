@@ -6,15 +6,33 @@ A systematic research and development environment dedicated to Machine Learning 
 - **Systematic Literature Review:** Automated discovery and summarization of high-impact research (e.g., Doshi-Velez lab, DtAK).
 - **Knowledge Base Construction:** Building a domain-layered, lab-centric knowledge base for training LLMs and informing experiments.
 - **Causal & Interpretable ML:** Focusing on Reinforcement Learning (RL), Structural Causal Models (SCMs), and Explainable AI (XAI) in clinical settings.
-- **Clinical Validation:** Bridging the gap between technical metrics (AUROC, OPE) and clinical utility (e.g., suicide risk forecasting, antidepressant selection).
+- **Scientific Certification:** Delivering "Nature-tier" research articles backed by rigorous mathematical proofs and hardened clinical simulations.
+
+## 🤖 The Research Orchestrator (Primary Hub)
+The **Research Orchestrator** is the central brain of the framework. It manages the end-to-end scientific lifecycle, from initial "Gap Discovery" to the export of certified, 12+ page journal manuscripts.
+
+**To start a new research project:**
+```bash
+"Invoke the Research Orchestrator to perform Stage 1 Gap Discovery on [Research Topic]."
+```
+
+## 📜 High-Impact Research Standards
+To reach the standards of top-tier publications (*Nature Medicine*, *The Lancet*), the framework enforces the following architectural mandates (see **[RESEARCH_GUIDE.md](RESEARCH_GUIDE.md)**):
+
+1.  **The Registry Pattern:** All project artifacts (data, plots, results, manuscript) are siloed within `papers/registries/[project]/`.
+2.  **The Hardening Loop:** Deliberately increasing simulation difficulty to break standard baselines and prove theoretical resilience.
+3.  **Modular LaTeX Workflow:** Bypassing context limits by sectioning manuscripts (`intro`, `methods`, etc.) to ensure 10-15 page technical depth.
+4.  **Socio-Technical Calibration:** Decoupling hardware artifacts (battery throttling) from clinical signals for distributive justice.
 
 ## 📂 Project Structure
 ```text
 .
 ├── .gemini/            # Gemini CLI configuration
-│   ├── agents/         # Specialized research sub-agents (e.g., Wiki Maintainer)
+│   ├── agents/         # Specialized research sub-agents (e.g., Research Orchestrator)
 │   └── skills/         # Expert research skills (e.g., LLM-Wiki, PDF Parsing)
 ├── papers/             # Research Knowledge Base (LLM-Wiki)
+│   ├── registries/     # Self-contained research projects (Isolated)
+│   │   └── dlp_framework/ # 🚀 Clinical Data Loss Prevention Project (Certified)
 │   ├── sources/        # Lab-centric paper summaries (Source of Truth)
 │   │   ├── deepmind/   # Med-Gemini and Agentic AI (AMIE)
 │   │   ├── doshi-velez/ # Research from the DtAK Lab (2019-2026)

@@ -26,6 +26,9 @@ This index is the content-oriented catalog of the PhD Framework's compiled knowl
 - [ENGAGE Framework](concepts/engage_framework.md): 2025 paradigm for defining effective engagement and intrinsic motivation in mHealth.
 - [Dyadic RL](concepts/dyadic_rl.md): Bayesian Hierarchical RL for optimizing relationship cohesion and caregiver-patient dyads.
 - [Digital Navigator](concepts/digital_navigator.md): Human-led role for fostering the Digital Working Alliance and mitigating engagement friction.
+- [Informative Missingness](concepts/informative_missingness.md): Handling MNAR data as a clinical signal in longitudinal monitoring.
+- [Synthetic Clinical Cohorts](concepts/synthetic_clinical_cohorts.md): Privacy-preserving generative modeling for psychiatric data.
+- [Clinical Data Loss Prevention (DLP)](concepts/data_loss_prevention_clinical.md): Frameworks for ensuring continuous data collection in high-risk psychiatry.
 
 ## 🏥 Entities (Labs, Datasets, Authors)
 - [MIMIC-III](entities/mimic_iii.md): Primary benchmark dataset for clinical ML in intensive care.
@@ -43,6 +46,7 @@ This index is the content-oriented catalog of the PhD Framework's compiled knowl
 - [The State of Clinical Reinforcement Learning (2026)](synthesis/state_of_clinical_rl_2026.md): From the Deadly Triad and OPE pitfalls to **Strategic Link Scores** and **Decision Points**.
 - [The Shift in Uveitis AI (2026)](synthesis/uveitis_ai_2026.md): From subjective SUN grading to **Molecular Aging Clocks** and **UWF Fundus Surrogates**.
 - [Precision Digital Phenotyping & Causal Inference (2025-2026)](synthesis/digital_phenotyping_causal_2026.md): Integration of Uplift Modeling, N-of-1 causal estimands, and Expectancy Correction.
+- [Statistical Analysis Plan (SAP): Clinical DLP Framework](synthesis/statistical_analysis_plan_dlp.md): Expert Statistician's refinement of the causal validation and synthetic cohort protocols.
 - [The Rise of Agentic Foundations & Autoresearchers (2024-2026)](synthesis/agentic_foundations_2026.md): Implementation of LangGraph patterns and multi-agent swarms in medical research.
 
 ## 📂 Source Collections
