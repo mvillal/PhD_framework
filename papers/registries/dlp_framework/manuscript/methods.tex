@@ -1,0 +1,156 @@
+\section{Methods}
+
+\subsection{Jump-Diffusion Formalization}
+
+The fundamental challenge in continuous-time modeling of episodic psychiatric risk lies in the complex, non-linear interplay between the gradual, continuous evolution of symptomatology and the sudden, acute decompensation events that characterize clinical crises. Traditional continuous-time models, such as standard Neural Stochastic Differential Equations (Neural SDEs) driven exclusively by Wiener processes (Brownian motion), are constrained by almost sure continuity of their sample paths. This structural limitation renders them fundamentally inadequate for capturing the heavy-tailed, discontinuous nature of psychiatric exacerbations, such as sudden onset suicidal ideation, rapid psychotic breaks, or severe panic episodes triggered by exogenous trauma. To mathematically encapsulate this dual temporal nature, we rigorously formalize the latent mental state trajectory as a multidimensional jump-diffusion process.
+
+Let $\mathbf{S}_t \in \mathbb{R}^d$ represent the multidimensional continuous-time latent state vector, mapping the patient's underlying psychiatric severity, cognitive load, and affective volatility at time $t$. We rigorously define the dynamics of $\mathbf{S}_t$ on a complete probability space $(\Omega, \mathcal{F}, \mathbb{P})$, equipped with a right-continuous filtration $\{\mathcal{F}_t\}_{t \geq 0}$ satisfying the usual conditions of completeness and right-continuity. The temporal evolution of the process $\mathbf{S}_t$ is governed by the following Stochastic Differential Equation (SDE) with jumps:
+
+\begin{equation}
+d\mathbf{S}_t = \mu(\mathbf{S}_t, t, \mathcal{M}) dt + \sigma(\mathbf{S}_t, t) d\mathbf{W}_t + J(\mathbf{S}_{t^-}, t) d\mathbf{N}_t
+\end{equation}
+
+where the constituent components are defined as follows:
+\begin{itemize}
+    \item $\mu: \mathbb{R}^d \times [0, T] \times \mathcal{M} \rightarrow \mathbb{R}^d$ represents the drift coefficient vector. This term is highly parameterized by a deep neural network, capturing the deterministic, secular trend of the latent state's evolution. Crucially, it is conditioned dynamically on the historical clinical observation memory $\mathcal{M}$, ensuring that baseline drift reflects personalized patient history.
+    \item $\sigma: \mathbb{R}^d \times [0, T] \rightarrow \mathbb{R}^{d \times d}$ is the diffusion matrix coefficient. It captures the continuous, localized stochastic volatility and epistemic uncertainty of the latent state. $\mathbf{W}_t$ is a standard $d$-dimensional Wiener process (Brownian motion) adapted to the filtration $\mathcal{F}_t$, with $d\mathbf{W}_t \sim \mathcal{N}(0, dt)$.
+    \item $J: \mathbb{R}^d \times [0, T] \rightarrow \mathbb{R}^d$ defines the jump amplitude function. This function determines the exact magnitude and directional vector of sudden, discontinuous state shifts within the latent space when a critical event occurs.
+    \item $\mathbf{N}_t$ is an inhomogeneous, multidimensional Poisson counting process with a state-dependent intensity function $\lambda(\mathbf{S}_t, t) \geq 0$. This process explicitly represents the arrival of discrete, acute clinical events. The conditional probability of a jump occurring in an infinitesimal interval $[t, t+dt)$ is given by $\mathbb{P}(d\mathbf{N}_t = 1 | \mathcal{F}_t) = \lambda(\mathbf{S}_t, t) dt + o(dt)$.
+\end{itemize}
+
+The inclusion of the jump differential term $J(\mathbf{S}_{t^-}, t) d\mathbf{N}_t$, evaluated at the left-limit $\mathbf{S}_{t^-} = \lim_{s \uparrow t} \mathbf{S}_s$, is a critical structural enhancement. It allows the model to explicitly represent abrupt clinical transitions without forcing the continuous diffusion term to artificially inflate its variance.
+
+To rigorously understand the evolution of the expected value of observable functions mapping from this latent state, and to construct the foundational likelihood equations, we derive the corresponding Partial Integro-Differential Equation (PIDE). For any twice continuously differentiable scalar function $V(\mathbf{S}, t) \in \mathcal{C}^{2,1}(\mathbb{R}^d \times [0, T])$, applying the generalized Itô's Lemma for discontinuous semimartingales yields:
+
+\begin{equation}
+dV(\mathbf{S}_t, t) = \left( \frac{\partial V}{\partial t} + \mathcal{L}_c V \right) dt + \nabla_{\mathbf{S}} V \cdot \sigma d\mathbf{W}_t + \left( V(\mathbf{S}_{t^-} + J, t) - V(\mathbf{S}_{t^-}, t) \right) d\mathbf{N}_t
+\end{equation}
+
+where $\mathcal{L}_c$ represents the infinitesimal generator of the continuous diffusion part:
+\begin{equation}
+\mathcal{L}_c V = \sum_{i=1}^d \mu_i \frac{\partial V}{\partial s_i} + \frac{1}{2} \sum_{i=1}^d \sum_{j=1}^d (\sigma \sigma^\top)_{ij} \frac{\partial^2 V}{\partial s_i \partial s_j}
+\end{equation}
+
+By taking the expectation $\mathbb{E}[dV(\mathbf{S}_t, t)]$, conditioning on $\mathcal{F}_t$, and dividing by the infinitesimal time increment $dt$, we arrive at the Feynman-Kac type PIDE that governs the forward temporal evolution of the latent transition probability density $p(\mathbf{S}, t)$:
+
+\begin{equation}
+\frac{\partial p}{\partial t} + \sum_{i=1}^d \frac{\partial}{\partial s_i} (\mu_i p) - \frac{1}{2} \sum_{i=1}^d \sum_{j=1}^d \frac{\partial^2}{\partial s_i \partial s_j} \left( (\sigma \sigma^\top)_{ij} p \right) = \int_{\mathbb{R}^d} \left( \lambda(\mathbf{S}-\mathbf{y}) p(\mathbf{S}-\mathbf{y}, t) f_J(\mathbf{y}) - \lambda(\mathbf{S}) p(\mathbf{S}, t) \right) d\mathbf{y}
+\end{equation}
+
+where $f_J(\mathbf{y})$ denotes the probability density function over the jump magnitude $\mathbf{y}$. This comprehensive PIDE governs the absolute temporal evolution of the latent state distribution. It provides the exact principled mathematical foundation required for the neural jump-diffusion model's forward simulation and likelihood approximation. The non-local integral operator term on the right-hand side explicitly and rigorously accounts for probability mass shifting non-locally across the domain due to discrete jumps, a dynamic entirely absent in standard neural ODEs and SDEs.
+
+\subsection{Causal Identification Proof under MNAR}
+
+A ubiquitous and fundamental challenge in learning valid causal representations from longitudinal Electronic Health Records (EHR) and Ecological Momentary Assessment (EMA) data is the presence of Informative Missingness. In psychiatric contexts, observation timestamps are rarely assigned via a uniform random process; instead, they are intricately linked to the patient's underlying, unobserved clinical severity. This Missing Not At Random (MNAR) mechanism implies that the binary observation indicator sequence $\mathbf{M}_t \in \{0, 1\}^F$ is structurally dependent on the latent state $\mathbf{S}_t$. Traditional continuous-time latent variable models fail categorically to identify the true underlying generative state distribution under MNAR conditions, as the marginalized distribution of sporadic observations does not uniquely constrain the high-dimensional latent topology.
+
+To achieve rigorous causal identification, we leverage the advanced framework of Identifiable Variational Autoencoders (iVAE) integrated with continuous-time M-graphs. We theoretically demonstrate that by treating the temporal missingness pattern $\mathbf{M}_t$ not merely as a mask, but as a structured, auxiliary conditioning variable $\mathbf{u}$, we can recover the true underlying latent topological structure up to linear affine transformations.
+
+\begin{theorem}[Identifiability of Latent Trajectories under MNAR Confounds]
+Let $\mathbf{X} \in \mathbb{R}^n$ denote the sporadically observed clinical feature matrix over a temporal window, $\mathbf{S} \in \mathbb{R}^d$ be the corresponding true continuous latent state mapping, and $\mathbf{M} \in \{0, 1\}^n$ be the exact missingness indicator matrix. Assume the underlying generative data mechanism satisfies the following structural conditions:
+\begin{enumerate}
+    \item The latent prior is conditionally dependent on the missingness structure and belongs to a general exponential family: $p_{\theta}(\mathbf{S} | \mathbf{M}) = \frac{1}{Z(\mathbf{M})} \exp\left( \sum_{k=1}^K T_{k}(\mathbf{S}) \lambda_{k}(\mathbf{M}) \right)$, where $T_k$ are sufficient statistics and $\lambda_k$ are natural parameters defined by a deep network.
+    \item The observational generation follows $\mathbf{X} = f_{\phi}(\mathbf{S}) + \epsilon$, where $f_{\phi}: \mathbb{R}^d \rightarrow \mathbb{R}^n$ is an injective, sufficiently smooth neural network parameterized by $\phi$, and $\epsilon$ represents additive, independent stochastic measurement noise.
+    \item The auxiliary missingness variable $\mathbf{M}$ exhibits sufficient variability such that there exist $K+1$ distinct observation patterns $\{\mathbf{M}_0, \mathbf{M}_1, \dots, \mathbf{M}_K\}$, for which the $K \times K$ Jacobian matrix formed by the difference vectors $\Delta\lambda_k(\mathbf{M}_j) = \lambda_k(\mathbf{M}_j) - \lambda_k(\mathbf{M}_0)$ has full column rank $K$.
+\end{enumerate}
+Under these specific conditions, the generative parameters $(\theta, \phi)$ are identifiable up to a block-diagonal affine transformation of the sufficient statistics $T(\mathbf{S})$.
+\end{theorem}
+
+\begin{proof}
+The proof proceeds rigorously by contradiction. Suppose there exist two distinct, valid parameter spaces $(\theta, \phi)$ and $(\tilde{\theta}, \tilde{\phi})$ that induce the exact identical marginal probability distribution over the observables, such that $p_{\theta, \phi}(\mathbf{X}|\mathbf{M}) = p_{\tilde{\theta}, \tilde{\phi}}(\mathbf{X}|\mathbf{M})$ almost everywhere. Expanding the marginalization integrals, this implies:
+\begin{equation}
+\int p_{\phi}(\mathbf{X} | \mathbf{S}) p_{\theta}(\mathbf{S} | \mathbf{M}) d\mathbf{S} = \int p_{\tilde{\phi}}(\mathbf{X} | \tilde{\mathbf{S}}) p_{\tilde{\theta}}(\tilde{\mathbf{S}} | \mathbf{M}) d\tilde{\mathbf{S}}
+\end{equation}
+
+Because the generation functions $f_{\phi}$ and $f_{\tilde{\phi}}$ are strictly injective by Assumption 2, there exists a deterministic, invertible mapping $h = f_{\tilde{\phi}}^{-1} \circ f_{\phi}$ such that the alternate state maps directly to the primary state: $\tilde{\mathbf{S}} = h(\mathbf{S})$. Substituting this change of variables into the right-hand integral and equating the integrands directly (justified by the assumed universal approximation flexibility of the function classes), we obtain:
+\begin{equation}
+p_{\phi}(\mathbf{X} | \mathbf{S}) p_{\theta}(\mathbf{S} | \mathbf{M}) = p_{\tilde{\phi}}(\mathbf{X} | h(\mathbf{S})) p_{\tilde{\theta}}(h(\mathbf{S}) | \mathbf{M}) \left| \det \mathcal{J}_h(\mathbf{S}) \right|
+\end{equation}
+where $\mathcal{J}_h(\mathbf{S})$ is the Jacobian of the transformation $h$.
+
+Taking the natural logarithm of both sides and substituting the explicit exponential family form for the conditional priors from Assumption 1 yields:
+\begin{equation}
+\log p_{\phi}(\mathbf{X} | \mathbf{S}) + \sum_{k=1}^K T_k(\mathbf{S}) \lambda_k(\mathbf{M}) - \log Z(\mathbf{M}) = \log p_{\tilde{\phi}}(\mathbf{X} | h(\mathbf{S})) + \sum_{k=1}^K \tilde{T}_k(h(\mathbf{S})) \tilde{\lambda}_k(\mathbf{M}) - \log \tilde{Z}(\mathbf{M}) + \log \left| \det \mathcal{J}_h(\mathbf{S}) \right|
+\end{equation}
+
+To systematically isolate the dependence on the auxiliary missingness variable $\mathbf{M}$ and eliminate the complex observation likelihoods, we evaluate this equation at the $K+1$ distinct structural points in the support of $\mathbf{M}$ guaranteed by Assumption 3, denoted as $\mathbf{M}_0, \mathbf{M}_1, \dots, \mathbf{M}_K$. Subtracting the baseline equation evaluated at $\mathbf{M}_0$ from the equations evaluated at each $\mathbf{M}_j$ (for $j = 1 \dots K$), all terms independent of $\mathbf{M}$ rigorously cancel out, leaving:
+\begin{equation}
+\sum_{k=1}^K T_k(\mathbf{S}) \left( \lambda_k(\mathbf{M}_j) - \lambda_k(\mathbf{M}_0) \right) = \sum_{k=1}^K \tilde{T}_k(h(\mathbf{S})) \left( \tilde{\lambda}_k(\mathbf{M}_j) - \tilde{\lambda}_k(\mathbf{M}_0) \right) + c_j
+\end{equation}
+where $c_j$ represents the deterministic log-partition function differences. We can express this cleanly in matrix notation:
+\begin{equation}
+T(\mathbf{S})^\top \bar{\Lambda} = \tilde{T}(h(\mathbf{S}))^\top \bar{\tilde{\Lambda}} + \mathbf{C}
+\end{equation}
+where $\bar{\Lambda}$ and $\bar{\tilde{\Lambda}}$ are the $K \times K$ matrices composed of the differenced natural parameters. By the explicit non-degeneracy condition in Assumption 3, the matrix $\bar{\Lambda}$ is strictly invertible. Thus, we isolate $T(\mathbf{S})$:
+\begin{equation}
+T(\mathbf{S})^\top = \tilde{T}(h(\mathbf{S}))^\top \bar{\tilde{\Lambda}} \bar{\Lambda}^{-1} + \mathbf{C} \bar{\Lambda}^{-1}
+\end{equation}
+This establishes an exact mathematical proof that the sufficient statistics of the true, unobservable latent state $T(\mathbf{S})$ are equal strictly to an affine transformation of the learned sufficient statistics $\tilde{T}(h(\mathbf{S}))$. Consequently, the learned representation is theoretically identifiable up to this affine transformation. This ensures that the causal graph topology and temporal dynamics are rigorously preserved despite the pervasive informative missingness, effectively neutralizing the MNAR confounding by structurally conditioning the prior on the geometry of the missingness itself.
+\end{proof}
+
+\subsection{Architecture Specification}
+
+The proposed Continuous-Time Jump-Diffusion architecture is comprised of three highly specialized principal modules: a Sequence-Aware Irregular Transformer Encoder, a Terminal Context Encoding aggregator, and a Continuous Attention-Weighted Neural SDE Decoder. This tri-part design explicitly segregates the retrospective aggregation of chaotic, irregular clinical history from the prospective, continuous-time simulation of future state trajectories.
+
+\textbf{Transformer Encoder for Irregular Time Series:} Let the historical record for a specific patient be formalized as a temporal sequence of observation tuples $\mathcal{H} = \{(\mathbf{x}_1, t_1, \mathbf{m}_1), (\mathbf{x}_2, t_2, \mathbf{m}_2), \dots, (\mathbf{x}_N, t_N, \mathbf{m}_N)\}$, where $\mathbf{x}_i \in \mathbb{R}^F$ is the raw clinical feature vector, $t_i \in \mathbb{R}^+$ is the absolute time, and $\mathbf{m}_i \in \{0, 1\}^F$ is the specific binary missingness mask. To process this non-uniformly sampled sequence, we implement a modified Continuous-Time Transformer architecture.
+Each discrete observation is projected into a unified high-dimensional embedding space:
+\begin{equation}
+\mathbf{e}_i = \text{MLP}_{enc}(\mathbf{x}_i \oplus \mathbf{m}_i) + PE(t_i)
+\end{equation}
+where $\oplus$ denotes feature concatenation, and $PE(t_i)$ represents a continuous, frequency-based sinusoidal temporal positional encoding formulated as:
+\begin{equation}
+PE(t_i)_{2j} = \sin(t_i / 10000^{2j/D}), \quad PE(t_i)_{2j+1} = \cos(t_i / 10000^{2j/D})
+\end{equation}
+where $D$ defines the model embedding dimensionality. The resulting sequence representation $\mathbf{E} = [\mathbf{e}_1, \dots, \mathbf{e}_N]$ is processed through $L$ sequential Multi-Head Self-Attention (MHSA) layers:
+\begin{equation}
+\mathbf{Z}^{(l)} = \text{LayerNorm}(\mathbf{Z}^{(l-1)} + \text{MHSA}(\mathbf{Z}^{(l-1)}))
+\end{equation}
+\begin{equation}
+\mathbf{Z}^{(l)} = \text{LayerNorm}(\mathbf{Z}^{(l)} + \text{FFN}(\mathbf{Z}^{(l)}))
+\end{equation}
+with the initialization $\mathbf{Z}^{(0)} = \mathbf{E}$. The final layer output generates a sequence of deep, context-aware temporal representations $\mathbf{H} = [\mathbf{h}_1, \dots, \mathbf{h}_N]$.
+
+\textbf{Terminal Context Encoding:} To define the critical initial condition for the subsequent forward SDE integration phase, the model must compress the entire retrospective history up to the terminal observation time $t_N$ into a singular, highly expressive context vector. We deploy an attention-based pooling mechanism operating over the encoder manifold $\mathbf{H}$. By defining a global, learnable query vector $\mathbf{q}_c$, the terminal context vector $\mathbf{C}_{t_N}$ is computed via:
+\begin{equation}
+\alpha_i = \text{softmax} \left( \frac{\mathbf{q}_c^\top \mathbf{W}_K \mathbf{h}_i}{\sqrt{D}} \right), \quad \mathbf{C}_{t_N} = \sum_{i=1}^N \alpha_i (\mathbf{W}_V \mathbf{h}_i)
+\end{equation}
+This dense vector $\mathbf{C}_{t_N}$ serves as the conditioning parameter for the approximate posterior distribution of the initial latent state $\mathbf{S}_{t_N}$ at the exact boundary of the observation window. The encoder network directly emits the mean vector $\mu_{S0}$ and log-variance vector $\log \sigma_{S0}^2$ defining this multivariate Gaussian distribution:
+\begin{equation}
+\mu_{S0} = \mathbf{W}_\mu \mathbf{C}_{t_N} + \mathbf{b}_\mu, \quad \log \sigma_{S0}^2 = \mathbf{W}_\sigma \mathbf{C}_{t_N} + \mathbf{b}_\sigma
+\end{equation}
+
+\textbf{Attention-Weighted Neural SDE Decoder:} For continuous future forecasting over the domain $(t > t_N)$, the latent state $\mathbf{S}_t$ evolves autonomously according to the jump-diffusion SDE mathematically defined in Section 3.1. The parameterized drift $\mu_\theta$, diffusion $\sigma_\theta$, and jump components $J_\theta, \lambda_\theta$ are instantiated as deep multi-layer perceptrons. Crucially, to prevent the autonomous SDE from reverting merely to a population mean, the drift and jump intensities are continuously conditioned on the historical context matrix $\mathbf{H}$ via a dynamic cross-attention mechanism.
+At any numerical integration step $\tau > t_N$, the SDE actively queries the temporal memory. The query is generated directly from the current simulated latent state $\mathbf{S}_\tau$:
+\begin{equation}
+\beta_i(\tau) = \text{softmax} \left( \frac{(\mathbf{W}_Q \mathbf{S}_\tau)^\top \mathbf{W}_K \mathbf{h}_i}{\sqrt{D}} \right)
+\end{equation}
+\begin{equation}
+\mathbf{C}_{cross}(\tau) = \sum_{i=1}^N \beta_i(\tau) (\mathbf{W}_V \mathbf{h}_i)
+\end{equation}
+The instantaneous drift function is subsequently computed as $\mu_\theta(\mathbf{S}_\tau, \tau) = \text{MLP}_\mu(\mathbf{S}_\tau \oplus \mathbf{C}_{cross}(\tau) \oplus \tau)$. This continuous cross-attention guarantees that the generative forecasting of prospective trajectories remains tightly coupled to the specific granular nuances of the patient's individual history. The forward differential trajectory is simulated employing the stochastic Euler-Maruyama numerical scheme, explicitly adapted to accommodate the superimposed jump processes. Ultimately, a static decoder network maps the simulated latent states back into the interpretable observation space: $\hat{\mathbf{x}}_t = \text{MLP}_{dec}(\mathbf{S}_t)$.
+
+\subsection{Hardened Loss Function}
+
+The jump-diffusion framework is trained end-to-end to jointly maximize a variational lower bound while strictly enforcing specific constraints of clinical utility and causal fidelity. The unified loss objective $\mathcal{L}_{total}$ is formulated as a composite of three primary mathematical terms: the generalized Evidence Lower Bound (ELBO), an Aggressive Causal Fidelity Loss targeting asymmetrical clinical costs, and a Persistence Penalty designed to stabilize continuous numerical integration.
+\begin{equation}
+\mathcal{L}_{total} = -\text{ELBO} + \gamma_{CF} \mathcal{L}_{CF} + \gamma_{PP} \mathcal{L}_{PP}
+\end{equation}
+
+\textbf{Evidence Lower Bound (ELBO):} The foundational ELBO for continuous-time latent variable models necessitates the evaluation of the reconstruction likelihood over the irregular observed sequence and the Kullback-Leibler (KL) divergence between the approximate temporal posterior and the structured prior. Due to the mathematically established MNAR constraints, the likelihood function must evaluate strictly on the observed feature dimensions, and the prior distribution must be heavily conditioned upon the missingness pattern $\mathbf{M}$, as proven in Section 3.2.
+\begin{equation}
+\text{ELBO} = \sum_{i=1}^N \mathbb{E}_{q(\mathbf{S}_{t_i} | \mathcal{H})} \left[ \sum_{j=1}^F m_{i,j} \log p(x_{i,j} | \mathbf{S}_{t_i}) \right] - \beta D_{KL} \left( q(\mathbf{S}_{t_N} | \mathcal{H}) \parallel p(\mathbf{S}_{t_N} | \mathbf{M}) \right)
+\end{equation}
+The $\beta$-weighted KL divergence term fundamentally regularizes the terminal state distribution against the structurally informed prior, preventing catastrophic overfitting to isolated, spurious clinical observations.
+
+\textbf{Aggressive Causal Fidelity Loss (Quadratic Crisis Target):} Within the specific domain of psychiatric trajectory forecasting, the clinical and human cost of systematically underestimating a severe crisis—such as an acute suicide attempt or psychotic break—is orders of magnitude higher than overestimating minor day-to-day symptomatological fluctuations. Standard symmetric loss formulations, such as generic $L_2$ error or cross-entropy, categorically fail to encapsulate this extreme asymmetry. We introduce $\mathcal{L}_{CF}$, a mathematically rigorous, asymmetric polynomial penalty explicitly targeting temporal periods characterized by high volatility or catastrophic breaches in the primary target variable (e.g., total severity scale $Y$).
+Let $Y_{true}(t)$ denote the true ground-truth trajectory of the clinical target and $\hat{Y}_{pred}(t)$ be the expected model-predicted trajectory. We define a binary crisis region indicator function $\mathbb{I}_{crisis}(t) \in \{0, 1\}$, which activates equal to 1 strictly if $Y_{true}(t) > \tau_{severe}$ or if the instantaneous derivative exceeds stability bounds $\left| \frac{d Y_{true}}{dt} \right| > \tau_{rapid}$, and evaluates to 0 otherwise.
+The fidelity loss is formulated over the forecast integral as:
+\begin{equation}
+\mathcal{L}_{CF} = \int_{t_N}^{t_{end}} \left[ \omega_{base} \left( Y_{true}(t) - \hat{Y}_{pred}(t) \right)^2 + \omega_{crisis} \mathbb{I}_{crisis}(t) \cdot \max\left(0, Y_{true}(t) - \hat{Y}_{pred}(t)\right)^3 \right] dt
+\end{equation}
+The critical second term applies an aggressively asymmetric cubic penalty exclusively penalizing underpredictions occurring strictly during predefined critical crisis periods. This mathematical structure forces the gradient descent optimization of the jump-diffusion model to rapidly parameterize and deploy the jump intensity mechanism $d\mathbf{N}_t$ to bridge large conceptual gaps, rather than relying on the slow, sluggish continuous drift $\mu$. This fundamentally maximizes the causal responsiveness of the learned model.
+
+\textbf{Persistence Penalty:} Deep Neural SDEs are notoriously difficult to optimize successfully due to compounding, accumulating numerical discretization errors incurred during the forward integration of complex stochastic solvers. This often results in highly chaotic, exploding, or biologically implausible latent trajectories. To rigorously enforce smoothness and biological plausibility of the latent state dynamics precisely between the explicit jump events, we mathematically apply a Persistence Penalty $\mathcal{L}_{PP}$. This penalty heavily regularizes the absolute magnitude of the continuous drift and diffusion components across the forecast horizon.
+\begin{equation}
+\mathcal{L}_{PP} = \int_{t_N}^{t_{end}} \mathbb{E}_{\mathbf{S}_t} \left[ \left\| \mu_\theta(\mathbf{S}_t, t, \mathbf{C}) \right\|_2^2 + \text{Tr}\left( \sigma_\theta(\mathbf{S}_t, t) \sigma_\theta^\top(\mathbf{S}_t, t) \right) \right] dt
+\end{equation}
+By penalizing the trace of the diffusion covariance matrix and the $L_2$ norm of the drift vector, the model is algorithmically constrained to suppress unnecessary chaotic complexity in the continuous dynamics. It mathematically forces the system to reserve high-magnitude state adjustments explicitly and exclusively for the jump process, which is driven directly by acute causal clinical signals rather than background noise.

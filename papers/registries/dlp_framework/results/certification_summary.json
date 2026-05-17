@@ -1,0 +1,42 @@
+[
+    {
+        "Method": "Mean",
+        "RMSE": 0.6919778994909543,
+        "T-AUROC": 0.5,
+        "Brier": 0.16234337839231552,
+        "CausalCalibration": 0.6919778994909543,
+        "InterventionIntegrity": 0.0,
+        "TrainTime": 0.0009467601776123047,
+        "InferenceTime": 0.005899190902709961
+    },
+    {
+        "Method": "LOCF",
+        "RMSE": 0.5879734762992133,
+        "T-AUROC": 0.5978996042480959,
+        "Brier": 0.20109563681291803,
+        "CausalCalibration": 0.5879734762992133,
+        "InterventionIntegrity": 0.0,
+        "TrainTime": 2.1457672119140625e-06,
+        "InferenceTime": 0.018780231475830078
+    },
+    {
+        "Method": "SSMimpute",
+        "RMSE": 0.49902077843510906,
+        "T-AUROC": 0.6982782590829709,
+        "Brier": 0.18543236112524494,
+        "CausalCalibration": 0.49902077843510906,
+        "InterventionIntegrity": 0.0,
+        "TrainTime": 6.198883056640625e-06,
+        "InferenceTime": 0.06533980369567871
+    },
+    {
+        "Method": "DSC-Method (Upgraded)",
+        "RMSE": 0.7959277616861145,
+        "T-AUROC": 0.5088241912523663,
+        "Brier": 0.17234752332988099,
+        "CausalCalibration": 0.7959277616861145,
+        "InterventionIntegrity": 0.0,
+        "TrainTime": 632.3270654678345,
+        "InferenceTime": 1.2460358142852783
+    }
+]

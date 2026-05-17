@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Mathematical \& Statistical Supplement: Clinical DLP Framework for Synthetic Cohorts}
+\author{Expert Statistician Agent \\ PhD Framework}
+\date{October 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Formalization of the Latent Psychiatric State via Jump-Diffusion}
+
+We model the latent psychiatric state $S_t \in \mathcal{S} \subseteq \mathbb{R}^d$ (e.g., an unobserved severity index for depression or psychosis) as a continuous-time stochastic process. To capture both the gradual behavioral drift and acute symptomatic crises, we employ a Jump-Diffusion SDE.
+
+\subsection{The Jump-Diffusion SDE}
+The dynamics of $S_t$ are governed by:
+\begin{equation}
+    dS_t = \mu(S_t, t) dt + \sigma(S_t, t) dW_t + J(S_t, t) dN_t
+\end{equation}
+where:
+\begin{itemize}
+    \item $\mu(S_t, t)$ is the \textbf{drift coefficient}, representing the deterministic evolution of symptoms.
+    \item $\sigma(S_t, t)$ is the \textbf{diffusion coefficient}, representing continuous-time stochasticity, and $W_t$ is a standard Wiener process.
+    \item $N_t$ is a \textbf{Poisson process} with intensity $\lambda(S_t, t)$, representing the arrival of discrete "shocks" or crises.
+    \item $J(S_t, t)$ is the \textbf{jump size distribution}, modeling the magnitude of state changes during a crisis.
+\end{itemize}
+
+\subsection{Kolmogorov Forward Equations (PIDE)}
+The transition density $p(s, t | s_0, t_0)$ satisfies the Partial Integro-Differential Equation (PIDE), also known as the Kolmogorov Forward Equation for jump-diffusions:
+\begin{align}
+    \frac{\partial p}{\partial t} &= -\sum_{i=1}^d \frac{\partial}{\partial s_i} [\mu_i(s, t) p] + \frac{1}{2} \sum_{i,j=1}^d \frac{\partial^2}{\partial s_i \partial s_j} [(\sigma \sigma^\top)_{ij} p] \nonumber \\
+    &\quad + \lambda(s, t) \int_{\mathcal{S}} [p(s', t) \phi(s | s') - p(s, t)] ds'
+\end{align}
+where $\phi(s | s')$ is the probability density of a jump to state $s$ given a jump occurred at $s'$. This integral term allows the DLP framework to update the posterior of $S_t$ even during "silent" periods by integrating over the likelihood of hidden jumps.
+
+\section{Causal Identification under MNAR via Joint-VAE}
+
+A critical challenge in clinical digital phenotyping is Informative Missingness (Missing Not At Random, MNAR). We provide a formal identification argument using M-graphs and Structural Causal Models (SCMs).
+
+\subsection{The MNAR M-Graph}
+Let $S_t$ be the latent state, $Y_t^*$ the potential behavior (e.g., true mobility), $M_t \in \{0, 1\}$ the missingness indicator, and $Y_t$ the observed data:
+\begin{equation}
+    Y_t = \begin{cases} Y_t^* & \text{if } M_t = 0 \\ \emptyset & \text{if } M_t = 1 \end{cases}
+\end{equation}
+The causal dependencies are defined by the M-graph:
+\begin{enumerate}
+    \item $S_t \rightarrow Y_t^*$ (Symptoms drive behavior)
+    \item $S_t \rightarrow M_t$ (Symptoms drive disengagement, e.g., severe depression)
+    \item $Y_t^* \rightarrow M_t$ (Behavior drives disengagement, e.g., paranoia triggered by location)
+\end{enumerate}
+
+\subsection{Identification via Joint-VAE}
+The Joint-VAE optimizes the evidence lower bound (ELBO) on the joint distribution $P(Y_t, M_t)$. Under the M-graph, the joint likelihood is:
+\begin{equation}
+    P(Y_t, M_t) = \int_{S_t} P(Y_t | S_t, M_t) P(M_t | S_t) P(S_t) dS_t
+\end{equation}
+For $M_t = 1$, the observed $Y_t$ provides no direct signal. However, because $M_t$ and $Y_t^*$ share a common cause $S_t$ (and $Y_t^*$ itself influences $M_t$), the occurrence of $M_t=1$ provides an \textit{informatic signal} about $S_t$.
+
+\subsection{Rigorous Identification Proof for SDE-MNAR}
+Identification in the Latent SDE framework with MNAR is established by framing the missingness indicator $M_t$ and the temporal index $t$ as auxiliary variables in a non-linear Independent Component Analysis (ICA) setting.
+
+\textbf{Theorem 1 (Identification under SDE-MNAR):}
+Let the latent process $S_t$ follow a Jump-Diffusion SDE and the observed variables be $\mathbf{X}_t = (Y_t, M_t)$. If the conditional distribution $p(\mathbf{X}_t | S_t)$ is injective and the prior $p(S_t | S_{t-1}, t, M_t)$ belongs to a strongly exponential family, then $S_t$ is identifiable up to an affine transformation.
+
+\begin{proof}
+Following Khemakhem et al. (2020), identification in VAEs requires a sufficiently informative auxiliary variable $u$. In our case, $u_t = (S_{t-1}, t, M_t)$.
+1. \textit{Auxiliary Informativeness:} The missingness indicator $M_t$ is non-ignorable (MNAR) because $p(M_t | S_t) \neq p(M_t)$. Thus, $M_t$ provides a side-channel of information about $S_t$.
+2. \textit{Temporal Conditioning:} The Markovian property of the SDE provides $p(S_t | S_{t-1})$, which acts as a temporal prior. In the iVAE framework, this temporal structure breaks the rotational symmetry of the latent space.
+3. \textit{Likelihood Factorization:} The joint likelihood $p(Y_t, M_t | S_t) = p(Y_t | S_t, M_t) p(M_t | S_t)$ ensures that even when $Y_t$ is missing ($M_t=1$), the term $p(M_t | S_t)$ constrains the posterior $p(S_t | M_t=1)$.
+4. \textit{Conclusion:} Since the SDE drift $\mu(S_t, t)$ and the MNAR mechanism $p(M_t | S_t)$ are distinct functional forms, the latent state $S_t$ is identifiable. The "Silent Smoke Detector" signal is the gradient $\nabla_{S} \log p(M_t | S_t)$, which forces the latent state into the crisis manifold during prolonged disengagement.
+\end{proof}
+
+\section{Sensitivity Analysis: Rosenbaum Bounds for Clinical DLP}
+
+To address potential unobserved confounders $U$ (e.g., external life events) that influence both the latent state $S_t$ and the missingness $M_t$, we propose a sensitivity analysis based on Rosenbaum bounds.
+
+\subsection{Sensitivity Parameter $\Gamma$}
+We assume the odds of disengagement $M_t$ for two identical individuals $i$ and $j$ (same $S_t, X_t$) differ only by their unobserved $U$:
+\begin{equation}
+    \frac{1}{\Gamma} \leq \frac{\pi_i (1 - \pi_j)}{\pi_j (1 - \pi_i)} \leq \Gamma
+\end{equation}
+where $\pi_i = P(M_i = 1 | S_i, X_i, U_i)$. $\Gamma = 1$ implies no unobserved confounding.
+
+\subsection{Protocol}
+1. Compute the CVI-based risk estimates under the assumption $\Gamma=1$.
+2. Iteratively increase $\Gamma$ and recalculate the upper and lower bounds of the p-value for the "Relapse Prediction" null hypothesis.
+3. The \textbf{Robustness Threshold} $\Gamma^*$ is the value at which the prediction loses statistical significance. A framework is "Clinically Robust" if $\Gamma^* > 1.5$ (indicating that an unobserved factor would need to increase the odds of dropout by 50\% to invalidate the findings).
+
+\section{Refining Metrics for Causal Integrity}
+
+Traditional metrics like T-AUROC fail to capture the causal validity of synthetic cohorts. We propose two advanced metrics.
+
+\subsection{Causal Calibration (CC)}
+$CC$ measures the alignment between predicted and actual outcomes under an intervention $do(A)$.
+\begin{equation}
+    CC = \mathbb{E} [ | P(Y | do(A)) - \hat{P}(Y | do(A)) | ]
+\end{equation}
+In our framework, $A$ represents a clinical intervention (e.g., a "Digital Navigator" check-in). A causally calibrated synthetic cohort ensures that models trained on synthetic data generalize to the real-world effects of these interventions.
+
+\subsection{Intervention Integrity (II)}
+$II$ quantifies the preservation of the causal path $S_t \rightarrow M_t$ in synthetic versus real data.
+\begin{equation}
+    II = 1 - \frac{D_{KL}(P_{real}(M | S) || P_{syn}(M | S))}{H_{real}(M | S)}
+\end{equation}
+where $D_{KL}$ is the Kullback-Leibler divergence and $H$ is the conditional entropy. $II \approx 1$ indicates that the synthetic cohort perfectly captures the informative nature of missingness.
+
+\end{document}
