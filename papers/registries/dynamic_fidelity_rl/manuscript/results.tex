@@ -38,7 +38,7 @@ To rigorously evaluate the Dynamic Fidelity Controller, we benchmarked four dist
     \label{fig:baselines}
 \end{figure}
 
-As depicted in our fidelity measurements (Figure \ref{fig:ess}), the constrained agent consistently maintained an Effective Sample Size safely above the critical threshold ($\tau_{crit} = 14$). The adaptive penalty effectively forced the agent to contract its exploration to the safe baseline whenever it attempted to arbitrarily ``game'' the reward function, guaranteeing that the live trial retained sufficient counterfactual overlap to power robust causal estimates.
+As depicted in our fidelity measurements (Figure \ref{fig:ess}), the constrained agent consistently maintained an Effective Sample Size safely above the critical threshold ($\tau_{crit} = 70\%$, i.e., $ESS=14$ on a window of 20). The adaptive penalty effectively forced the agent to contract its exploration to the safe baseline whenever it attempted to arbitrarily ``game'' the reward function, guaranteeing that the live trial retained sufficient counterfactual overlap to power robust causal estimates.
 
 \begin{figure}[h]
     \centering

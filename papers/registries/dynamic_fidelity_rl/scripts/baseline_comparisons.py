@@ -10,8 +10,11 @@ from rl_environment import PsychiatricPOMDPEnv
 from fidelity_controller import DynamicFidelityController
 
 sns.set_theme(style="whitegrid")
-OUTPUT_DIR = "../plots"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
+# Results directory for traceability
+RESULTS_DIR = "../results"
+PLOTS_DIR = "../plots"
+os.makedirs(RESULTS_DIR, exist_ok=True)
+os.makedirs(PLOTS_DIR, exist_ok=True)
 
 
 class PolicyNet(nn.Module):
@@ -128,6 +131,7 @@ def run_comparisons():
     print("Running Baseline Comparisons...")
     modes = ["random", "unconstrained", "static", "dynamic"]
     results = []
+    raw_metrics = []
 
     for mode in modes:
         print(f"Training {mode}...")
@@ -136,6 +140,16 @@ def run_comparisons():
             res = train_and_evaluate(mode=mode, num_episodes=200, seed=seed)
             for k in metrics:
                 metrics[k].append(res[k])
+
+            raw_metrics.append(
+                {
+                    "Policy": mode,
+                    "Seed": seed,
+                    "Reward": res["Reward"],
+                    "ESS": res["ESS"],
+                    "Missingness Rate": res["Missingness Rate"],
+                }
+            )
 
         results.append(
             {
@@ -150,8 +164,17 @@ def run_comparisons():
         )
 
     df = pd.DataFrame(results)
+    df_raw = pd.DataFrame(raw_metrics)
+
+    # Save results to CSV for traceability (per PR feedback)
+    summary_csv = os.path.join(RESULTS_DIR, "baseline_summary.csv")
+    raw_csv = os.path.join(RESULTS_DIR, "baseline_raw_seeds.csv")
+    df.to_csv(summary_csv, index=False)
+    df_raw.to_csv(raw_csv, index=False)
+
     print("\n--- Final Metrics ---")
     print(df)
+    print(f"\nResults saved to {RESULTS_DIR}")
 
     # Plotting
     fig, axes = plt.subplots(1, 3, figsize=(18, 5))
@@ -197,7 +220,7 @@ def run_comparisons():
     axes[2].set_ylabel("Missingness Ratio")
 
     plt.tight_layout()
-    plot_path = os.path.join(OUTPUT_DIR, "baseline_comparisons.png")
+    plot_path = os.path.join(PLOTS_DIR, "baseline_comparisons.png")
     plt.savefig(plot_path, dpi=300)
     plt.close()
     print(f"\nSaved {plot_path}")
