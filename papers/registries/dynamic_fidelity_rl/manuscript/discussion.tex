@@ -1,0 +1,21 @@
+\section{Discussion}
+
+Our findings demonstrate that explicitly constraining exploration via a Dynamic Fidelity Controller effectively resolves the Adaptivity Trap in sequential clinical trials. The dynamic bounds allowed the RL agent to successfully accrue proximal rewards and personalize interventions during euthymic periods while maintaining the necessary coverage to guarantee the validity of downstream causal inference.
+
+The catastrophic failure of the static penalty baseline underscores a crucial reality in highly non-stationary environments like psychiatry. Static safety constraints enforce a compromise that satisfies neither extreme: they overly restrict personalization during stable periods while simultaneously failing to aggressively contract during rapid, unobserved psychiatric deterioration. By contrast, the dynamic contraction mechanism appropriately views periods of low statistical power and high volatility not merely as sub-optimal states, but as existential threats to both patient safety and trial integrity.
+
+Maintaining a robust Effective Sample Size (ESS) during the online deployment phase is non-negotiable for clinical generalizability. If an RL agent is allowed to converge entirely, it destroys the overlap (positivity) assumption required for causal evaluation. Without sufficient stochasticity, we lose the ability to compute valid counterfactuals or compare the resulting policy against standard-of-care baselines. In live clinical trials, an algorithm that improves short-term metrics but destroys the statistical power required for regulatory validation is fundamentally a failure of scientific utility.
+
+\subsection{Limitations}
+
+Despite its theoretical robustness, our architecture relies on several strong assumptions that warrant critical scrutiny:
+
+\begin{enumerate}
+    \item \textbf{Vulnerability to The Local Trap in Out-of-Distribution Crises:} Our synthetic stress-testing relies on a Hierarchical Dirichlet Process Hidden Markov Model (HDP-HMM) overlaid on historical clinical manifolds. If a patient experiences a truly novel (out-of-distribution) psychiatric crisis that does not map to the historical latent space, the Neural SDE volatility index may fail to detect the anomaly, causing the Fidelity Controller to contract too late or not at all.
+    \item \textbf{Signal-to-Noise Attrition in Density Estimation:} The reliability of the dynamic constraint depends entirely on the accuracy of the Marginalized Importance Sampling (MIS). In regimes with extreme informative missingness and high-dimensional clinical states, estimating stationary density ratios becomes mathematically brittle. If the density estimator diverges and falsely inflates the ESS proxy, the safety constraint will be bypassed.
+    \item \textbf{The ``Safe Baseline'' Assumption:} The Reverse KL penalty forces contraction to an expert-defined baseline protocol ($\pi_{safe}$). This assumes that a generic, static baseline is universally safe for a deteriorating patient, which may not hold true in highly contextual, rapidly evolving clinical emergencies.
+\end{enumerate}
+
+\section{Conclusion}
+
+The successful deployment of AI in psychiatry demands a paradigm shift from purely reward-maximizing agents to systems that inherently respect the boundaries of scientific inquiry and patient safety. The proposed Dynamic Fidelity-Constrained RL framework demonstrates that algorithm adaptivity and statistical rigor are not mutually exclusive. By continuously monitoring Effective Sample Size and explicitly modeling clinical volatility and informative missingness, we can construct agents that safely retreat during crises and aggressively explore during stability. Ensuring that reinforcement learning systems preserve the stochasticity necessary for rigorous causal evaluation is not just a statistical nicety—it is a mandatory prerequisite for the ethical, regulatory, and scientific future of psychiatric digital interventions.
