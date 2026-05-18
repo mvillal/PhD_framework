@@ -5,9 +5,11 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "d3rlpy>=2.8.1",
     "hypothesis>=6.152.4",
     "marker-pdf>=1.10.2",
     "markitdown>=0.1.5",
+    "matplotlib>=3.10.9",
     "mlflow>=2.0.0",
     "numpy>=2.4.4",
     "pandas<3",
@@ -16,6 +18,7 @@ dependencies = [
     "scikit-learn>=1.8.0",
     "seaborn>=0.13.2",
     "torch>=2.11.0",
+    "torchsde>=0.2.6",
 ]
 
 [dependency-groups]

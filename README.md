@@ -32,7 +32,8 @@ To reach the standards of top-tier publications (*Nature Medicine*, *The Lancet*
 │   └── skills/         # Expert research skills (e.g., LLM-Wiki, PDF Parsing)
 ├── papers/             # Research Knowledge Base (LLM-Wiki)
 │   ├── registries/     # Self-contained research projects (Isolated)
-│   │   └── dlp_framework/ # 🚀 Clinical Data Loss Prevention Project (Certified)
+│   │   ├── dlp_framework/ # 🚀 Clinical Data Loss Prevention Project (Certified)
+│   │   └── dynamic_fidelity_rl/ # 📊 Dynamic Fidelity-Constrained RL
 │   ├── sources/        # Lab-centric paper summaries (Source of Truth)
 │   │   ├── deepmind/   # Med-Gemini and Agentic AI (AMIE)
 │   │   ├── doshi-velez/ # Research from the DtAK Lab (2019-2026)
