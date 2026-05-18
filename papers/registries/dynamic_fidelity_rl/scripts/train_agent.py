@@ -1,4 +1,6 @@
+import os
 import numpy as np
+import pandas as pd
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -22,12 +24,17 @@ class PolicyNet(nn.Module):
 
 
 def train(constrained=True, num_episodes=100):
+    RESULTS_DIR = "../results"
+    os.makedirs(RESULTS_DIR, exist_ok=True)
+
     env = PsychiatricPOMDPEnv(horizon_days=10)  # 40 steps per episode
     policy = PolicyNet()
     optimizer = optim.Adam(policy.parameters(), lr=0.01)
 
     # Safe baseline policy: 50/50 uniform random exploration
     safe_baseline = np.array([0.5, 0.5])
+
+    training_log = []
 
     for episode in range(num_episodes):
         controller = DynamicFidelityController(window_size=20, ess_threshold=0.7)
@@ -97,19 +104,32 @@ def train(constrained=True, num_episodes=100):
         loss.backward()
         optimizer.step()
 
+        ep_reward = sum(rewards)
+        ess = controller.compute_ess()
+
+        training_log.append({"episode": episode + 1, "reward": ep_reward, "ess": ess})
+
         if (episode + 1) % 20 == 0:
             mode = "CONSTRAINED" if constrained else "UNCONSTRAINED"
-            ep_reward = sum(rewards)
-            ess = controller.compute_ess()
             print(
                 f"[{mode}] Ep {episode + 1:03d}/{num_episodes} | Total Reward: {ep_reward:+.3f} | Final ESS: {ess:05.2f}/20.0"
             )
+
+    # Save results to CSV for traceability
+    mode_str = "constrained" if constrained else "unconstrained"
+    df = pd.DataFrame(training_log)
+    csv_path = os.path.join(RESULTS_DIR, f"training_log_{mode_str}.csv")
+    df.to_csv(csv_path, index=False)
+    print(f"Training results saved to {csv_path}")
 
 
 if __name__ == "__main__":
     # Ensure reproducibility
     torch.manual_seed(42)
     np.random.seed(42)
+
+    # Set working directory to this script's location
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
     print("--- Training UNCONSTRAINED Agent (Prone to Adaptivity Trap) ---")
     train(constrained=False, num_episodes=100)

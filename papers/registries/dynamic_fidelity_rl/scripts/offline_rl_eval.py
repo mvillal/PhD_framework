@@ -48,6 +48,12 @@ def generate_offline_dataset(num_episodes=500):
 
 
 def train_and_evaluate_offline_rl():
+    import os
+    import pandas as pd
+
+    RESULTS_DIR = "../results"
+    os.makedirs(RESULTS_DIR, exist_ok=True)
+
     print("Generating synthetic historical dataset (MIMIC/eICU style)...")
     dataset = generate_offline_dataset(num_episodes=1000)
 
@@ -64,10 +70,6 @@ def train_and_evaluate_offline_rl():
     cql.fit(dataset, n_steps=5000, n_steps_per_epoch=1000, show_progress=False)
 
     print("\nTraining complete.")
-
-    # In a real clinical setting, we would perform Off-Policy Evaluation (OPE)
-    # like Fitted Q-Evaluation (FQE) or Doubly Robust estimation here to formally
-    # validate the CQL policy against the historical baseline.
 
     print(
         "\nEvaluating the trained CQL policy in the live environment (Online Evaluation)..."
@@ -86,9 +88,27 @@ def train_and_evaluate_offline_rl():
             ep_reward += reward
         total_rewards.append(ep_reward)
 
+    avg_reward = np.mean(total_rewards)
+    std_reward = np.std(total_rewards)
     print(
-        f"Average Reward over 50 test episodes: {np.mean(total_rewards):.3f} +/- {np.std(total_rewards):.3f}"
+        f"Average Reward over 50 test episodes: {avg_reward:.3f} +/- {std_reward:.3f}"
     )
+
+    # Save results to CSV for traceability
+    df_eval = pd.DataFrame({"reward": total_rewards})
+    csv_path = os.path.join(RESULTS_DIR, "offline_eval_log.csv")
+    df_eval.to_csv(csv_path, index=False)
+
+    summary_path = os.path.join(RESULTS_DIR, "offline_eval_summary.json")
+    import json
+
+    with open(summary_path, "w") as f:
+        json.dump(
+            {"avg_reward": avg_reward, "std_reward": std_reward, "episodes": 50},
+            f,
+            indent=4,
+        )
+    print(f"Offline evaluation results saved to {RESULTS_DIR}")
 
 
 if __name__ == "__main__":
